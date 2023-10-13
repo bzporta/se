@@ -2,11 +2,11 @@ class: center, middle
 
 ## [Software Engineering](../../praesentationen.html)
 
-#### Kapitel x
+#### Kapitel 2
 
-# Kapitelüberschrift
+# Verteilte Softwaresysteme - Systemarchitektur - Systemdesign
 
-Max Mustermann
+Bjarne Zaremba - Danny Meihöfer
 
 ---
 # Inhalt
