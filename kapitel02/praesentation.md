@@ -153,7 +153,7 @@ Was ist ein Server?
 - Ein Server ist ein Computer, oder eine Anwendung die Dienste, Ressourcen oder Informationen für Clients bereitstellt
 - Server können auch mit anderen Servern kommunizieren
 
-![:scale 20%](media/ClientServer.svg)
+![:scale 45%](media/ClientServer.svg)
   
 ---
 
@@ -185,6 +185,8 @@ Oft Läuft die Anwendung auf einem Server und der Browser dient als Client
 Für Webanwendungen werden verschiedene Webarchitekturen verwendet
 
 ---
+
+class: center, middle
 
 # Webarchitekturen
 
@@ -238,7 +240,7 @@ Peer to Peer
 - Jeder Host kann gleichzeitig Server und Client sein
 - Ressourcen werden direkt von einem Host zum anderen übertragen
 
-![:scale 20%](media/PeerToPeer.svg)
+![:scale 60%](media/PeerToPeer.svg)
 ---
 
 # Peer to Peer Anwendungsbeispiele
@@ -266,7 +268,7 @@ Eventgesteuerte Architektur
 
 - Eine andere Komponente empfängt das Event und reagiert darauf in Echzeit
 
-![:scale 20%](media/event-driven-architecture-broker-diagram.svg)
+![:scale 80%](media/event-driven-architecture-broker-diagram.svg)
 ---
 
 # Event-driven Architecture - Vorteile
@@ -286,7 +288,7 @@ Sie sind für die Verteilung der Events verantwortlich
 
 Der Vorteil ist, dass die Komponenten nicht direkt miteinander kommunizieren müssen
 
-![:scale 20%](media/event-driven-architecture-broker-diagram.svg)
+![:scale 90%](media/event-driven-architecture-broker-diagram.svg)
 
 ---
 
@@ -296,7 +298,7 @@ Es gibt zwei typische Message Broker Modelle
 1. Publish-Subscribe
 2. Point-to-Point
 
-![:scale 20%](media/PointToPoint.JPG)
+![:scale 60%](media/PointToPoint.JPG)
 
 Man kann vorgefertihte Message Broker verwenden, oder einen eigenen entwickeln
 
@@ -314,7 +316,7 @@ Eine ESB ist ein Message Broker, der zusätzliche Funktionen bietet
 
 Er kann Nachrichten transformieren, filtern und routen
 
-![:scale 20%](media/Enterprise_Service_Bus.png)
+![:scale 50%](media/Enterprise_Service_Bus.png)
 
 ---
 
@@ -326,7 +328,7 @@ Es können also mehrer Events in einer Warteschlange gespeichert werden, die nac
 
 Beispiel: Ein Pizzaladen. Die Bestellungen werden in einer Warteschlange gespeichert und nach und nach abgearbeitet. Die Kunden müssen nicht warten, bis eine Bestellung fertig ist, um ihre Bestellung aufzugeben.
 
-![:scale 20%](media/MessageQueue.jpg)
+![:scale 70%](media/MessageQueue.jpg)
 
 ---
 
@@ -353,6 +355,8 @@ Beispiel: Ein Pizzaladen. Die Bestellungen werden in einer Warteschlange gespeic
 
 - **Wiederverwendbarkeit**
   - Die Module können in anderen Anwendungen wiederverwendet werden
+
+---
 
 # SOA - Serviceorientierte Architektur
 
@@ -447,6 +451,12 @@ Choreography Pattern
 - Ändert sich ein Zustand in einem Service, sendet er ein Event aus
 - Andere Services empfangen das Event und reagieren darauf
 
+![:scale 50%](media/ChoreographyPattern.png)
+
+---
+
+# Choreography Pattern Vor- und Nachteile
+
 Vorteile:
 - Unabhängigkeit der Services
 - Einfache Wartung
@@ -456,8 +466,6 @@ Nachteile:
 - Komplexität
 - Nachvollziehbarkeit
 - Workflows sind schwer zu implementieren
-
-![:scale 20%](media/ChoreographyPattern.png)
 
 ---
 
@@ -470,6 +478,12 @@ Orchestration Pattern
 - Er sendet Nachrichten an die Services und empfängt Nachrichten von den Services
 - Er kann z.B. einen Workflow definieren
 
+![:scale 50%](media/OrchestrationPattern.png)
+
+---
+
+# Orchestration Pattern Vor- und Nachteile
+
 Vorteile:
 - Einfache Kommunikation
 - Centralisierte Kommunikation
@@ -479,8 +493,6 @@ Vorteile:
 Nachteile:
 - Abhängigkeit der Services
 - Single Point of Failure
-
-![:scale 1%](media/OrchestrationPattern.png)
 
 ---
 
@@ -494,7 +506,7 @@ Jeder Service hat einen Proxy, der die Kommunikation übernimmt
 
 Über Proxys können Nachrichten gefiltert, transformiert und geroutet werden
 
-![:scale 20%](media/Service-mesh_Medium.jpg)
+![:scale 55%](media/Service-mesh_Medium.jpg)
 
 ---
 
@@ -517,6 +529,7 @@ Jeder Service hat einen Proxy, der die Kommunikation übernimmt
 15. Was sind die Unterschiede zwischen Choreography Pattern und Orchestration Pattern?
 16. Was ist ein Service Mesh?
 
+---
 
 ### Quellen
 
@@ -528,7 +541,12 @@ Systemarchitekturen
 
 - <https://www.ionos.de/digitalguide/server/knowhow/client-server-modell/>
 
-- https://www.tibco.com/reference-center/what-is-event-driven-architecture#:~:text=Event%2Ddriven%20architecture%20(EDA),time%20or%20near%20real%20time.
+- https://www.tibco.com/reference-center/what-is-event-driven-architecture#:~:text=Event%2Ddriven%20architecture%20(EDA),
+time%20or%20near%20real%20time.
+
+---
+
+# Quellen 2
 
 Message Broker Bild
 - https://medium.com/tech-sauce/introduction-to-message-queuing-4a7ab8968b59
@@ -543,6 +561,10 @@ Modulare Architektur
 
 Serviceorientierte Architektur
 - https://saipraveenblog.wordpress.com/2014/10/06/service-discovery-in-soamsa/
+
+---
+
+# Quellen 3
 
 ServiceDiscovery
 - https://www.youtube.com/watch?v=GboiMJm6WlA
