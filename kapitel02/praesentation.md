@@ -166,17 +166,144 @@
 
 class: center, middle
 
-# Verteilte Systeme
+## [Software Engineering](../../praesentationen.html)
 
-Verteilte Systeme sind Systeme, die aus mehreren Komponenten bestehen, die auf mehreren Rechnern laufen
+#### Kapitel 2
 
-Die Komponenten sind über ein Netzwerk verbunden
+# Verteilte Softwaresysteme - Systemarchitektur - Systemdesign
 
-Diese Geräte teilen sich die Arbeit auf
+Bjarne Zaremba - Danny Meihöfer
 
-Durch die kooperative Arbeit der Geräte können komplexe Aufgaben einfacher als mit einem einzelnen Gerät gelöst werden
+---
 
-Wie ist die Struktur eines verteilten Systems?
+1. Einführung Verteilte Softwaresysteme
+
+2. Systemarchitektur verteilter Softwaresysteme
+
+3. Systemdesign
+
+4. Zusammenfassung
+
+5. Quellen
+
+---
+
+# Lernziele für dieses Kapitel 
+
+---
+
+# **Verteilte Softwaresysteme**
+
+![Abb. 1: Beispiel eines verteilten Systems im Überblick ](media/verteiltesoftwaresysteme_skizze.png)
+
+Abb. 1: Beispiel eines verteilten Systems im Überblick 
+
+---
+
+  
+  ## **Verteilte Softwaresysteme** <br> 
+  > "Ein verteiltes System ist eine Sammlung aus Computerprogrammen, die Rechenressourcen über mehrere getrennte Rechenknoten hinweg nutzen, um ein gemeinsames Ziel zu erreichen. Es wird auch als verteiltes Computing oder verteilte Datenbanken bezeichnet und stützt sich auf separate Knoten, um über ein gemeinsames Netzwerk zu kommunizieren und zu synchronisieren. Diese Knoten sind typischerweise separate physische Hardwaregeräte, sie können aber auch separate Softwareprozesse oder andere rekursive gekapselte Systeme darstellen." <br> https://www.atlassian.com/de/microservices/microservices-architecture/distributed-architecture [letzte Einsicht: 14. Oktober 2023]
+
+
+---
+
+## Eigenschaften
+
+- Nutzung gemeinsamer Ressourcen
+
+- Simultane Verarbeitung
+
+- Skalierbarkeit
+
+- Transparenz
+
+- Heterogenität
+  
+---
+
+## Vorteile verteilter Softwaresysteme
+
+- Verbesserung der Zuverlässigkeit und Leistung eines Systems
+  
+- Technologieoffenheit
+    
+- Redundanz
+    
+- Geografische Verteilung
+   
+- Bessere Skalierbarkeit
+  
+- Bessere Leistung
+    
+
+---
+
+## Nachteile verteilter Softwaresysteme
+
+- Komplexität
+
+- Einhaltung der Konsistenz von Daten
+
+- Kommunikationsaufwand
+
+⇒ Die Vorteile überwiegen den Nachteilen
+
+---
+
+## Wieso benötigt man verteilte Softwaresysteme?
+
+Viele Aufgaben lassen sich auf verteilten Softwaresystemen besser ausführen, als in zentralisierten Systemen. 
+
+Beispiel für ein verteiltes Softwaresystem: World Wide Web
+
+- Globale Skalierbarkeit
+
+- Ausfallsicherheit
+
+- Lastenausgleich
+
+
+Beispiel für ein zentralisiertes Softwaresystem: Kleines Büronetzwerk mit wenigen Benutzern
+
+- Einfachheit und Kosten
+
+- Verwaltung und Wartung
+
+- Geringe Komplexität
+
+---
+
+## Distributed vs. Decentralized
+
+![:scale 60%](media/distributedvsdecentralized.png) 
+
+Abb. 2: Darstellung eines dezentralisierten- und verteilten Systems
+
+---
+
+## Unterschiede zwischen dezentralisierten- und verteilten Systemen
+
+- Koordinierung
+
+- Unabhängigkeit
+    
+- Skalierbarkeit
+---
+
+## Concurrent vs. Parallel
+
+![:scale 100%](media/concurrentvsparallelism.png)
+
+Abb. 3: Unterschied zwischen Concurrency und Parallelism
+
+---
+
+## Unterschied zwischen gleichzeitigen- und parallelen Systemen
+
+- Ressourcen
+    
+- Effizienz und Leistung
+    
 
 ---
 
@@ -393,9 +520,6 @@ Beispiel: Ein Pizzaladen. Die Bestellungen werden in einer Warteschlange gespeic
 - **Wiederverwendbarkeit**
   - Die Module können in anderen Anwendungen wiederverwendet werden
 
-
----
-
 # SOA - Serviceorientierte Architektur
 
 - **Eine serviceorientierte Architektur ist eine Architektur, bei der die Anwendung in unabhängige Services unterteilt wird**
@@ -560,49 +684,47 @@ Jeder Service hat einen Proxy, der die Kommunikation übernimmt
 16. Was ist ein Service Mesh?
 
 
+### Quellen
 
-
----
-# Quellen
-
-***
-
+- [https://www.atlassian.com/de/microservices/microservices-architecture/distributed-architecture](https://www.atlassian.com/de/microservices/microservices-architecture/distributed-architecture) [letzte Einsicht: 13. Oktober 2023]
+- Schill, A. und Springer, T. (2012) *Verteilte Systeme: Grundlagen und Basistechnologien*. 2. Auflage. Springer.
+- [https://medium.com/delta-exchange/centralized-vs-decentralized-vs-distributed-41d92d463868](https://medium.com/delta-exchange/centralized-vs-decentralized-vs-distributed-41d92d463868) [letzte Einsicht: 14. Oktober 2023]
+- [https://blog.iron.io/concurrent-vs-parallel-tasks-for-a-worker-system/](https://blog.iron.io/concurrent-vs-parallel-tasks-for-a-worker-system/) [letzte Einsicht: 14. Oktober 2023]
 Systemarchitekturen
 
-<https://www.ionos.de/digitalguide/server/knowhow/client-server-modell/>
+- <https://www.ionos.de/digitalguide/server/knowhow/client-server-modell/>
 
-https://www.tibco.com/reference-center/what-is-event-driven-architecture#:~:text=Event%2Ddriven%20architecture%20(EDA),time%20or%20near%20real%20time.
+- https://www.tibco.com/reference-center/what-is-event-driven-architecture#:~:text=Event%2Ddriven%20architecture%20(EDA),time%20or%20near%20real%20time.
 
 Message Broker Bild
-https://medium.com/tech-sauce/introduction-to-message-queuing-4a7ab8968b59
+- https://medium.com/tech-sauce/introduction-to-message-queuing-4a7ab8968b59
 
-https://medium.com/must-know-computer-science/system-design-message-queues-245612428a22
+- https://medium.com/must-know-computer-science/system-design-message-queues-245612428a22
 
 Webarchitekturen
-https://www.linkedin.com/pulse/mpa-spa-pwa-whats-difference-how-does-work-together-marek-kubacak
+- https://www.linkedin.com/pulse/mpa-spa-pwa-whats-difference-how-does-work-together-marek-kubacak
 
 Modulare Architektur
-https://triare.net/insights/modular-architecture-2/#:~:text=What%20is%20modular%20software%20architecture%3F,to%20explain%20in%20this%20example.
+- https://triare.net/insights/modular-architecture-2/#:~:text=What%20is%20modular%20software%20architecture%3F,to%20explain%20in%20this%20example.
 
 Serviceorientierte Architektur
-https://saipraveenblog.wordpress.com/2014/10/06/service-discovery-in-soamsa/
-
----
-
-# Quellen
+- https://saipraveenblog.wordpress.com/2014/10/06/service-discovery-in-soamsa/
 
 ServiceDiscovery
-https://www.youtube.com/watch?v=GboiMJm6WlA
+- https://www.youtube.com/watch?v=GboiMJm6WlA
 
 Monolith vs Distributed Monolith vs Microservices
-https://scoutapm.com/blog/distributed-monoliths-vs-microservices#h_268859552881644344655113
+- https://scoutapm.com/blog/distributed-monoliths-vs-microservices#h_268859552881644344655113
 
 Choreography Pattern vs Orchestration Pattern
-https://temporal.io/blog/to-choreograph-or-orchestrate-your-saga-that-is-the-question
+- https://temporal.io/blog/to-choreograph-or-orchestrate-your-saga-that-is-the-question
 
-https://www.linkedin.com/pulse/microservices-orchestration-vs-choreography-sachin-gupta
-
-
-
+- https://www.linkedin.com/pulse/microservices-orchestration-vs-choreography-sachin-gupta
 
 ---
+
+### Abbildungsverzeichnis 
+
+- Abb. 1: Schill, A. und Springer, T. (2012) *Verteilte Systeme: Grundlagen und Basistechnologien*. 2. Auflage. Springer
+- Abb. 2: [https://medium.com/delta-exchange/centralized-vs-decentralized-vs-distributed-41d92d463868](https://medium.com/delta-exchange/centralized-vs-decentralized-vs-distributed-41d92d463868) [letzte Einsicht: 14. Oktober 2023]
+- Abb. 3: [https://blog.iron.io/concurrent-vs-parallel-tasks-for-a-worker-system/](https://blog.iron.io/concurrent-vs-parallel-tasks-for-a-worker-system/) [letzte Einsicht: 14. Oktober 2023]
