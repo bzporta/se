@@ -1,6 +1,12 @@
 # Kapitel 2 (Verteilte Softwaresysteme, Systemarchitektur verteilter Softwaresysteme, Systemdesign)
 
-**Autor:** Bjarne Zaremba - Danny Meihöfer
+**Autoren:** Bjarne Zaremba - Danny Meihöfer
+
+# Lernziele für dieses Kapitel
+
+Nach diesem Kapitel sollten Sie wissen, was...
+
+- ...
 
 # **Verteilte Softwaresysteme**
 
