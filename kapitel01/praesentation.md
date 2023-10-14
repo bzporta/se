@@ -4,219 +4,463 @@ class: center, middle
 
 #### Kapitel 1
 
-# Einleitung
+# Kapitelüberschrift
 
-Max Mustermann
-
----
-### Inhalte und Lernziele der Lehrveranstaltung
-
-* Die Relevanz der Softwaretechnik kennen
-* Die Kernthemen der Phasen im Softwareentwicklungszyklus beherrschen
-* Architekturmuster und Entwurfsmuster anwenden können
-* Workflows der DevOps-basierten Softwareentwicklung beherrschen
-* Verfahren der Softwareprüfung und Sicherheit kennen
-* Verteilte Softwaresysteme entwerfen können
-* Unterschiedliche Vorgehensmodelle (insbesondere agile) und deren Phasen beschreiben und anwenden
-* UML-Diagrammtypen modellieren können
-* Qualitätsmerkmale von Software kennen und beschreiben können
+Danny Meihöfer - Bjarne Zaremba
 
 ---
-### Lernziele des ersten Kapitels
 
-* Verstehen, warum Software schwer zu entwickeln ist
-* Erklären können, warum Softwaretechnik notwendig ist
-* Verstehen, was Software ist
-* Unterschiedliche Arten von Software kennen
-* Notwendige Kompetenzen von Software-Ingenieuren kennen
-* Verstehen, dass zur Softwareentwicklung mehr gehört als die reine Programmierung
+# Inhalt
 
----
-class: center, middle
+***
 
-## Software
+1. Einführung
 
----
-### Was ist Software?
+1. Standards
 
-* Programme, zugehörige Daten und Dokumentationen, die es zusammengefasst erlauben, mit Hilfe eines Computers Aufgaben zu erledigen.
-* Software ist demnach ein umfassenderer Begriff als "Programm" oder "Code", weil alle Elemente inbegriffen sind, die für den Betrieb notwendig sind. z.B. Datenbankskripte, Dokumentation, Betriebshandbücher, Build-Skripte, Deployment-Skripte etc.
+1. Softwaremessung
+
+1. Zusammenfassung
+
+1. Quellen
 
 ---
-### Softwaresystem vs. Softwareprodukt
 
-* Ein *Softwaresystem* ist ein System, dessen Bestandteile und Elemente aus Software bestehen ("innere" Sicht des Softwareentwicklers)
-* Ein *Softwareprodukt* ist ein für einen Auftraggeber erstelltes Softwaresystem ("äußere" Sicht)
+# Verteilte Systeme
 
-![:scale 50%](media/produktvssystem.jpg)
+Verteilte Systeme sind Systeme, die aus mehreren Komponenten bestehen, die auf mehreren Rechnern laufen
 
----
-## Arten von Software
+Die Komponenten sind über ein Netzwerk verbunden
 
-* Systemsoftware
-  * Betriebssystem
-* Anwendungssoftware
-  * Büroanwendungen (Textverarbeitung etc.)
-* Spiele
-  * Minecraft, Fortnite
-* Eingebettete Systeme
-  * Steuerungssoftware für Geräte
-* Echtzeitsysteme
-  * Flugüberwachung, Kraftwerkssteuerung, etc.
-* Informationssysteme
-  * Datenbankgestützte Verwaltung von Information; oft webbasiert
+Diese Geräte teilen sich die Arbeit auf
 
-#### Herkunft / Herstellung
+Durch die kooperative Arbeit der Geräte können komplexe Aufgaben einfacher als mit einem einzelnen Gerät gelöst werden
 
-* Standardsoftware
-  * Anpassbare Software (z.B. SAP) für vorher nicht bekannte Kunden
-* Individualsoftware
-  * Speziell auf die Bedürfnisse eines Kunden/Auftraggeber entwickelte Software (daher zeitaufwändig und teure Entwicklung) zur Unterstützung spezieller Geschäftsprozesse 
+Wie ist die Struktur eines verteilten Systems?
 
 ---
-## Eigenschaften von Software
 
-* Software wird in Teams hergestellt und in mehreren Versionen ausgeliefert
-* Software kann man nicht anfassen: Software ist immateriell
-* Entwicklungsfortschritt ist daher nicht objektiv messbar
-* Anders als materielle Produkte verschleißt Software nicht, altert aber dennoch, denn sowohl Anforderungen an die Software als auch die Umgebung, in der Software eingesetzt wird, ändern sich
-* Software muss an diese Änderungen angepasst werden
+# Client Server
+
+Was ist ein Client?
+
+- Ein Client ist ein Endnutzergerät, oder eine Anwendung, die auf die Dienste, Ressourcen oder Informationen zugreift, die von einem Server bereitsgestellt werden kommuniziert
+- Oft bieten Clients eine grafische Benutzeroberfläche, die es dem Benutzer ermöglicht, mit dem Server zu interagieren
+
+Was ist ein Server?
+
+- Ein Server ist ein Computer, oder eine Anwendung die Dienste, Ressourcen oder Informationen für Clients bereitstellt
+- Server können auch mit anderen Servern kommunizieren
+
+![:scale 20%](media/ClientServer.svg)
+  
+---
+
+# Client Server Anwendungsbeispiele
+
+Webserver
+
+- Ein Webserver ist ein Computer, der Webseiten und andere Dateien über das HTTP-Protokoll an Clients sendet
+- Webserver sind in der Regel mit einem Webhosting-Service verbunden, der die Speicherung von Dateien auf dem Server ermöglicht
+- Webserver können auch nur in lokalen Netzwerken verwendet werden
+
+Email Server
+
+- Email Server sind Computer, die für die Verwaltung und Zustellung von E-Milas zuständig sind
+- Sie empfangen, speichern und versenden E-Mails
+
+Datenbanken
+
+- Viele Clients können auf eine Datenbank zugreifen, um Daten zentral zu speichern und abzurufen
 
 ---
-class: center, middle
 
-## Software Projekte
+# Webanwendungen
 
----
-### Probleme in Software-Projekten
+Webanwendungen sind Anwendungen, die über einen Webbrowser aufgerufen werden können
 
+Oft Läuft die Anwendung auf einem Server und der Browser dient als Client
 
-
-* Unvollständige, schlechte definierte, oft geänderte Anforderungen
-* Unrealistische, unklare oder unausgesprochene Zielvorstellungen
-* Hohe Komplexität und lange Lebensdauer dere Software
-* Verwendung unausgereifter Technologie
-* Schlechtes Projektmanagement
-* Zu wenig Ressourcen bzw. falsche Schätzung benötigter Ressourcen
-* Unrealistische Zeit- und Kostenpläne und nicht gemanagte Risiken
-* Fehlende Planung und unklare Verantwortlichkeiten
-* Unfähigkeit, die Projektkomplexität in den Griff zu kriegen
-* Schlechte Kommunikation zwischen Kunden, Entwicklern und Benutzern und nicht eingebundene  Anwender
-* "Politische" Gründe der Beteiligten
-* Kommerzieller und zeitlicher Druck
-* Qualitätsmängel bei extern vergebenen Aufgaben
-* Schlechte Softwarequalität durch nachlässige Entwicklungspraktiken
-* Unvollständige Dokumentation
-* Vielzahl an anderen Dokumenten neben dem Source-Code
-* Pflege von Altsystemen ist schwierig
-* Softwaresyteme werden mit mehr als einer Person entwickelt und existieren in mehreren Versionen
-
-#### Software Engineering sucht nach Lösungen
+Für Webanwendungen werden verschiedene Webarchitekturen verwendet
 
 ---
-class: center, middle
 
-## Software Engineering
-
----
-## Ziele des Software Engineerings
-
-Software Engineering (auch Softwaretechnik oder Softwaretechnologie) ist die systematische Verwendung von Prinzipien, Methoden und Werkzeugen für die arbeitsteilige, ingenieurmäßige, strukturierte Entwicklung und kosten- und zeiteffiziente Bereitstellung und Betrieb von komplexen Softwaresystemen mit hoher Qualität
-
-* **Entwicklungsaspekt**
-  * Schnelle und effiziente Entwicklung des Softwareprodukts durch Verwendung von Softwarewerkzeugen zur Automatisierung von wiederkehrenden Aufgaben
-* **Qualitätssicherungsaspekt**
-  * Stellt die Qualität in den Mittelpunkt (Kundenzufriedenheit, Sicherheit) und fordert die Einhaltung der geforderten Qualitätsmerkmale
-* **Managementaspekt**
-  * Strukturierte und kontrollierte Projektabwicklung basierend auf (agilen) Vorgehensmodellen
-* **Wartungsaspekt**
-  * Sicherstellung der Wartbarkeit, Erweiterbarkeit, Wiederverwendbarkeit und der Beherrschung der Komplexität durch Verwendung von Entwurfsprinzipien
+# Webarchitekturen
 
 ---
-### Themengebiete des Software Engineerings
 
-<div class="mermaid">
-mindmap
-  Informatik
-    Theoretische Informatik
-    Technische Informatik
-    Praktische Informatik
-      Softwaretechnik
-        Modellierungssprachen
-        Entwicklungsprozesse
-        Werkzeuge
-        Architekturen
-</div>
+# Webarchitekturen - MPA
+
+MPA - Multi-page Application
+
+- **Eine MPA ist eine Webanwendung, die aus mehreren HTML-Seiten besteht**
+- Jede Seite wird vom Server geladen, wenn der Benutzer sie anfordert
+- Dadurch, dass die ganze Seite oft neu geladen werden muss, ist die Anwendung langsamer
+- Die Amazone-Webseite ist ein Beispiel für eine MPA
+
+---
+
+# Webarchitekturen - SPA
+
+SPA - Single-page Application
+
+- **Eine SPA ist eine Webanwendung, die nur aus einer HTML-Seite besteht**
+- Es gibt keine Neuladungen der Seite, wenn der Benutzer mit der Anwendung interagiert
+- Beim ersten Aufruf der Seite wird die ganze Anwendung geladen
+- Nur die upgedateten Daten werden vom Server geladen
+- Dadurch ist die Anwendung schneller
+- Aber die Anwendung ist komplexer zu entwickeln
+- Google Maps ist ein Beispiel für eine SPA
+
+---
+
+# Webarchitekturen - PWA
+
+PWA - Progressive Web Application
+
+- **Eine PWA ist eine Webanwendung die sich wie eine native Anwendung verhält**
+- Sie kann auf verschiedenen Geräten und Betriebssystemen verwendet werden
+- So kann man z.B. eine PWA auf dem Smartphone installieren
+- Sie kann offline verwendet werden (Meistens mit eingeschränkter Funktionalität)
+
+- Die Performance einer PWA ist oft schlechter als die einer nativen Anwendung
+
+- Twitter ist ein Beispiel für eine PWA
+
+---
+
+# Peer to Peer
+
+Peer to Peer
+
+- Peer to Peer ist ein dezentrales Kommunikationsmodell
+- Jeder Host kann gleichzeitig Server und Client sein
+- Ressourcen werden direkt von einem Host zum anderen übertragen
+
+![:scale 20%](media/PeerToPeer.svg)
+---
+
+# Peer to Peer Anwendungsbeispiele
+
+Filesharing
+
+- Filesharing ist ein Prozess, bei dem Benutzer Dateien direkt von anderen Benutzern herunterladen können
+- Filesharing ist ein Peer-to-Peer-Modell, da die Dateien direkt von einem Benutzer zum anderen übertragen werden
+
+Videokonferenzen
+
+- Videokonferenzen sind ein Peer-to-Peer-Modell, da die Daten direkt von einem Benutzer zum anderen übertragen werden
+- Ein Beispiel ist Skype
+
+---
+
+# Event-driven Architecture
+
+Eventgesteuerte Architektur
+
+- **Eine eventgesteuerte Architektur ist ein Architekturmuster, bei dem die Kommunikation zwischen Komponenten durch Ereignisse / Events gesteuert wird**
+- Eine Komponente sendet ein Event aus
+  - Ein Event ist eine Nachricht, die angibt, dass etwas passiert ist
+  - Ein Event kann Daten enthalten
+
+- Eine andere Komponente empfängt das Event und reagiert darauf in Echzeit
+
+![:scale 20%](media/event-driven-architecture-broker-diagram.svg)
+---
+
+# Event-driven Architecture - Vorteile
+
+- **Skalierbarkeit und fleixibilität**
+  - Die Komponenten können unabhängig voneinander skaliert und entwickelt werden
+  - Die Komponenten müssen sich nicht gegenseitig kennen 
+  - Die Komponenten können auf verschiedenen Servern laufen
+
+
+# Event types
+
+---
+
+# Message Broker
+
+Message Broker sind Softwarekomponenten, die die Kommunikation zwischen Komponenten in einer eventgesteuerten Architektur verwalten
+
+Sie sind für die Verteilung der Events verantwortlich
+
+Der Vorteil ist, dass die Komponenten nicht direkt miteinander kommunizieren müssen
+
+![:scale 20%](media/event-driven-architecture-broker-diagram.svg)
+
+---
+
+# Message Broker Modelle
+
+Es gibt zwei typische Message Broker Modelle
+1. Publish-Subscribe
+2. Point-to-Point
+
+![:scale 20%](media/PointToPoint.JPG)
+
+Man kann vorgefertihte Message Broker verwenden, oder einen eigenen entwickeln
+
+Vorgefertigte Message Broker sind z.B. RabbitMQ, Apache Kafka, Apache ActiveMQ
+
+---
+
+# ESB - Enterprise Service Bus
+
+Ein ESB ist eine Softwarearchitektur, die die Kommunikation zwischen Komponenten in einer eventgesteuerten Architektur verwaltet
+
+Middleware zwischen Anwendungen
+
+Eine ESB ist ein Message Broker, der zusätzliche Funktionen bietet
+
+Er kann Nachrichten transformieren, filtern und routen
+
+![:scale 20%](media/Enterprise_Service_Bus.png)
+
+
+# MQ - Message Queue
+
+Eine Message Queue ist eine Warteschlange, die Nachrichten speichert, bis sie von einer Komponente abgerufen werden
+
+Es können also mehrer Events in einer Warteschlange gespeichert werden, die nach und nach abgearbeitet werden
+
+Beispiel: Ein Pizzaladen. Die Bestellungen werden in einer Warteschlange gespeichert und nach und nach abgearbeitet. Die Kunden müssen nicht warten, bis eine Bestellung fertig ist, um ihre Bestellung aufzugeben.
+
+![:scale 20%](media/MessageQueue.jpg)
+
+---
+
+# Modulare Architektur
+
+- Modulare Architektur ist ein Architekturmuster, bei dem eine Anwendung in unabhängige Module unterteilt wird
+
+- Jedes Modul hat eine eigene Funktionalität
+
+- Die Module interagieren über Schnittstellen miteinander
+
+- Die Module können unabhängig voneinander entwickelt werden
+
+**Eine Anwendung besteht aus mehreren Modulen, die zusammenarbeiten**
+
+---
+
+# Modulare Architektur - Vorteile
+
+- **Weiterentwicklung**
+  - Die Module können unabhängig voneinander gewartet werden
+  - Die Module können unabhängig voneinander getestet werden
+  - Die Module können unabhängig voneinander entwickelt werden (Skalierbarkeit)
+
+- **Wiederverwendbarkeit**
+  - Die Module können in anderen Anwendungen wiederverwendet werden
 
 
 ---
-class: center, middle
 
-## Software Ingenieure
+# SOA - Serviceorientierte Architektur
 
----
-## Rahmenbedingungen
+- **Eine serviceorientierte Architektur ist eine Architektur, bei der die Anwendung in unabhängige Services unterteilt wird**
+- Jeder Service hat eine eigene Funktionalität und ist **unabhängig** von den anderen Services
+- Die Services können miteinander interagieren
+- Die Services können von anderen Anwendungen verwendet werden
 
-* Den Programmierer, der auf der Basis seines einmal erworbenen Wissens
-Anforderungen als Einzelkämpfer umsetzt, gibt es nicht.
-* Softwareentwicklung ist eine Teamanstrengung.
-* Software entsteht im Dialog mit dem Kunden, den Anwendern, den Kollegen, den Vorgesetzten, den Teammitgliedern.
-
-#### Software Ingenieure
-
-* können mehr als nur programmieren und sind demnach keine reinen Entwickler oder Programmierer von Software
-* arbeiten in Software Projekten methodisch und strukturiert mit anderen Beteiligten zusammen, um Softwareprodukte effizient in Teamarbeit zu erstellen
-* arbeiten in der IT-Abteilung eines Unternehmens in der Software-Entwicklung oder in einem IT-Beratungsunternehmen oder als (Teil)-Projektleiter 
-
-
+**Eine Anwendung besteht aus mehreren Services, die zusammenarbeiten**
+**Ein Service ist eine unabhängige Anwendung**
 
 ---
-### Kompetenzen von Software Ingenieuren
 
-**Hard skills**
+# SOA - Vorteile
 
-ist spezielles Fachwissen (z.B. Programmierung), das durch Studium oder Ausbildung vermittelt und objektiv sichtbar gemacht werden kann
+- **Wiederverwendbarkeit**
+  - Services können wiederverwendet werden
+  - Services können in anderen Anwendungen verwendet werden
 
-**Soft skills**
+- **Kapselung**
+  - Services sind unabhängig voneinander
+  - Services können leichter entwickelt und getestet werden
 
-sind "weiche" Fähigkeiten, also außerfachliche bzw. fachübergreifende "Schlüssel"-Kompetenzen, die schwieriger zu erlernen und zu überprüfen sind, wie z.B.
+- **Skalierbarkeit**
+  - Services können unabhängig voneinander skaliert werden
 
-* Kommunikationsfähigkeit (communication skills)
-* Zwischenmenschliche Kompetenzen (interpersonal skills)
-* Analytische Fähigkeiten (analytical and problem-solving skills)
-* Teamfähigkeit (team player)
-* Organisationskompetenz (organizational skills)
-* Lernfahigkeit (fast learner)
-* Selbstständigkeit (ability to work independently)
-* Kreativität (innovative and creative)
-* Flexibilität (open and adaptable to changes) 
+- **Einfache Wartung**
+  - Services können leichter gewartet werden
 
 ---
-### Der idealtypische Software-Ingenieur
 
-* ist motiviert, fleißig, freundlich, hilfsbereit, eigeninitiativ, neugierig, eigenständig, respektvoll und teamfähig
-* besitzt logisches und abstraktes Denkvermögen
-* setzt sich kreativ für eine Sache ein und ist offen für Veränderungen und lernt gerne eigenverantwortlich Neues kennen
-* beherrscht die deutsche Rechtschreibung
-* ist kommunikationsfähig und kommunikationswillig und kann komplizierte Sachverhalte komprimiert und verständlich darstellen
+# SOA - Nachteile
 
-**Hinweise:**
+- **Komplexität**
+  - Die Architektur ist komplexer
 
-* Diese Kompetenzen sind erlernbar bzw. willentlich beeinflussbar
-* Niemand erwartet, dass Sie alles wissen oder perfekt beherrschen, denn Sie sind ja gerade hier, um dazu lernen.
-* Haben Sie keine Angst, Fehler zu machen.
-* Schauen Sie nicht so sehr auf die Noten, sondern versuchen Sie, die Sachverhalte zu verstehen und entwickeln Sie sich persönlich, menschlich, methodisch und organisatorisch weiter
-* Lernen Sie keine Technologien, sondern Konzepte
-* Finden Sie Ihr eigenes Tempo, indem Sie Sie auf Ihre eigene Fähigkeiten achten und nicht auf die Fähigkeiten Anderen
-* In der IT-Branche ist ein lebenslanges Lernen erforderlich
-* Studieren bedeutet: Lernen zu lernen.
+- **Performance**
+  - Die Kommunikation zwischen den Services kann zu Performanceproblemen führen
 
 ---
-## Zusammenfassung
 
-* Softwareprodukte bestehen aus Programmen, Dokumentation und weiteren Artefakten
-* Software Engineering ist eine Ingenieur-Disziplin, die sich mit allen Aspekten der Softwareentwicklung und Softwarewartung beschäftigt
-* Ziel des Software Engineerings ist die Erreichung einer hohen Softwarequalität und die Minimierung der Kosten
-* Software Engineering geht über die reine Programmierung hinaus und befasst sich mit Konzepten, Methoden und Werkzeugen für die professionelle Entwicklung von wartbarer Software
-* Software Ingenieure arbeiten in Teams in Software Projekten methodisch und strukturiert und kommunizieren mit Kunden und Teammitgliedern
+# Service Discovery
 
+Dammit Services miteinander kommunizieren können, müssen sie sich finden
+- Man könnte die URLs der Services hardcoden
+- Die URLs können sich aber ändern
+- Es ist also besser, wenn die Services sich selbst finden
+
+Service Discovery ist ein Prozess, bei dem Services automatisch gefunden werden
+
+Services können sich bei einem Service Discovery Service registrieren
+
+Andere Services können die Services über den Service Discovery Service finden
+
+Die Service Discovery können Client- oder Serverseitig sein
+
+Es gibt vorgefertigte Service Discovery Services, z.B. Consul, Eureka, Zookeeper
+
+---
+
+# Microservices
+
+Microservices ähneln SOA
+
+Microservices sind eine Architektur, bei der die Anwendung in unabhängige Services unterteilt wird
+
+Jeder Service hat eine eigene Funktionalität und ist **unabhängig** von den anderen Services
+
+Aber Microservices sind kleiner als Services in SOA
+
+Microservices sind nicht unbedingt dafür gedacht, von anderen Anwendungen verwendet zu werden
+
+---
+
+# Monolith vs Distributed Monolith
+
+Eine Monolithische Anwendung ist eine Anwendung, die aus einer einzigen Komponente besteht
+
+Eine verteilte Monolithische Anwendung ist wie bei Microservices in mehrere Komponenten unterteilt
+- Die Komponenten sind aber nicht unabhängig voneinander
+- Die Vorteile von Microservices sind nicht gegeben (Skalierbarkeit, Wiederverwendbarkeit, Kapselung)
+- Es kann sogar schwieriger sein, eine verteilte Monolithische Anwendung zu entwickeln, als eine Monolithische Anwendung
+- Und es kann zu Performanceproblemen kommen
+
+---
+
+# Choreography Pattern vs Orchestration Pattern
+
+**Wie kommunizieren die Services miteinander?**
+
+Choreography Pattern
+- Ändert sich ein Zustand in einem Service, sendet er ein Event aus
+- Andere Services empfangen das Event und reagieren darauf
+
+Vorteile:
+- Unabhängigkeit der Services
+- Einfache Wartung
+- Dezentrale Kommunikation
+
+Nachteile:
+- Komplexität
+- Nachvollziehbarkeit
+- Workflows sind schwer zu implementieren
+
+![:scale 20%](media/ChoreographyPattern.png)
+
+---
+
+# Orchestration Pattern
+
+**Wie kommunizieren die Services miteinander?**
+
+Orchestration Pattern
+- Ein Service ist für die Kommunikation zwischen den Services verantwortlich
+- Er sendet Nachrichten an die Services und empfängt Nachrichten von den Services
+- Er kann z.B. einen Workflow definieren
+
+Vorteile:
+- Einfache Kommunikation
+- Centralisierte Kommunikation
+- Nachvollziehbarkeit
+- Workflows sind leicht zu implementieren
+
+Nachteile:
+- Abhängigkeit der Services
+- Single Point of Failure
+
+![:scale 1%](media/OrchestrationPattern.png)
+
+---
+
+# Service Mesh
+
+Ein Service Mesh lagert die Kommunikation zwischen den Services aus
+
+Jede Art von Kommunikation zwischen den Servises muss über den Service Mesh laufen
+
+Jeder Service hat einen Proxy, der die Kommunikation übernimmt
+
+Über Proxys können Nachrichten gefiltert, transformiert und geroutet werden
+
+![:scale 20%](media/Service-mesh_Medium.jpg)
+
+---
+
+# Verständnisfragen
+
+1. Was sind verteilte Systeme?
+2. Was ist ein Client?
+3. Was ist ein Server?
+4. Was ist eine Webanwendung?
+5. Was für Webarchitekturen gibt es?
+6. Was bedeutet Peer to Peer?
+7. Was ist ein Event?
+8. Was macht ein Message Broker?
+9. Was ist ein ESB?
+10. Was sind die Vorteile einer modularen Architektur?
+11. Was sind die Unterschiede zwischen SOA und Microservices?
+12. Was ist Service Discovery?
+13. Was ist ein Monolith?
+14. Was sind die Nachteile eines Distributed Monolith?
+15. Was sind die Unterschiede zwischen Choreography Pattern und Orchestration Pattern?
+16. Was ist ein Service Mesh?
+
+
+
+
+---
+# Quellen
+
+***
+
+Systemarchitekturen
+
+<https://www.ionos.de/digitalguide/server/knowhow/client-server-modell/>
+
+https://www.tibco.com/reference-center/what-is-event-driven-architecture#:~:text=Event%2Ddriven%20architecture%20(EDA),time%20or%20near%20real%20time.
+
+Message Broker Bild
+https://medium.com/tech-sauce/introduction-to-message-queuing-4a7ab8968b59
+
+https://medium.com/must-know-computer-science/system-design-message-queues-245612428a22
+
+Webarchitekturen
+https://www.linkedin.com/pulse/mpa-spa-pwa-whats-difference-how-does-work-together-marek-kubacak
+
+Modulare Architektur
+https://triare.net/insights/modular-architecture-2/#:~:text=What%20is%20modular%20software%20architecture%3F,to%20explain%20in%20this%20example.
+
+Serviceorientierte Architektur
+https://saipraveenblog.wordpress.com/2014/10/06/service-discovery-in-soamsa/
+
+ServiceDiscovery
+https://www.youtube.com/watch?v=GboiMJm6WlA
+
+Monolith vs Distributed Monolith vs Microservices
+https://scoutapm.com/blog/distributed-monoliths-vs-microservices#h_268859552881644344655113
+
+Choreography Pattern vs Orchestration Pattern
+https://temporal.io/blog/to-choreograph-or-orchestrate-your-saga-that-is-the-question
+
+https://www.linkedin.com/pulse/microservices-orchestration-vs-choreography-sachin-gupta
+
+
+
+
+---
