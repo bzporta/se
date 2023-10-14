@@ -12,145 +12,148 @@ Bjarne Zaremba - Danny Meihöfer
 # Inhalt
 ***
 
-1. Einführung
+1. Einführung Verteilte Softwaresysteme
 
-1. Standards
+2. Systemarchitektur verteilter Softwaresysteme
 
-1. Softwaremessung
+3. Systemdesign
 
-1. Zusammenfassung
+4. Zusammenfassung
 
-1. Quellen
-
----
-# Einführung
-
-Softwaresysteme sollen "**_fit for purpose_**" sein.
-
-- **Effizient**
-- *Zuverlässig*
-- Fertigstellung innerhalb eines Zeit- und Kostenrahmens
-
-Die Techniken des Softwarequalitätsmanagements kommen ursprünglich aus der Fertigungsindustrie.
-
-**Qualitätssicherung** ist die Definition von Prozessen und Standards, die zu qualitativ hochwertigen Produkten führen, und die Einführung dieser Qualitätsprozesse in den Fertigungsprozess.
-
-**Qualitätslenkung** ist die Anwendung dieser Qualitätsprozesse, um Produkte auszusieben, die dem geforderten Qualitätsniveau nicht entsprechen.
-
----
-# Einführung
-
-Um die Prozesse in der Softwareentwicklung umzusetzen, stellen die Teams sicher, dass die zuvor festgelegten Standards und Ziele des Unternehmens mit dem Produkt übereinstimmen.
-
-![:scale 20%](media/image.jpg)
-
-![](media/image.jpg)
-
-
----
-# Standards
-
-Softwarestandards spielen eine wichtige Rolle im Qualitätsmanagement.
-
-1. Standards kapseln Erfahrungen, die für das Unternehmen von großem Wert sind.
-
-2. Standards bieten einen Rahmen für die Definition, was "Qualität" innerhalb des Softwareentwicklungsprojektes bedeutet.
-
-3. Standards tragen zur Kontinuität bei, sodass alle Entwickler nach denselben Verfahren arbeiten.
+5. Quellen
 
 ---
 
-# Standards
-
-Standards müssen sich immer positiv auf die Produktqualität auswirken.
-
-**Produktstandards** sollten dabei so entworfen werden, dass sie kosteneffizient angewendet und geprüft werden können.
-
-**Prozessstandards** sollten die Prozesse definieren, die prüfen, dass die Produktstandards eingehalten werden.  
-
-| Rolle | Aufgabe |
-|:------:|:----------:|
-| **Auftraggeber** | Erteilt den Auftrag und bezahlt das Projekt |
-| **Auftragnehmer** | Nimmt die Anforderungen an das Softwareprodukt entgegen|
-| **Benutzer** | Benutzen die Software. Manchmal mit Auftraggeber identisch |
-| **Manager** | Treffen während des Projekts organisatorische Entscheidungen |
-| **Berater** | Unterstützen den Kunden in der Definition der Anforderungen |
-| **Informatiker** | Definieren und entwickeln Software in verschiedenen Rollen mit unterschiedlichen Aufgaben aufgeteilt|
+# Lernziele für dieses Kapitel 
 
 ---
-# Softwareentwicklung
 
-Entwicklungsmethoden:
+# **Verteilte Softwaresysteme**
 
-- _Prüfen von Code, bevor er eingefügt wird:_  
-  Entwickler prüfen den Code ihrer Teammitglieder, bevor der Code in die aktuelle Version eingebracht wird.
+![Abb. 1: Beispiel eines verteilten Systems im Überblick ](media/verteiltesoftwaresysteme_skizze.png)
 
-- _Probleme beheben, sobald sie auftreten:_  
-  Probleme sollten sofort behoben werden, wenn sie entdeckt werden, auch wenn der Code von anderen Entwicklern stammt.
+Abb. 1: Beispiel eines verteilten Systems im Überblick 
 
 ---
-# Softwaremessung
 
-Bei der Softwaremessung geht es darum, Merkmale eines Softwaresystems zu quantifizieren.
-
-Code block:
-
-```javascript
-function add(a, b)
-  return a + b
-end
-```
-
----
-# Markdown
-
-## Paragraph
-
-Paragraph mit **strong**, *italic*, `code`.
-
-Links so [github](https://github.com/) oder so https://github.com/ .
-
-## Tabelle
-
-|ID|Name|Value|
-|--|----|-----|
-| 1|foo |   10|
-| 2|bar |   20|
+  
+  ## **Verteilte Softwaresysteme** <br> 
+  > "Ein verteiltes System ist eine Sammlung aus Computerprogrammen, die Rechenressourcen über mehrere getrennte Rechenknoten hinweg nutzen, um ein gemeinsames Ziel zu erreichen. Es wird auch als verteiltes Computing oder verteilte Datenbanken bezeichnet und stützt sich auf separate Knoten, um über ein gemeinsames Netzwerk zu kommunizieren und zu synchronisieren. Diese Knoten sind typischerweise separate physische Hardwaregeräte, sie können aber auch separate Softwareprozesse oder andere rekursive gekapselte Systeme darstellen." <br> https://www.atlassian.com/de/microservices/microservices-architecture/distributed-architecture [letzte Einsicht: 14. Oktober 2023]
 
 
 ---
-# Aufzählung
 
-1. Nummer 1
-    - bullet 1
-    - bullet 2
-2. Nummer 2
-    1. child 1
-    2. child 2
-3. Nummer 3
+## Eigenschaften
 
-## Enumeration 
+- Nutzung gemeinsamer Ressourcen
 
-* A
-* B
+- Simultane Verarbeitung
+
+- Skalierbarkeit
+
+- Transparenz
+
+- Heterogenität
+  
+---
+
+## Vorteile verteilter Softwaresysteme
+
+- Verbesserung der Zuverlässigkeit und Leistung eines Systems
+  
+- Technologieoffenheit
+    
+- Redundanz
+    
+- Geografische Verteilung
+   
+- Bessere Skalierbarkeit
+  
+- Bessere Leistung
+    
 
 ---
-# Zusammenfassung
 
-- Folien werden mit `---` voneinander abgetrennt (Achtung: kein Leerzeichen am Ende)
-- Bilder, Diagramme etc. im `media`-Unterverzeichnis speichern
-- Wird die Datei `remark-latest.min.js` heruntergeladen, können die Folien offline bearbeitet werden. Pfad im `script`-Tag anpassen.
-- [Remark.js](https://remarkjs.com/)
+## Nachteile verteilter Softwaresysteme
+
+- Komplexität
+
+- Einhaltung der Konsistenz von Daten
+
+- Kommunikationsaufwand
+
+⇒ Die Vorteile überwiegen den Nachteilen
 
 ---
-class: center, middle
 
-# Fragen?
+## Wieso benötigt man verteilte Softwaresysteme?
+
+Viele Aufgaben lassen sich auf verteilten Softwaresystemen besser ausführen, als in zentralisierten Systemen. 
+
+Beispiel für ein verteiltes Softwaresystem: World Wide Web
+
+- Globale Skalierbarkeit
+
+- Ausfallsicherheit
+
+- Lastenausgleich
+
+
+Beispiel für ein zentralisiertes Softwaresystem: Kleines Büronetzwerk mit wenigen Benutzern
+
+- Einfachheit und Kosten
+
+- Verwaltung und Wartung
+
+- Geringe Komplexität
 
 ---
-# Quellen
-***
 
-- Kitchenham, B. (1990). Software Development Cost Models. 487-517.
+## Distributed vs. Decentralized
 
-- Chidamber, S., and C. Kemerer. (1994). A Metrics Suite for Object-Oriented Design. 476-493.
+![:scale 60%](media/distributedvsdecentralized.png) 
+
+Abb. 2: Darstellung eines dezentralisierten- und verteilten Systems
+
+---
+
+## Unterschiede zwischen dezentralisierten- und verteilten Systemen
+
+- Koordinierung
+
+- Unabhängigkeit
+    
+- Skalierbarkeit
+---
+
+## Concurrent vs. Parallel
+
+![:scale 100%](media/concurrentvsparallelism.png)
+
+Abb. 3: Unterschied zwischen Concurrency und Parallelism
+
+---
+
+## Unterschied zwischen gleichzeitigen- und parallelen Systemen
+
+- Ressourcen
+    
+- Effizienz und Leistung
+    
+
+---
+
+### Quellen
+
+- [https://www.atlassian.com/de/microservices/microservices-architecture/distributed-architecture](https://www.atlassian.com/de/microservices/microservices-architecture/distributed-architecture) [letzte Einsicht: 13. Oktober 2023]
+- Schill, A. und Springer, T. (2012) *Verteilte Systeme: Grundlagen und Basistechnologien*. 2. Auflage. Springer.
+- [https://medium.com/delta-exchange/centralized-vs-decentralized-vs-distributed-41d92d463868](https://medium.com/delta-exchange/centralized-vs-decentralized-vs-distributed-41d92d463868) [letzte Einsicht: 14. Oktober 2023]
+- [https://blog.iron.io/concurrent-vs-parallel-tasks-for-a-worker-system/](https://blog.iron.io/concurrent-vs-parallel-tasks-for-a-worker-system/) [letzte Einsicht: 14. Oktober 2023]
+
+---
+
+### Abbildungsverzeichnis 
+
+- Abb. 1: Schill, A. und Springer, T. (2012) *Verteilte Systeme: Grundlagen und Basistechnologien*. 2. Auflage. Springer
+- Abb. 2: [https://medium.com/delta-exchange/centralized-vs-decentralized-vs-distributed-41d92d463868](https://medium.com/delta-exchange/centralized-vs-decentralized-vs-distributed-41d92d463868) [letzte Einsicht: 14. Oktober 2023]
+- Abb. 3: [https://blog.iron.io/concurrent-vs-parallel-tasks-for-a-worker-system/](https://blog.iron.io/concurrent-vs-parallel-tasks-for-a-worker-system/) [letzte Einsicht: 14. Oktober 2023]
