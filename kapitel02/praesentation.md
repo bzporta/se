@@ -24,6 +24,17 @@ Bjarne Zaremba - Danny Meihöfer
 
 # Lernziele für dieses Kapitel 
 
+Nach diesem Kapitel sollen folgende Aspekte klarer geworden sein:
+ - Was ist ein verteiltes Softwaresystem?
+ - Welche Formen von verteilten Systemen gibt es?
+ - Was ist ein Client-Server-Modell? 
+ - Was ist eine Webanwendung?
+ - Was ist eine eventgesteuerte Architektur?
+ - Was bedeutet Modulare Architektur?
+ - Was ist der unterschied zwischen einem Monolith und einem Microservice?
+ - Wie können Services miteinander Kommunizieren?
+ - Was ist Skalierungsmuster? 
+
 ---
 
 # **Verteilte Softwaresysteme**
@@ -138,6 +149,14 @@ Abb. 3: Unterschied zwischen Concurrency und Parallelism
     
 - Effizienz und Leistung
     
+
+---
+
+# Systemarchitektur verteilter Softwaresysteme
+
+Möchte man in einem System mehrere Geräte verbinden kann man dies auf verschiedene Arten tun.
+
+Je nach Zielsetzung kann man eine unterschiedliche Systemarchitektur wählen.
 
 ---
 
@@ -510,33 +529,241 @@ Jeder Service hat einen Proxy, der die Kommunikation übernimmt
 
 ---
 
+# Systemdesign
+
+## API Gateway vs. Proxy vs. Reverse Proxy vs. Load Balancer
+
+---
+
+### API Gateway
+
+![:scale 70%](media/api-gateway.png)
+
+Abb. 4: Beispielhafte Darstellung eines API-Gateways
+
+- Application-Programming-Interface (API)-Management-Tool
+- zentraler Einstiegspunkt zwischen Anwendungsnutzer und Backend-Diensten
+- hilft bei Konfiguration und Verwaltung von API Endpunkten
+- schützt API-Endpunkte vor Angriffen
+- Verbessert die API-Performance
+
+---
+
+### Proxy
+
+![:scale 80%](media/proxy.png)
+
+Abb. 5: Funktionsweise eines Proxy Servers
+
+
+⇒ Mit einem Proxy-Server surft man sicherer im Internet, indem man keine eigenen Informationen zur Verfügung stellt. 
+
+---
+
+### Reverse-Proxy
+
+![:scale 80%](media/reverse-proxy.png)
+
+Abb. 6: Funktionsweise eines Reverse-Proxy-Servers
+
+Unterschied zu normalem Proxy:
+
+- Normaler Proxy sitzt vor dem Nutzer und sorgt dafür, dass kein Webserver jemals mit dem Nutzer direkt kommuniziert
+- Ein Reverse-Proxy sitzt vor dem Webserver und sorgt dafür, dass kein Nutzer mit dem Webserver direkt kommunizieren kann
+
+---
+
+### Load-Balancer
+
+Ein Load-Balancer (dt.: Lastenausgleicher) ist ein Netzwerkgerät, eine Softwareanwendung oder ein Dienst, der eingehenden Netzwerkverkehr auf verschiedene Server oder Rechenressourcen verteilt
+    
+    → Auslastung der Server soll optimiert werden
+
+Funktionen von Load-Balancern:
+
+- Lastverteilung (Hauptzweck)
+    
+- Verbesserte Verfügbarkeit
+    
+- Skalierbarkeit
+    
+
+---
+
+## Skalierungsmuster
+
+### Horizontale vs. vertikale Skalierung
+
+Horizontale Skalierung (Scaling out): 
+
+- Es werden zusätzliche Instanzen, z.B. Knoten, zu einem System hinzugefügt, um die Leistung des Systems zu erhöhen
+
+Vertikale Skalierung (Scaling up):
+
+- Es werden die Ressourcen einer einzelnen Instanz erhöht, um mehr Leistung im gesamten System zu haben
+    
+    → durch Hinzufügen von CPU, RAM, Festplattenspeicher, etc.
+    
+
+
+---
+
+### Replication
+
+Es gibt verschiedene Skalierungsmuster in Bezug auf Replikation. Wichtig für uns ist die Anwendungsreplikation:
+
+- In verteilten Anwendungen werden einzelne Anwendungsinstanzen repliziert werden, um Anforderungen an die Skalierbarkeit des Systems zu erfüllen.
+- Loadbalancer werden verwendet, um die Last auf die replizierten Anwendungen zu verteilen
+
+---
+
+### Partitioning (dt.: Partitionierung)
+
+Partioning im Bezug auf Systemdesign beschreibt die Aufteilung eines größeren Systems oder Anwendung in kleinere Teile oder Partitionen, die voneinander unabhängig sind.
+
+Wichtige Aspekte des Partitionierens:
+
+- Leistungssteigerung
+    
+- Skalierbarkeit
+    
+- Wartbarkeit
+    
+- Kommunikation zwischen Partitionen
+    
+
+⇒ Partitionierung wird hauptsächlich bei sehr großen und komplexen Systemen angewendet. 
+
+---
+
+### (Datenbank-) Sharding
+
+Beim Datenbank-Sharding geht es darum, eine große Datenbank auf meherere Knoten hinweg aufgeteilt und gespeichert wird. 
+
+Herausforderung: Daten müssen konsistent bleiben und dürfen nicht verloren gehen. 
+
+Vorteile von Datenbank-Sharding:
+
+- Verbesserung der Reaktionszeit
+    
+- Skalierbarkeit
+    
+- Weniger Systemausfälle
+    
+
+---
+
+### Load-Balancing
+
+Technik, die in Netzwerken und Serverumgebungen eingesetzt wird, um eingehenden Datenverkehr auf mehrere Server zu verteilen. Dabei gibt es verschiedene Load-Balancing-Algorithmen:
+
+- Round Robin
+    
+- Least Connections (Least Connections First)
+  
+- Weighted Round Robin
+
+- Weighted Least Connections
+
+- IP-Hash
+    
+- Random
+    
+- Least Bandwidth Used
+    
+---
+
+### Caching (dt.: Zwischenspeichern)
+
+Caching ist eine Technik, bei der Daten vorübergehend in einem schnelleren Speicherbereich gespeichert werden, um eine schnellere Verfügbarkeit zu gewährleisten.
+
+Es gibt verschiedene Caching-Typen:
+
+- Lokales Caching
+   
+- Verteiltes Caching
+ 
+- Hierarchisches Caching
+   
+- Web-Caching
+   
+
+---
+
+### Skalierungswürfel (auch Cube Model for Scalability)
+
+Der Skalierungswürfel wird in der Informatik benutzt, um verschiedene Arten der Skalierung von Systemen zu kategorisieren bzw. zu visualisieren.
+
+Der Würfel hat drei Dimensionen:
+
+- X-Achse: Horizontale Skalierung
+    
+- Y-Achse: Vertikale Skalierung
+    
+- Z-Achse: Skalierung über verschiedene Dimensionen
+    
+---
+
 # Verständnisfragen
 
 1. Was sind verteilte Systeme?
-2. Was ist ein Client?
-3. Was ist ein Server?
-4. Was ist eine Webanwendung?
-5. Was für Webarchitekturen gibt es?
-6. Was bedeutet Peer to Peer?
-7. Was ist ein Event?
-8. Was macht ein Message Broker?
-9. Was ist ein ESB?
-10. Was sind die Vorteile einer modularen Architektur?
-11. Was sind die Unterschiede zwischen SOA und Microservices?
-12. Was ist Service Discovery?
-13. Was ist ein Monolith?
-14. Was sind die Nachteile eines Distributed Monolith?
-15. Was sind die Unterschiede zwischen Choreography Pattern und Orchestration Pattern?
-16. Was ist ein Service Mesh?
+2. Nenne einen Vorteil von verteilten Systemen
+3. Nenne einen Nachteil von verteilten Systemen
+4. Was bedeutet Distributed im Kontext von verteilten Systemen?
+5. Was ist Concurrency im Kontext von verteilten Systemen?
+6. Was ist ein Client?
+7. Was ist ein Server?
+8. Was ist eine Webanwendung?
+9. Was für Webarchitekturen gibt es?
+10. Was bedeutet Peer to Peer?
+11. Was ist ein Event?
+12. Was macht ein Message Broker?
+13. Was ist ein ESB?
+14. Was sind die Vorteile einer modularen Architektur?
+15. Was sind die Unterschiede zwischen SOA und Microservices?
+16. Was ist Service Discovery?
+17. Was ist ein Monolith?
+18. Was sind die Nachteile eines Distributed Monolith?
+19. Was sind die Unterschiede zwischen Choreography Pattern und Orchestration Pattern?
+20. Was ist ein Service Mesh?
+---
+# Verständnisfragen 2
+
+21. Was ist der Unterschied zwischen einem Proxy und einem Reverse-Proxy?
+22. Nenne ein Skalierungsmuster und beschreibe dieses.
+23. Was ist der Cube of Sclability? Was macht man damit?
 
 ---
 
 ### Quellen
 
 - [https://www.atlassian.com/de/microservices/microservices-architecture/distributed-architecture](https://www.atlassian.com/de/microservices/microservices-architecture/distributed-architecture) [letzte Einsicht: 13. Oktober 2023]
+
 - Schill, A. und Springer, T. (2012) *Verteilte Systeme: Grundlagen und Basistechnologien*. 2. Auflage. Springer.
+
 - [https://medium.com/delta-exchange/centralized-vs-decentralized-vs-distributed-41d92d463868](https://medium.com/delta-exchange/centralized-vs-decentralized-vs-distributed-41d92d463868) [letzte Einsicht: 14. Oktober 2023]
+
 - [https://blog.iron.io/concurrent-vs-parallel-tasks-for-a-worker-system/](https://blog.iron.io/concurrent-vs-parallel-tasks-for-a-worker-system/) [letzte Einsicht: 14. Oktober 2023]
+
+- [https://www.softwareag.com/de_de/resources/api/article/api-gateway.html](https://www.softwareag.com/de_de/resources/api/article/api-gateway.html) [letzte Einsicht: 14. Oktober 2023]
+
+- [https://docs.netscaler.com/de-de/citrix-application-delivery-management-service/api-gateway.html](https://docs.netscaler.com/de-de/citrix-application-delivery-management-service/api-gateway.html) [letzte Einsicht: 14. Oktober 2023]
+
+- [https://studyflix.de/informatik/was-ist-ein-proxy-server-5962](https://studyflix.de/informatik/was-ist-ein-proxy-server-5962) [letzte Einsicht: 14. Oktober 2023]
+
+
+
+
+
+---
+
+# Quellen 2
+
+- [https://www.cloudflare.com/de-de/learning/cdn/glossary/reverse-proxy/](https://www.cloudflare.com/de-de/learning/cdn/glossary/reverse-proxy/) [letzte Einsicht: 14. Oktober 2023]
+
+- [https://aws.amazon.com/de/what-is/database-sharding/](https://aws.amazon.com/de/what-is/database-sharding/) [letzte Einsicht: 15. Oktober 2023]
+
+- Es wurden Zusammenfassungen mit Chat-GPT-3.5 erstellt, um einen ersten Überblick über das Thema zu bekommen: https://chat.openai.com
 Systemarchitekturen
 
 - <https://www.ionos.de/digitalguide/server/knowhow/client-server-modell/>
@@ -544,12 +771,14 @@ Systemarchitekturen
 - https://www.tibco.com/reference-center/what-is-event-driven-architecture#:~:text=Event%2Ddriven%20architecture%20(EDA),
 time%20or%20near%20real%20time.
 
----
-
-# Quellen 2
-
 Message Broker Bild
 - https://medium.com/tech-sauce/introduction-to-message-queuing-4a7ab8968b59
+
+
+
+---
+
+# Quellen 3
 
 - https://medium.com/must-know-computer-science/system-design-message-queues-245612428a22
 
@@ -562,12 +791,12 @@ Modulare Architektur
 Serviceorientierte Architektur
 - https://saipraveenblog.wordpress.com/2014/10/06/service-discovery-in-soamsa/
 
----
-
-# Quellen 3
-
 ServiceDiscovery
 - https://www.youtube.com/watch?v=GboiMJm6WlA
+
+---
+
+# Quellen 4
 
 Monolith vs Distributed Monolith vs Microservices
 - https://scoutapm.com/blog/distributed-monoliths-vs-microservices#h_268859552881644344655113
@@ -582,5 +811,13 @@ Choreography Pattern vs Orchestration Pattern
 ### Abbildungsverzeichnis 
 
 - Abb. 1: Schill, A. und Springer, T. (2012) *Verteilte Systeme: Grundlagen und Basistechnologien*. 2. Auflage. Springer
+
 - Abb. 2: [https://medium.com/delta-exchange/centralized-vs-decentralized-vs-distributed-41d92d463868](https://medium.com/delta-exchange/centralized-vs-decentralized-vs-distributed-41d92d463868) [letzte Einsicht: 14. Oktober 2023]
+
 - Abb. 3: [https://blog.iron.io/concurrent-vs-parallel-tasks-for-a-worker-system/](https://blog.iron.io/concurrent-vs-parallel-tasks-for-a-worker-system/) [letzte Einsicht: 14. Oktober 2023]
+
+- Abb. 4: [https://docs.netscaler.com/de-de/citrix-application-delivery-management-service/api-gateway.html](https://docs.netscaler.com/de-de/citrix-application-delivery-management-service/api-gateway.html) [letzte Einsicht: 14. Oktober 2023]
+
+- Abb. 5: [https://studyflix.de/informatik/was-ist-ein-proxy-server-5962](https://studyflix.de/informatik/was-ist-ein-proxy-server-5962) [letzte Einsicht: 14. Oktober 2023]
+
+- Abb. 6: [https://www.cloudflare.com/de-de/learning/cdn/glossary/reverse-proxy/](https://www.cloudflare.com/de-de/learning/cdn/glossary/reverse-proxy/) [letzte Einsicht: 14. Oktober 2023]
