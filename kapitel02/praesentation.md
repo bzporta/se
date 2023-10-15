@@ -300,7 +300,7 @@ Es gibt zwei typische Message Broker Modelle
 
 ![:scale 60%](media/PointToPoint.JPG)
 
-Man kann vorgefertihte Message Broker verwenden, oder einen eigenen entwickeln
+Man kann vorgefertigte Message Broker verwenden, oder einen eigenen entwickeln
 
 Vorgefertigte Message Broker sind z.B. RabbitMQ, Apache Kafka, Apache ActiveMQ
 
