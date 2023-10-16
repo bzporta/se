@@ -154,3 +154,182 @@ class: center, middle
 - Kitchenham, B. (1990). Software Development Cost Models. 487-517.
 
 - Chidamber, S., and C. Kemerer. (1994). A Metrics Suite for Object-Oriented Design. 476-493.
+
+---
+class: center, middle
+
+## Version control systems 
+
+---
+
+### Wofür braucht man Versionverwaltung?
+
+Kollaboration
+  - Teilen von Sourcecode + gemeinsames arbeiten am Sourcecode
+
+Dokumentation
+  - Protokollieren von Änderungen in Dateien/Verzeichnissen
+  - Wer hat was wann geändert?
+
+Sicherheit
+  - immer eine Kompilierbare Version
+  - Es existieren Sicherungskopieren
+  - Wiederherstellen alter Versionen möglich
+
+---
+
+### Local Version Control Systems - Lokale Versionsverwaltung
+
+- Dokumentation
+
+- Sicherheit (mit Einschränkungen)
+
+![:scale 20%](media/LocalVersioncontrol.png)
+
+---
+
+### Centralized Version Control Systems - Zentrale Versionsverwaltung
+
+- Dokumentation
+
+- Kollaboration
+
+- Unterschiedliche Versionsstände nur auf zentralem Server (Repository)
+
+- Verbindung zum Server notwendig
+
+![:scale 20%](media/CentralizedVersionControl.png)
+
+---
+
+### Distributed Version Control Systems - Dezentrale Versionsverwaltung
+
+- Dokumentation
+
+- Kollaboration
+
+- Sicherheit
+  - Lokaler Klon
+  - Keine Verbindung zum Server (Remote Repository) notwendig
+  - Komplette Historie
+
+![:scale 20%](media/DistributedVersionControl.png)
+
+---
+
+## GIT
+
+- Software für Dezentrale Versionsverwaltung
+
+- Freie Softwaresammlung (Open Source)
+
+- Konsolenanwendung 
+  - Grafische Benutzeroberfläche (GUI) verfügbar
+
+- Linux 
+  - in der Regel integriert
+
+- Windows/Max
+  - GIT SCM -> Linux Konsole enthalten
+
+![:scale 20%](media/GitLogo.png)
+
+---
+
+## Git
+
+### Eine kurze Git-Historie
+
+- Entwicklung des Linux-Kernels
+  - 1991-2002: Änderugen am Kernel wurden als Patches  verteilt
+  - 2002: Einsatz von BitKeeper
+  - 2005: Beziehung zwischen der Linux Community und dem kommerziellen Unternehmen, welches Bitkeeper entwickelte zerbrac. Bitkeeper war nicht mehr kostenlos
+  - Linus Torvalds und die Linux Community entwickeln ein eigenes besseres BitKeeper -> Git
+    - Einfache und effiziente Arbeitsweise nach dem ***KISS-Prinzip***
+    - Kein zentraler Server benötigt
+    - Unterstützung vieler Übertragungsprotokolle
+    - Absicherung
+    - Umfangreiche Arbeiten ohne Internetzugang möglich
+
+![:scale 20%](media/GitLogo.png)
+
+---
+
+### Git Grundlagen
+
+#### Anlegen eines Repositories
+
+1. Repository erstellen mit               $ git init "verzeichniss"
+
+2. Bestehendes Git-Repository klonen mit  $ git clone "repo"
+
+---
+
+#### git commit
+
+- Commits sind Schappschüsse von allen getrackten Daten
+- Bei jedem Commit wird ein Abbild von allen Dateien erstellt
+- Mit git commit erstellt man einen neuen Commit, also ein neues Abbild, das zur nächsten Version nach dem Vorherigen Commit wird.
+- Jeder Commit bekommt eine einzigartige Commit ID 
+
+![:scale 20%](media/gitcommit.png)
+
+#### Lokaler Umgang mit Daten
+
+- Working Directory
+  - Abbild einer konkreten Version des Projektes an der man arbeiten kann
+
+- Staging Area
+  - Enthält die Informationen über Änderungen für den nächsten Commit
+
+- Local Repository
+  - Komprimierte Datenbank mit Historie
+  - Metadaten (Wer, was, etc.)
+  - Commited
+    - Alles was Commited ist, ist sicher in der Datenbank gespeichert 
+
+![:scale 20%](media/RemoteRepo.png) 
+
+---
+
+### Git Grundlagen
+
+#### Umgang mit Remote Repository
+
+Wichtige Befehle
+
+![:scale 20%](media/RemoteRepo.png)
+
+---
+
+### Git Grundlagen 
+
+#### git diff
+
+- Der diff Befehl zeigt Änderungen zwischen commits und zwischen dem Working Directory und der Staging area
+
+- Es können zum Beispiel die codes der zu vergleichenen commits als Argumente mit gegeben werden
+
+![:scale 20%](media/gitdiff.png)
+
+---
+
+### Git Grundlagen
+
+#### git checkout
+
+- Mit dem Checkout-Befehl kopiert man die Dateien eines beliebigen Commits in den eigenen Workspace.
+- Man kann auch zu Commits von anderen Branches wechseln
+- Als Befehlsargumente kann man entweder die Namen der Tags oder Branches angeben, oder die ID des Commits
+- Außerdem können bestimmte Dateien eines Commits geladen werden, wenn man die Dateinamen angibt
+
+![:scale 20%](media/gitcheckout.png)
+
+---
+
+### Git Grundlagen
+
+#### git reset
+
+- git reset verschiebt den Zeiger des aktuellen Branches auf einen anderen Commit
+- 
