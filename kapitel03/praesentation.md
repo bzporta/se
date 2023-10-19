@@ -12,12 +12,21 @@ Bjarne Zaremba - Danny Meihöfer
 # Inhalt
 ***
 
-1. Versions control systems
+1. Versionskontrollsysteme
+2. Ai-Driven-Development
+3. Code-Reading
+4. Bug-Report-Writing
+5. Debugging
+6. Agile Testing-Workflows
+7. Pair-Programming
+8. Code-Reviews
+9. Refactoring
+10. Lernfragen
 
 
 
 ---
-class: center, middle
+
 
 ## Lernziele für dieses Kapitel
 - Was sind Versionsverwaltungssysteme?
@@ -26,6 +35,9 @@ class: center, middle
   - Was für Arbeitsabläufe gibt es?
 - Was ist AI-Driven Development?
 
+---
+
+class: center, middle
 ## Version control systems
 
 ---
@@ -928,7 +940,436 @@ Eine Liste mit vielen weiteren Suchoperatoren gibt es hier: https://blog.hubspot
 
 ---
 
-## Verständnisfragen
+## Code-Reading
+
+### Wieso ist Code-Reading wichtig?
+
+- Arbeiten im Team
+
+- Geben von Code-Reviews
+   
+- Effizienz
+    
+
+---
+
+### Wie liest man Code?
+
+- Verstehen des Kontexts
+    
+- Variablen und Funktionen
+    
+- Kommentare
+    
+- Abhängigkeiten von externen Modulen und Bibliotheken
+   
+- Tests
+    
+- Debugging
+    
+- Tools
+    
+- Diskussion mit Kollegen
+
+---
+
+## Schreiben von Bug-Reports
+
+### Was ist ein Bug-Report?
+
+Dokument, dass Fehler, Probleme oder Mängel in einer Softwareanwendung oder einem System beschreibt.
+
+---
+
+### Wie schreibe ich einen guten Bug-Report?
+
+Ein Bug-Report sollte folgenden Inhalt haben:
+
+- Titel
+   
+- Priorität
+    
+- Beschreibung des Fehlers
+    
+- Umgebung
+    
+- Reproduktionsschritte
+    
+- Erwartetes Ergebnis
+
+- Aktuelles Ergebnis
+
+- Anhänge
+    
+
+---
+
+## Debugging
+
+Debugging beinhaltet das Identifizieren und Beheben von Fehlern (Bugs) in einem Programm. 
+
+### Ursachenanalyse (Root-Cause-Analysis, kurz: RCA)
+
+Fehlerbehebungsmethode, mit der die Ursache von Bugs identifiziert und behoben werden kann, anstatt nur Symptome zu behandeln.
+
+Eine Ursachenanalyse hat meistens folgende Schritte:
+
+1. Problem definieren und Warnungen einrichten
+    
+2. Sammeln und Analysieren der Daten
+    
+3. Ursachen ermitteln
+    
+4. Lösungen implementieren und Aktionen dokumentieren
+   
+
+---
+
+### Debugging vs. Testen
+
+Die Hauptunterschiede zwischen Debugging und Testen sind:
+
+- Ziel
+    
+- Reihenfolge
+  
+- Ansatz
+  
+- Tools und Techniken
+
+
+---
+
+### Rubber-Duck-Debugging(dt.: Gummienten-Debugging)
+
+- Einfache Methode, um Fehler in einer Software zu finden
+
+Wie funktioniert das?
+
+1. Besorge dir eine Gummiente
+2. Stelle die Gummiente auf deinen Tisch und informiere sie darüber, dass du gerne mit ihr ein bisschen Code angucken möchtest.
+3. Erkläre der Ente was dein Code machen soll und erkläre ihn ihr detailliert.
+4. Irgendwann stellst du fest, dass dein Code einen Fehler oder Sonstiges hat.
+
+---
+
+### Time-Travel-Debugging (TTD) (dt.: Zeitreisen-Debugging)
+
+- fortgeschrittene Methode des Debuggings
+- Code wird Schritt-für-Schritt in umgekehrter Reihenfolge durchlaufen, um genauen Zeitpunkt des Auftretens des Fehlers zu finden
+
+Einige Vorteile von TTD:
+
+- Effizienz
+    
+- Rückwärtsausführung
+    
+
+Einige Nachteile von TDD:
+
+- Overhead
+    
+- Nicht immer anwendbar
+
+- Komplexität
+    
+
+---
+
+## Logging / Tracing
+
+
+### Logging
+
+- Aufzeichnen von Ereignissen in einer Softwareanwendung
+
+- soll Informationen über Ausführung und Verhalten protokollieren
+
+- Log-Nachrichten
+    
+- Log-Level
+
+---
+
+### Tracing
+
+- erweiterte Form des Loggings
+
+- Detaillierte Informationen über den Verlauf von Anfragen
+
+- Gesamter Lebenszyklus einer Anfrage kann verfolgt werden
+
+---
+
+### Warum sind Logging und Tracing wichtig?
+
+- Fehlerdiagnose
+    
+- Peformance-Optimierung
+    
+- Sicherheitsüberwachung
+
+---
+
+### Beispiel eines Debugging-Zyklus
+
+Das folgende Beispiel wurde mit Chat-GPT-3.5 erstellt:
+
+```jsx
+def add_numbers(a, b):
+    result = a + b
+    return result
+
+num1 = 5
+num2 = 7
+result = add_numbers(num1, num2)
+print("Das Ergebnis der Addition ist:", result)
+```
+
+Debugging-Prozess:
+
+1. Setzen von Breakpoints
+
+2. Starten des Debugging-Modus
+
+3. Überprüfen von Variablen
+
+4. Schritt-für-Schritt-Ausführung
+
+5. Identifizieren des Problems
+
+6. Beheben des Problems
+
+
+---
+
+### Debugging-Werkzeuge
+
+Sprachenspezifische Debugging-Tools:
+
+- Java: Eclipse Debugger, IntelliJ Debugger
+
+- Python: pdb (in Python eingebautes Debugging-Tool)
+
+- C/C++: GNU Debugger, Visual Studio Debugger
+
+Allgemeine Debugging-Tools:
+
+- Visual Studio Code
+
+- PyCharm
+
+- IntelliJ IDEA
+
+---
+
+## Agile Testing Workflows
+
+Effiziente Testworkflows sind von entscheidender Bedeutung, wenn es um eine schnelle Entwicklung einer Software geht, diese aber trotzdem eine hohe Qualität haben soll.
+
+
+
+---
+## Ansätze zur Softwareentwicklung
+
+### Test-Driven-Development (TDD)
+
+- es werden zuerst Tests entwickelt
+  
+- dann Implementierung des Codes, der den Test besteht
+
+- Motivation
+    
+- Ablauf
+    
+- Frameworks
+
+---
+
+### Behavior-Driven-Development (BDD)
+
+- Erweiterung von TDD
+
+- Fokus liegt auf dem Verhalten der Software
+
+- Tests werden in einer natürlichen Sprache verfasst
+
+- Motivation
+
+- Ablauf
+
+- Frameworks
+
+---
+
+### Acceptance-Test-Driven-Development (ATDD)
+
+- Tests werden basierend auf den Akteptanzkriterien des Benutzers geschrieben
+- Motivation
+
+- Ablauf
+
+- Frameworks
+    
+
+---
+
+### Test Doubles
+
+- sollen bestimmte Abhängigkeiten beim Testen ersetzen oder simulieren
+- Mocks
+
+- Fakes
+
+- Stubs
+
+- Spy
+
+- Frameworks
+
+---
+
+## Pair-Programming
+
+### Ablauf
+
+- 2 Programmierer arbeiten zusammen an der selben Aufgabe
+
+Klare Rollenverteilung:
+
+- Driver
+   
+- Navigator
+    
+- Rollen wechseln alle paar Minuten
+
+---
+
+### Best Practices
+
+- Klare Verteilung der Rollen
+
+- Rollen alle paar Minuten tauschen
+- Kommunikation
+    
+- Respekt und Empathie
+    
+- Pausen
+    
+- Ziele
+    
+
+---
+
+### Tools für Pair-Programming
+
+- Live Share (VS Code): Extension für VS Code ermöglicht den Entwicklern in Echtzeit zusammen zu entwickeln
+
+- Replit: Online-Tool, welches ohne Installation zum Zusammenarbeiten genutzt werden kann
+
+---
+
+## Code-Reviews
+
+In Code-Reviews überprüfen Entwickler den geschriebenen Code ihrer Kollegen. Hiermit soll die Qualität und Zuverlässigkeit des Codes sichergestellt werden.
+
+---
+
+### Conventional Comments
+
+- Methode, um in Code-Reviews klare Rückmeldungen zu geben
+
+- können in Form von Kommentaren im Code oder in einem Code-Review-Tool (z.B. GitHub) verwendet werden
+
+**Konvention:**
+
+Aufbau: label [decorations]: subject
+
+- Label: Welche Art von Kommentar?
+    
+- Decorations (Optional): Ergänzend zum Label: non-blocking, blocking, if minor
+
+- Subject: Hauptnachricht des Kommentares
+
+- Weiterführende Infos: https://conventionalcomments.org/ [letzte Einsicht: 17. Oktober 2023]
+
+---
+
+### Best-Practices
+
+- Begrenzte Anzahl der Reviewer
+    
+- Konstruktive Kommentare
+    
+- Versionskontrolle
+    
+
+---
+
+## Refactoring
+
+- Umstrukturierung von Code, ohne die ursprüngliche Funktionalität zu verändern
+
+### Ziel des Refactorings
+
+- Code soll verbessert werden
+    
+- Code soll effizienter werden
+
+- Fehler können leichter gefunden und behoben werden
+
+---
+
+### Refactoring-Patterns
+
+- Extract-Methode
+    
+- Variablen umbennen
+    
+- Move-Methode
+    
+- Extract Class
+    
+- Factory-Pattern einführen
+    
+- Entfernung von doppeltem Code
+    
+- Integration bewährter Design-Pattern
+    
+
+---
+
+## Werkzeuge
+
+- Werkzeuge sollen Entwicklungsprozesse in der Softwareentwicklung optimieren
+
+- Qualität der Software wird durch Einsatz von Werkzeugen verbessert
+
+---
+
+### Testing/Build-Werkzeuge
+
+- GitHub Actions
+    
+- Jenkins
+    
+
+---
+
+### Bug- und Worktracking
+
+- Jira
+   
+- Trello
+   
+- YouTrack
+    
+- Bugzilla
+    
+
+---
+
+## Lernfragen
 
 1. Was ist ein Versionsverwaltungssystem?
 2. Was ist der Unterschied zwischen einem zentralen und einem dezentralen Versionsverwaltungssystem?
@@ -944,6 +1385,23 @@ Eine Liste mit vielen weiteren Suchoperatoren gibt es hier: https://blog.hubspot
 12. Was ist der Unterschied zwischen Git Flow und Github Flow?
 13. Worauf muss man achten, wenn man AI Tools benutzt?
 14. Wie sollte eine Google Suchanfrage aussehen?
+15. Was ist beim Lesen von Code wichtig?
+16. Wie ist ein guter Bug-Report aufgebaut?
+17. Wie funktioniert eine Ursachenanalyse (RCA) im Kontext des Debuggings?
+18. Was ist der Unterschied zwischen Debugging und Testen?
+
+---
+
+## Lernfragen 
+
+19. Wie funktioniert Rubber-Duck-Debugging?
+20. Was ist Logging?
+21. Nenne mir ein Debugging-Werkzeug, welches man allgemein einsetzen kann!
+22. Nenne und beschreibe einen agilen Testing-Workflow!
+23. Wie funktioniert Pair-Programming?
+
+
+---
 
 ## Quellen
 
@@ -976,3 +1434,34 @@ https://github.com/features/copilot
 
 Google
 https://www.google.de/?hl=de
+
+---
+## Quellen 
+
+https://builtin.com/software-engineering-perspectives/reading-code [letzte Einsicht: 16. Oktober 2023]
+
+https://orangesoft.co/blog/how-to-write-a-bug-report [letzte Einsicht: 16. Oktober 2023]
+
+https://www.elastic.co/de/what-is/root-cause-analysis [letzte Einsicht: 16. Oktober 2023]
+
+https://www.geeksforgeeks.org/differences-between-testing-and-debugging/ [letzte Einsicht: 16. Oktober 2023]
+
+https://rubberduckdebugging.com/ [letzte Einsicht: 16. Oktober 2023]
+
+https://www.ip-insider.de/was-ist-logging-event-log-management-a-efd311ecd8621b98baa59d2405d870ad/ [letzte Einsicht: 16. Oktober 2023]
+
+https://de.ryte.com/wiki/Test_Driven_Development#:~:text=Test%20Driven%20Development%20 [letzte Einsicht: 16. Oktober 2023]
+
+https://www.softwaretestingmagazine.com/knowledge/unit-testing-fakes-mocks-and-stubs/ [letzte Einsicht: 16. Oktober 2023]
+
+---
+
+## Quellen
+
+https://dev.to/documatic/pair-programming-best-practices-and-tools-154j#best-practices-for-pair-programming [letzte Einsicht: 17. Oktober 2023]
+
+https://conventionalcomments.org/ [letzte Einsicht: 17. Oktober 2023]
+
+https://www.computerweekly.com/de/definition/Refactoring [letzte Einsicht: 19. Oktober 2023]
+
+https://dzone.com/refcardz/refactoring-patterns [letzte Einsicht: 19. Oktober 2023]

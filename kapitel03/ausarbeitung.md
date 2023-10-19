@@ -883,7 +883,7 @@ Aufbau: <label> [decorations]: <subject>
 
 
 
-### Reflection-Patterns
+### Refactoring-Patterns
 
 - Extract-Methode
     - Extrahieren von Teilen des bestehenden Codes in eigene Methoden → Lesbarkeit des Codes wird erhöht
@@ -970,13 +970,13 @@ https://www.google.de/?hl=de
 
 ## Referenzen
 
-https://blog.hubspot.de/marketing/google-suchoperatoren
+https://blog.hubspot.de/marketing/google-suchoperatoren [letzte Einsicht: 16. Oktober 2023]
 
-https://git-scm.com/docs/git
+https://git-scm.com/docs/git [letzte Einsicht: 16. Oktober 2023]
 
-https://gist.github.com/robertpainsi/b632364184e70900af4ab688decf6f53
+https://gist.github.com/robertpainsi/b632364184e70900af4ab688decf6f53 [letzte Einsicht: 17. Oktober 2023]
 
-https://git-scm.com/downloads
+https://git-scm.com/downloads [letzte Einsicht: 17. Oktober 2023]
 
 https://builtin.com/software-engineering-perspectives/reading-code [letzte Einsicht: 16. Oktober 2023]
 
