@@ -19,9 +19,17 @@ Bjarne Zaremba - Danny Meihöfer
 ---
 class: center, middle
 
-## Version control systems 
+## Lernziele für dieses Kapitel
+- Was sind Versionsverwaltungssysteme?
+- Was sind Remote Repositories?
+- Wie benutze ich Git?
+  - Was für Arbeitsabläufe gibt es?
+- Was ist AI-Driven Development?
+
+## Version control systems
 
 ---
+
 
 ### Wofür braucht man Versionverwaltung?
 
@@ -919,6 +927,23 @@ Beispiele für Suchoperatoren:
 Eine Liste mit vielen weiteren Suchoperatoren gibt es hier: https://blog.hubspot.de/marketing/google-suchoperatoren
 
 ---
+
+## Verständnisfragen
+
+1. Was ist ein Versionsverwaltungssystem?
+2. Was ist der Unterschied zwischen einem zentralen und einem dezentralen Versionsverwaltungssystem?
+3. Wer hat Git entwickelt?
+4. Wie kann man Git steuern?
+5. Wie kann man eine Änderung auf das Remote Repository übertragen?
+6. Wie macht man einen Commit und was sollte in der Commit Nachricht stehen?
+7. Wie erstellt man Branches und wechselt zwischen ihnen?
+8. Was ist der Unterschied zwischen einem Merge und einem Rebase?
+9. Was ist der Unterschied zwischen einem Monorepo und einem Multirepo?
+10. Warum sind pull requests sinnvoll?
+11. Was ist eine Branching Strategie?
+12. Was ist der Unterschied zwischen Git Flow und Github Flow?
+13. Worauf muss man achten, wenn man AI Tools benutzt?
+14. Wie sollte eine Google Suchanfrage aussehen?
 
 ## Quellen
 
