@@ -4,7 +4,7 @@ class: center, middle
 
 #### Kapitel 3
 
-# Versionskontrollsysteme - AI-driven development - 
+# Versionskontrollsysteme - AI-driven development - Code-Handling
 
 Bjarne Zaremba - Danny Meihöfer
 

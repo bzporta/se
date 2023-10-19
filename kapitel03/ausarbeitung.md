@@ -1,8 +1,8 @@
-# Kapitel 3 ()
+# Kapitel 3 Versionskontrollsysteme - AI-driven development - Code-Handling
 
 **Autoren:** Bjarne Zaremba - Danny Meihöfer
 
-## Lernziele für dieses Kapitel
+# Lernziele für dieses Kapitel
 
 Nach diesem Kapitel sollen folgende Aspekte klarer geworden sein:
 
@@ -11,10 +11,14 @@ Nach diesem Kapitel sollen folgende Aspekte klarer geworden sein:
 - Wie benutze ich Git?
   - Was für Arbeitsabläufe gibt es?
 - Was ist AI-Driven Development?
+- Wie liest man Code richtig?
+- Was sind Bug-Reports?
+- Was hat es mit Debugging und Testing auf sich?
+- Welche Tools kann ich zum Debugging benutzen?
 
 ## Versionsverwaltungssysteme
 
-## Wofür braucht man Versionscontrollsysteme?
+### Wofür braucht man Versionscontrollsysteme?
 
 **Versionsverwaltungssysteme (VCS)** sind Softwaretools, die den Entwicklern helfen indem sie die **Änderungen an Dateien und Ordnern im Laufe der Zeit verfolgen**. Sie ermöglichen es den Entwicklern, auf **frühere Zustände** des Projekts, das sie entwickeln, zurückzugreifen. Entsteht also z.B. unabsichtlich ein Fehler im Projekt, der vorher nicht da war, kann man eine ältere Version laden und feststellen welche Änderungen den Fehler verursacht haben. Damit arbeiten die Entwickler **sicherer**, da es immer eine Kompilierbare Version des Projekts gibt und oft Sicherheitskopien der Dateien angelegt werden.
 
@@ -488,6 +492,453 @@ Nicht vergessen:
 
 Für die Google-Suche gibt es auch bestimmte Suchoperatoren mit denen man seine Suche noch genauer machen kann. Steht ein Wort zum Beispiel zwischen Anführungszeichen "" werden nur Ergebnisse, die dieses bestimmte Wort enthalten angezeigt. Mit dem Minus - vor einem Wort kann man angeben, dass nur Ergebnisse ohne dieses Wort angezeigt werden sollten. Das Sternchen * ist Platzhalter für irgendwelche passenden Wörter. Möchte man zu diesen Operatoren mehr Informationen haben, kann man sie hier nachlesen: https://blog.hubspot.de/marketing/google-suchoperatoren.
 
+## Code-Reading
+
+### Wieso ist Code-Reading wichtig?
+
+- Arbeiten im Team
+    - In vielen Teams sind Projekte oft schon sehr groß. Um sich gut in solchen Projekten zurecht zu finden, ist das Lesen von Code ein wichtiger Skill
+- Geben von Code-Reviews
+    - Code-Reviews sind wichtig, um die Qualität und Sicherheit des Codes zu gewährleisten
+    - Gute Code-Reviews können nur erstellt werden, wenn man selbst den Code verstanden hat
+- Effizienz
+    - Die Fähigkeit, sich in fremden Code zurechtzufinden, spart eine Menge Zeit
+
+
+
+### Wie liest man Code?
+
+- Verstehen des Kontexts
+    - In welchem Kontext arbeitet der Code?
+    - In welchem Zusammenhang mit dem Gesamtprojekt steht der Teil des Codes
+- Variablen und Funktionen
+    - Namen der Variablen und Funktionen deuten auf die Aufgabe dieser hin
+- Kommentare
+    - Kommentare geben Hinweise auf die Funktionsweise des Codes
+    - können veraltet sein
+- Abhängigkeiten von externen Modulen und Bibliotheken
+    - geben Aufschluss über die Funktionsweise des Codes
+- Tests
+    - Tests geben Aufschluss darüber, wie der Code normalerweise funktionieren soll
+- Debugging
+    - Durch Ausführen des Codes (Schritt-für-Schritt) wird es einfacher, die Abläufe im Code zu verstehen
+- Tools
+    - Moderne IDE’s bieten Möglichkeiten der Syntaxhervorhebung
+- Diskussion mit Kollegen
+    - Reden und Fragen über den Code hilft, den Code besser zu verstehen
+
+
+
+## Schreiben von Bug-Reports
+
+### Was ist ein Bug-Report?
+
+Dokument, dass Fehler, Probleme oder Mängel in einer Softwareanwendung oder einem System beschreibt.
+
+### Wie schreibe ich einen guten Bug-Report?
+
+Ein Bug-Report sollte folgenden Inhalt haben:
+
+- Titel
+    - Wichtigster Teil des Bug-Reports
+    - Sollte enthalten: Was? Wo? Unter welchen Voraussetzungen?
+- Priorität
+    - Wie schnell muss der Fehler behoben werden? Wie kritisch ist der Fehler für die Anwendung?
+- Beschreibung des Fehlers
+    - führt den Titel fort
+    - Beschreibung des Problems ohne irgendwelche Beschränkungen
+    - z.B. : Wie oft tritt der Fehler auf? Umstände, die den Fehler hervorrufen könnten
+- Umgebung
+    - Gerät und Modelnummer
+    - Betriebssystem (inkl. Version)
+    - Version der Anwendung
+    - Netzwerkverbindung
+    - Browser
+- Reproduktionsschritte
+    - sollte die Schritte beinhalten, um den Fehler zu reproduzieren
+- Erwartetes Ergebnis
+- Aktuelles Ergebnis
+- Anhänge
+    - Screenshots
+    - Videos
+    - Log-Files
+
+
+
+## Debugging
+
+Debugging beinhaltet das Identifizieren und Beheben von Fehlern (Bugs) in einem Programm. 
+
+### Ursachenanalyse (Root-Cause-Analysis, kurz: RCA)
+
+Fehlerbehebungsmethode, mit der die Ursache von Bugs identifiziert und behoben werden kann, anstatt nur Symptome zu behandeln.
+
+Eine Ursachenanalyse hat meistens folgende Schritte:
+
+1. Problem definieren und Warnungen einrichten
+    1. Problem definieren und genau verstehen
+2. Sammeln und Analysieren der Daten
+    1. um Ursache zu ermitteln
+    2. Überprüfung von Log-Dateien, Kundenfeedback und anderen Datenquellen
+    3. Erstellen einer Liste von potenziellen Ursachen, die das Problem hervorrufen können
+3. Ursachen ermitteln
+    1. Methode der Ursachenanalyse anwenden, um tatsächliche Ursache zu identifizieren
+    2. Ableitung von Korrekturmaßnahmen
+4. Lösungen implementieren und Aktionen dokumentieren
+    1. Lösung zur Behebung des Problems implementieren 
+    2. Alle Maßnahmen zur Behebung des Problems müssen dokumentiert werden
+
+
+
+### Debugging vs. Testen
+
+Die Hauptunterschiede zwischen Debugging und Testen sind:
+
+- Ziel
+    - Beim **Testen** geht es um das Identifizieren von Fehlern in der Software
+    - Das **Debugging** befasst sich mit dem Beheben der Fehler, die beim Testen entdeckt wurden
+- Reihenfolge
+    - Das **Testen** wird vor dem **Debugging** erledigt, während das **Debugging** nach dem **Testen** stattfindet
+- Ansatz:
+    - Beim **Testen** wird die Software mit Testfällen getestet
+    - Beim **Debugging** geht es um die Analyse und Behebung der Ursachen, die zu Fehlern führen
+- Tools und Techniken
+    - Zum Testen benutzt man automatische oder manuelle Testwerkzeuge
+    - Debugging wird z.B. mit Logging oder Code-Review gemacht
+
+
+
+### Rubber-Duck-Debugging(dt.: Gummienten-Debugging)
+
+- Einfache Methode, um Fehler in einer Software zu finden
+
+Wie funktioniert das?
+
+1. Besorge dir eine Gummiente
+2. Stelle die Gummiente auf deinen Tisch und informiere sie darüber, dass du gerne mit ihr ein bisschen Code angucken möchtest.
+3. Erkläre der Ente was dein Code machen soll und erkläre ihn ihr detailliert.
+4. Irgendwann stellst du fest, dass dein Code einen Fehler oder Sonstiges hat.
+
+
+
+### Time-Travel-Debugging (TTD) (dt.: Zeitreisen-Debugging)
+
+- fortgeschrittene Methode des Debuggings
+- Code wird Schritt-für-Schritt in umgekehrter Reihenfolge durchlaufen, um genauen Zeitpunkt des Auftretens des Fehlers zu finden
+
+Einige Vorteile von TTD:
+
+- Effizienz
+    - Durch TTD wird der Debugging-Prozess effizienter
+- Rückwärtsausführung
+    - TDD ermöglicht es, den Code rückwärts auszuführen
+
+Einige Nachteile von TDD:
+
+- Overhead
+    - TDD von großen Softwareprojekten kann viel Leistung erfordern
+- Nicht immer anwendbar
+- Komplexität
+    - Es sind spezielle Tools nötig, um TDD zu betreiben
+    - Bedienung dieser Tools erfordern viel Erfahrung und Schulungen
+
+
+
+### Logging / Tracing
+
+
+
+### Logging
+
+- Aufzeichnen von Ereignissen in einer Softwareanwendung
+- soll Informationen über Ausführung und Verhalten protokollieren
+- Log-Nachrichten
+    - können Informationen zu Status, Fehlern oder Warnungen beinhalten
+- Log-Level
+    - Logmeldungen werden häufig nach ihrem Schweregrad klassifiziert: INFO, WARN, ERROR oder DEBUG
+
+
+
+### Tracing
+
+- erweiterte Form des Loggings
+- Detaillierte Informationen über den Verlauf von Anfragen
+- Gesamter Lebenszyklus einer Anfrage kann verfolgt werden
+
+
+
+### Warum sind Logging und Tracing wichtig?
+
+- Fehlerdiagnose
+    - helfen bei der fehlerdiagnose
+- Peformance-Optimierung
+    - durch Analyse von Logdaten können Leistungsprobleme identifiziert und behoben werden
+- Sicherheitsüberwachung
+
+
+
+### Beispiel eines Debugging-Zyklus
+
+Das folgende Beispiel wurde mit Chat-GPT-3.5 erstellt:
+
+```jsx
+def add_numbers(a, b):
+    result = a + b
+    return result
+
+num1 = 5
+num2 = 7
+result = add_numbers(num1, num2)
+print("Das Ergebnis der Addition ist:", result)
+```
+
+Nehmen wir an, Sie haben jedoch festgestellt, dass das Programm nicht das erwartete Ergebnis liefert, und Sie möchten das Problem mit Hilfe des Debuggings identifizieren und beheben. Hier ist der Debugging-Prozess in Python:
+
+1. **Setzen von Breakpoints:** Öffnen Sie Ihre Entwicklungsumgebung (z. B. PyCharm oder Visual Studio Code) und setzen Sie einen Breakpoint in der Zeile, in der das Problem auftreten könnte. In diesem Fall setzen Sie einen Breakpoint in der Zeile **`result = a + b`**.
+2. **Starten des Debugging-Modus:** Führen Sie das Programm im Debugging-Modus aus. Ihr Debugger wird anhalten, wenn er den Breakpoint erreicht.
+3. **Überprüfen von Variablen:** Während das Programm pausiert, können Sie die Werte der Variablen überprüfen. In diesem Fall können Sie die Werte von **`a`**, **`b`** und **`result`** überprüfen, um festzustellen, ob sie korrekt sind.
+4. **Schritt-für-Schritt-Ausführung:** Verwenden Sie den Debugger, um Schritt für Schritt durch den Code zu gehen. Dadurch können Sie den Programmfluss und die Werte der Variablen in jedem Schritt überwachen.
+5. **Identifizieren des Problems:** Wenn Sie den Code schrittweise durchlaufen, können Sie feststellen, dass **`a`** oder **`b`** unerwartete Werte haben. Dies könnte auf einen Eingabefehler oder eine falsche Berechnung hinweisen.
+6. **Beheben des Problems:** Nachdem Sie das Problem identifiziert haben, können Sie den Code entsprechend anpassen, um das Problem zu beheben.
+
+In diesem Fall könnten Sie feststellen, dass **`a`** oder **`b`** nicht die erwarteten Werte haben, und das Problem liegt wahrscheinlich bei der Eingabe oder Zuweisung der Werte. Nachdem Sie das Problem identifiziert haben, können Sie es beheben, um sicherzustellen, dass das Programm die gewünschten Ergebnisse liefert.
+
+
+
+### Debugging-Werkzeuge
+
+Sprachenspezifische Debugging-Tools:
+
+- Java: Eclipse Debugger, IntelliJ Debugger
+- Python: pdb (in Python eingebautes Debugging-Tool)
+- C/C++: GNU Debugger, Visual Studio Debugger
+
+Allgemeine Debugging-Tools:
+
+- Visual Studio Code
+- PyCharm
+- IntelliJ IDEA
+
+
+## Agile Testing Workflows
+
+Effiziente Testworkflows sind von entscheidender Bedeutung, wenn es um eine schnelle Entwicklung einer Software geht, diese aber trotzdem eine hohe Qualität haben soll.
+
+Es gibt verschiedene Ansätze zur Softwaretestentwicklung:
+
+
+
+### Test-Driven-Development (TDD)
+
+- es werden zuerst Tests entwickelt
+    - definieren erwartetes Verhalten der Software
+- dann Implementierung des Codes, der den Test besteht
+- Motivation:
+    - soll sicherstellen, dass Software funktioniert, indem Tests von Anfang an geschrieben werden
+- Ablauf:
+    - Es wird zuerst ein Test geschrieben, danach so viel implementiert, dass der Test bestanden wird
+    - Prozess wiederholt sich
+- Frameworks
+    - Java: JUnit
+    - .NET: NUnit
+    - Python: PyTest
+    - Allgemein: Cucumber
+
+
+
+### Behavior-Driven-Development (BDD)
+
+- Erweiterung von TDD
+- Fokus liegt auf dem Verhalten der Software
+- Tests werden in einer natürlichen Sprache verfasst
+- Motivation:
+    - betont Bedeutung des Verhaltens der Software
+    - verbessert Kommunikation zwischen Testern, Entwicklern und Stakeholdern, da Tests in natürlicher Sprache geschrieben
+- Ablauf:
+    - Tests werden in menschenlesbarere Sprache verfasst (z.B. Gherkin)
+    - Implementierung folgt den Tests
+- Frameworks:
+    - Cucumber
+
+
+
+### Acceptance-Test-Driven-Development (ATDD)
+
+- Tests werden basierend auf den Akteptanzkriterien des Benutzers geschrieben
+- Motivation:
+    - Erfüllung der Anforderungen des Benutzers
+    - klare Definition für erfolgreiches Verhalten der Software
+- Ablauf:
+    - Entwickler, Tester und Stakeholder schreiben gemeinsam die Tests
+    - Implementierung soll Akzeptanztests bestehen
+- Frameworks:
+    - Cucumber
+
+
+
+### Test Doubles
+
+- sollen bestimmte Abhängigkeiten beim Testen ersetzen oder simulieren
+- Mocks:
+    - werden verwendet, um das Verhalten einer Komponente zu simulieren
+    - häufig anstelle von externen Schnittstellen
+- Fakes:
+    - Einfache Implementierungen von Abhängigkeiten, die anstelle der richtigen Implementierung verwendet werden
+    - z.B. zum Simulieren von Datenbankzugriffen
+- Stubs:
+    - minimal implementierte Komponenten, die den Code während des Testens isolieren
+    - geben vorgefertigte Antwort auf Methodenaufrufe, etc. zurück
+- Spy:
+    - Testdoubles, die bestimmte Interaktionen mit ihnen aufzeichnen
+    - werden verwendet, um zu prüfen, ob bestimmte Methoden aufgerufen werden
+- Frameworks:
+    - Java: Mockito
+    - Python: unittest.mock
+    - .NET: Moq
+
+
+
+## Pair-Programming
+
+### Ablauf
+
+- 2 Programmierer arbeiten zusammen an der selben Aufgabe
+
+Klare Rollenverteilung:
+
+- Driver
+    - Person, die den Code schreibt
+    - kümmert sich um das reine Code schreiben und das Bedienen der IDE
+- Navigator
+    - Person, die Feedback und Ideen zum Code gibt
+    - denkt über die Funktionen des Codes nach
+- Rollen wechseln alle paar Minuten
+
+
+
+### Best Practices
+
+- Klare Verteilung der Rollen
+- Rollen alle paar Minuten tauschen
+- Kommunikation
+    - Beide Entwickler sollten aktiv ihre Gedanken, Fragen und Anmerkungen untereinander kommunizieren
+- Respekt und Empathie
+    - Beide Entwickler sollten die Ideen und Anmerkungen des Gegenübers ernst nehmen und mit Respekt behandeln.
+- Pausen
+    - Pair-Programming kann mental sehr anspruchsvoll sein
+- Ziele
+    - Die Entwickler sollten sich vor der Pair-Programming-Session ein Ziel setzen, das sie in der Sitzung erreichen wollen
+
+
+
+### Tools für Pair-Programming
+
+- Live Share (VS Code): Extension für VS Code ermöglicht den Entwicklern in Echtzeit zusammen zu entwickeln
+- Replit: Online-Tool, welches ohne Installation zum Zusammenarbeiten genutzt werden kann
+
+
+
+## Code-Reviews
+
+In Code-Reviews überprüfen Entwickler den geschriebenen Code ihrer Kollegen. Hiermit soll die Qualität und Zuverlässigkeit des Codes sichergestellt werden.
+
+### Conventional Comments
+
+- Methode, um in Code-Reviews klare Rückmeldungen zu geben
+- können in Form von Kommentaren im Code oder in einem Code-Review-Tool (z.B. GitHub) verwendet werden
+
+**Konvention:**
+
+Aufbau: <label> [decorations]: <subject>
+
+- Label: Welche Art von Kommentar?
+    - Einige Labels: suggestion, issue, todo, question, thought, chore, note
+- Decorations (Optional): Ergänzend zum Label: non-blocking, blocking, if minor
+- Subject: Hauptnachricht des Kommentares
+- Weiterführende Infos: [https://conventionalcomments.org/](https://conventionalcomments.org/) [letzte Einsicht: 17. Oktober 2023]
+
+
+
+### Best-Practices
+
+- Begrenzte Anzahl der Reviewer
+    - Effizienter, wenn nur eine begrenzte Anzahl an Leuten den Code überprüfen
+- Konstruktive Kommentare
+    - siehe Conventional Comments
+- Versionskontrolle
+    - Mit einem Versionskontrollsystem kann man die Kommunikation und Dokumentation der Entwickler vereinfachen
+
+
+
+## Refactoring
+
+- Umstrukturierung von Code, ohne die ursprüngliche Funktionalität zu verändern
+
+### Ziel des Refactorings
+
+- Code soll verbessert werden
+    - Design, Struktur, Komplexität, Lesbarkeit
+- Code soll effizienter werden
+- Fehler können leichter gefunden und behoben werden
+
+
+
+### Reflection-Patterns
+
+- Extract-Methode
+    - Extrahieren von Teilen des bestehenden Codes in eigene Methoden → Lesbarkeit des Codes wird erhöht
+- Variablen umbennen
+    - Variablen sollten nach ihrer Funktionalität benannt werden, damit der Code verständlicher wird.
+- Move-Methode
+    - Verschieben einer Methode von einer Klasse in eine andere Klasse → Verantwortlichkeiten werden besser verteilt
+- Extract Class
+    - Aufteilen einer Klasse in mehrere kleine Klassen → Verständlichkeit wird verbessert
+- Factory-Pattern einführen
+    - Erstellung von Objekten wird zentralisiert und vereinfacht
+- Entfernung von doppeltem Code
+    - Doppelte Code-Schnipsel werden in eigene Methoden ausgelagert
+- Integration bewährter Design-Pattern
+    - Singleton, Observer, Factory
+
+
+
+## Werkzeuge
+
+- Werkzeuge sollen Entwicklungsprozesse in der Softwareentwicklung optimieren
+- Qualität der Software wird durch Einsatz von Werkzeugen verbessert
+
+
+
+### Testing/Build-Werkzeuge
+
+- GitHub Actions
+    - Automatisierungstool
+    - In GitHub integriert
+    - Erstellen von Workflow-Automatisierungen bei bestimmten Ereignissen (z.B. Erstellen eines neues Branches, Einreichen eines Pull-Requests)
+    - CI und CD kann automatisiert werden
+- Jenkins
+    - Open-Source-Automatisierungsserver
+    - CI und CD kann betrieben werden
+    - Build-Jobs und Tests können realisiert werden
+
+
+
+### Bug- und Worktracking
+
+- Jira
+    - Issue- und Projektmanagementsoftware
+    - Verfolgen von Aufgaben, Fehlern und Verbesserungsvorschlägen
+- Trello
+    - Visuelles Projektmanagement-Tool
+    - Eignet sich für kleine Teams und einfache Projekte
+- YouTrack
+    - Issue- und Projektmanagementsoftware von JetBrains
+- Bugzilla
+    - Open-Source-Tool zur Fehlerverfolgung
+    - einfache Möglichkeiten zum Verfolgen von Fehlern
+
+
+
 ## Abbildungen
 
 Mono- vs Multirepos
@@ -519,9 +970,6 @@ https://www.google.de/?hl=de
 
 ## Referenzen
 
-[1]: Dijkstra, E. W. (1968). Go to statement considered harmful. 
-Communications of the ACM, 11(3), 147-148.
-
 https://blog.hubspot.de/marketing/google-suchoperatoren
 
 https://git-scm.com/docs/git
@@ -529,4 +977,28 @@ https://git-scm.com/docs/git
 https://gist.github.com/robertpainsi/b632364184e70900af4ab688decf6f53
 
 https://git-scm.com/downloads
+
+https://builtin.com/software-engineering-perspectives/reading-code [letzte Einsicht: 16. Oktober 2023]
+
+https://orangesoft.co/blog/how-to-write-a-bug-report [letzte Einsicht: 16. Oktober 2023]
+
+https://www.elastic.co/de/what-is/root-cause-analysis [letzte Einsicht: 16. Oktober 2023]
+
+https://www.geeksforgeeks.org/differences-between-testing-and-debugging/ [letzte Einsicht: 16. Oktober 2023]
+
+https://rubberduckdebugging.com/ [letzte Einsicht: 16. Oktober 2023]
+
+https://www.ip-insider.de/was-ist-logging-event-log-management-a-efd311ecd8621b98baa59d2405d870ad/ [letzte Einsicht: 16. Oktober 2023]
+
+https://de.ryte.com/wiki/Test_Driven_Development#:~:text=Test%20Driven%20Development%20 [letzte Einsicht: 16. Oktober 2023]
+
+https://www.softwaretestingmagazine.com/knowledge/unit-testing-fakes-mocks-and-stubs/ [letzte Einsicht: 16. Oktober 2023]
+
+https://dev.to/documatic/pair-programming-best-practices-and-tools-154j#best-practices-for-pair-programming [letzte Einsicht: 17. Oktober 2023]
+
+https://conventionalcomments.org/ [letzte Einsicht: 17. Oktober 2023]
+
+https://www.computerweekly.com/de/definition/Refactoring [letzte Einsicht: 19. Oktober 2023]
+
+https://dzone.com/refcardz/refactoring-patterns [letzte Einsicht: 19. Oktober 2023]
 
