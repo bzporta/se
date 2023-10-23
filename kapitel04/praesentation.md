@@ -151,6 +151,220 @@ class: center, middle
 # Quellen
 ***
 
-- Kitchenham, B. (1990). Software Development Cost Models. 487-517.
+Commands vs. Query vs. Event
+https://medium.com/event-driven-utopia/using-commands-events-and-queries-in-microservices-communication-3573f1fcfafe
 
-- Chidamber, S., and C. Kemerer. (1994). A Metrics Suite for Object-Oriented Design. 476-493.
+Synchron vs. Asynchron
+https://learn.microsoft.com/en-us/dotnet/architecture/microservices/architect-microservice-container-applications/asynchronous-message-based-communication
+
+Publish-Subscribe
+https://learn.microsoft.com/en-us/azure/architecture/patterns/_images/publish-subscribe.png
+
+RequestResponse
+https://medium.com/@rohitpatil97/http-request-http-response-context-and-headers-part-iii-5c37bd4cb06b
+
+PushPull
+https://www.bwl-lexikon.de/wiki/push-pull-strategie/
+
+https://www.alibabacloud.com/blog/pull-or-push-how-to-select-monitoring-systems_599007
+
+---
+
+class: center, middle
+
+# Software system integration
+
+---
+
+class: center, middle
+
+## Kommunikation
+
+Für die Kommunikation in verteilten Systemen gibt es verschiedene Strukturen
+
+---
+
+### Command
+
+Eine Aufforderung eine bestimmte Funktion auszuführen
+
+- Der Nachrichtenproduzent erwartet, dass der Nachrichtenkonsument etwas tut
+- Eventuell erwartet der Produzent eine Antwort von dem Konsumenten
+- In der Aufforderung sind alle nötigen Informationen enthalten
+- 
+
+---
+
+### Query
+
+Eine Anfrage um Daten von einem Speicher abzurufen
+
+- Queries können mit Parametern ausgestattet werden 
+  - Filterung wie z.B. eine Suche nach "Auto blau"
+- Abfragesprachen SQL, QBE und XQuery
+
+
+---
+
+### Event
+
+Eine Nachricht über etwas, das passiert ist
+
+- Der Nachrichtenproduzent erwartet keine Reaktion auf seine Nachricht (Auch keine Antwort)
+- Andere Services können dieses Event wahrnemen und darauf reagieren
+- Das Event kann mehrere Informationen enthalten
+- Events sind nur eine Benachrichtigung für andere
+  - Wie andere darauf reagieren ist ihre Sache
+
+- Häufiges Kommunikationsmuster: Publish-Subscribe
+
+---
+
+### Command vs. Query vs. Event
+
+Command | Query | Event
+--- | --- | ---
+Aufforderung etwas zu tun | Anfrage nach Daten | Benachrichtigung über etwas, das passiert ist
+Erwartet eine Antwort | Erwartet eine Antwort | Erwartet keine Antwort
+Typischerweise ein Empfänger | Typischerweise ein Empfänger | Typischerweise mehrere Empfänger
+Commands für die Zukunft | Queries für die Gegenwart | Events für die Vergangenheit
+
+![:scale 20%](media/commandvseventvsquery.png)
+
+---
+
+### Synchron (RPC)
+
+RPC - Remote Procedure Call
+
+- RPC ist ein Protokoll, das es einem Programm ermöglicht, eine Funktion auf einem anderen Computer auszuführen (Nach dem Client-Server-Modell)
+- Synchrone Operation: Der Client wartet auf die Antwort des Servers
+- Threads werden blockiert, bis die Antwort des Servers eintrifft
+- (Es gibt auch asynchrone RPCs)
+
+![:scale 20%](media/rpc.png)
+
+---
+
+### Asynchron 
+
+- Asynchrone Operation: Der Client wartet nicht auf die Antwort des Servers
+- Threads werden nicht blockiert, bis die Antwort des Servers eintrifft
+- Der Client kann weiterarbeiten, während der Server die Anfrage bearbeitet
+- Der Client kann die Antwort des Servers abrufen, wenn er sie benötigt
+- Es kann sein, dass keine Antwort vom Server kommt
+
+Üblicherweise mit Message Broker
+
+Events sind asynchrone Nachrichten
+
+
+---
+
+class: center, middle
+
+## Patterns
+
+Es gibt verschiedene Patterns, die bei der Kommunikation in verteilten Systemen helfen
+
+---
+
+### Publish-Subscribe
+
+- Eine Nachricht wird nach außen hin veröffentlicht (publish)
+- Andere Services können sich für diese Nachricht registrieren (subscribe)
+- Wenn die Nachricht veröffentlicht wird, erhalten alle registrierten Services eine Kopie der Nachricht
+- Die Services können dann auf die Nachricht reagieren
+- In der Regel wird ein Message Broker verwendet
+  - Dieser nimmt die Nachrichten entgegen und verteilt sie an die registrierten Services
+
+![:scale 20%](media/publishsubscribe.png)
+
+---
+
+### Message Queueing
+
+Senden von Nachrichten an eine Warteschlange
+- Warum? 
+  - Entkopplung von Sender und Empfänger
+  - Blockieren des Senders, wenn der Empfänger nicht verfügbar ist
+    - Weil der Sender auf eine Bestätigung wartet
+  - Pufferung von Nachrichten, wenn der Empfänger nicht verfügbar ist
+  - Empfänger kann Nachrichten nach einander abarbeiten
+
+  ![:scale 20%](media/messagequeue.jpg)
+
+---
+
+### Requeste-Response Model
+
+Synchrones Kommunikationsmuster
+
+Ein Client sendet eine Anfrage an einen Server und wartet auf eine Antwort vom Server
+
+Webseiten laden normalerweise nach diesem Prinzip
+
+- Oft wird die Antwort im HTTP-Format zurückgegeben
+- Das Request-Response Modell ist in HTTP implementiert
+
+![:scale 20%](media/Requestresponse.png)
+
+---
+
+### Push- und Pull-Modell
+
+Push und Pull sind zwei verschiedene Methoden, um Daten zwischen zwei Systemen zu übertragen
+
+Push | Pull
+--- | ---
+Das System, das die Daten sendet, ist für die Übertragung verantwortlich | Das System, das die Daten empfängt, ist für die Übertragung verantwortlich
+Das System, das die Daten sendet, muss wissen, wohin und wann es die Daten senden soll | Das System, das die Daten empfängt, muss wissen, wo und wann es die Daten abrufen soll
+
+---
+
+### Push- und Pull-Modell
+
+Verständnisbeispiel
+
+![:scale 20%](media/pushpull.png)
+
+---
+
+### Push- und Pull-Modell
+
+Softwarebeispiel
+
+![:scale 20%](media/pushpullsoftware.png)
+
+---
+
+### Webhooks
+
+Push-Modell
+
+Webhooks sind eine Form der Event-basierten Kommunikation
+
+Eine Anwendung schickt schickt eine HTTP Anfrage an eine URL, die von einer anderen Anwendung bereitgestellt wird
+
+- Die Anfrage ist im Prinzip ein Event
+
+Der Empfänger fängt sozusagen die Anfrage mit seiner URL ab und kann darauf reagieren
+
+---
+
+class: center,middle
+
+## Protokolle
+
+---
+
+### gRPC
+
+gRPC - Remote Procedure Call
+
+Hochperformantes, offenes RPC-Framework
+
+- Ursprünglich von Google entwickelt
+- Basierend auf HTTP/2
+- Unterstützt viele Programmiersprachen
+- Wird z.B. von Netflix verwendet
