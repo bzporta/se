@@ -4,9 +4,9 @@ class: center, middle
 
 #### Kapitel 4
 
-# Kapitelüberschrift
+# Softwaresystemintegration - Softwaresystemschnittstellen
 
-Max Mustermann
+Bjarne Zaremba - Danny Meihoefer
 
 ---
 ## Inhalt
@@ -21,6 +21,14 @@ Max Mustermann
 4. Serialisierung
 
 5. Software system interfaces
+
+6. APIs
+
+7. API Implementation Standards
+
+8. API Design
+
+9. API Testing
 
 ---
 
@@ -494,6 +502,411 @@ Ein Beispiel für ein CLI ist die Windows Powershell
 
 ---
 
+### API (Application Programming Interface)
+
+- Schnittstelle oder Satz von Regeln und Protokollen, die es verschiedenen Softwareanwendungen ermöglichen, miteinander zu kommunizieren und Daten auszutauschen
+- legen erlaubten Zugriff auf Systeme und Daten fest
+- Verschiedene Formen von APIs:
+    - Web-APIs
+    - Bibliotheks-APIs
+    - Betriebssystem-APIs
+    - Datenbank-APIs
+    - Hardware-APIs
+- APIs sorgen vor allem für die Interoperabilität zwischen verschiedenen Softwareanwendungen
+- Entwickler müssen nicht den inneren Aufbau einer Anwendung kennen, um Daten aus ihr herauszulesen
+- APIs spielen große Rolle beim Vernetzen und Automatisieren von Anwendungen
+
+---
+
+#### API vs. SDK (Application Programming Interface vs. Software Development Kit)
+
+SDK:
+
+- Satz von Werkzeugen, Bibliotheken und Dokumentationen, der Entwicklern bereitgestellt wird, um Software für eine bestimmte Plattform, Betriebssystem oder API zu entwickeln
+- können Codebeispiele, Entwicklungsumgebungen, Debugger, etc. enthalten
+- werden oft von Unternehmen erstellt, um Entwicklern die Integration in ihre Produkte zu vereinfachen
+
+Unterschied API vs. SDK:
+
+- API ist Schnittstelle, die den Zugriff auf Funktionen oder Daten ermöglicht
+- SDK ist ein Entwicklungsset von Werkzeugen, die Entwicklern hilft, Anwendungen für eine bestimmte Anwendung, etc. zu entwickeln
+
+---
+
+### API-Styles
+
+#### Resource Style
+
+- auch REST-Style genannt
+- Ressourcen werden als eindeutige URLs dargestellt
+- Operationen werden mithilfe von HTTP-Methoden (HTTP-GET & HTTPS-POST) auf Ressourcen angewendet
+- klare Struktur durch REST-Standard
+- HATEOAS (Hypertext as the Engine of Application State) wichtiges Konzept
+
+
+
+#### Hypermedia Style
+
+- baut auf REST-Prinzip auf
+- Anstelle von festgelegten URLs wird die Darstellung und Navigation durch Hyperlinks realisiert
+- API stellt Hypermedia-Dokumente bereit, die Hyperlinks enthalten
+
+---
+
+#### Query-Style:
+
+- Daten werden durch das Senden von Abfragen extrahiert und manipuliert
+- Beispiel für Query-Style: GraphQL
+- hohe Flexibilität und Effizienz
+
+
+
+#### Tunnel-Style:
+
+- Aktionen an die API werden alle an den selben Endpunkt gesendet
+- Hilfreich, wenn Anzahl der Endpunkte minimiert werden soll
+
+
+
+#### Event-based-Style:
+
+- Übertragung von Daten zwischen Anwendungen und Systemen
+- Anwendungen registrieren bei der API
+- Echtzeitreaktionen auf Änderungen
+
+---
+
+### API Implementation Standards
+
+- Ansätze und Prinzipien, die bei der Entwicklung von APIs befolgt werden
+- Gängigste Implementierungsstandards: RESTful, GraphQL
+
+---
+
+### RESTful
+
+#### Motivation
+
+- RESTful sollte ein einfaches und konsistentes Modell für die Kommunikation zwischen Systemen über das HTTP-Protokoll darstellen
+- Basiert auf bewährten Prinzipien, wie Verwendung von HTTP und URL
+
+#### Vorteile:
+
+- Einfachheit
+- Skalierbarkeit
+- Unabhängigkeit von der Programmiersprache
+- Sicherheit
+
+#### Nachteile:
+
+- Over-Fetching und Under-Fetching
+- Mangelnde Flexibilität
+- Versionierung
+
+---
+
+#### HATEOS (Hypertext as the Engine of Application State)
+
+- Interaktion und Navigation soll durch Hyperlinks gesteuert werden
+- Clients können die API dynamisch erkunden, indem sie den Hyperlinks folgen
+- “Der Server sagt dem Client, was als nächstes zu tun ist”.
+
+Beispiel (Erstellt durch Chat-GPT-3.5):
+
+```json
+{
+"name": "Produkt A",
+"price": 100.00,
+"links": [
+{
+"rel": "self",
+"href": "/products/1"
+},
+{
+"rel": "buy",
+"href": "/checkout?product=1"
+}
+]
+}
+```
+
+- Die Antwort des Servers enthält Hyperlinks, die dem Client sagen, dass es eine Aktion “buy” gibt, die zum Checkout führt
+
+---
+
+#### Best Practices für RESTful-APIs
+
+- Benennung von REST-API-Endpoints
+- Error Handling
+- Security
+
+---
+
+### GraphQL
+
+#### Motivation
+
+- von Facebook entwickelt, um Anforderungen der App-Entwicklung zu erfüllen
+- Clients können genau die Daten abrufen, die sie benötigen
+- flexible Schnittstelle
+
+#### Vorteile:
+
+- Flexibilität
+- Einziger Endpunkt
+- Schnelle Entwicklung
+
+#### Nachteile:
+
+- Komplexität
+- Potenzieller Overhead
+
+---
+
+#### Schema
+
+- Schema ist zentrales Element
+- Schema definiert, welche Daten in der API verfügbar sind und wie sie in Beziehung zueinander stehen
+- Enthält zwei Haupttypen:
+- In spezieller Abfragesprache definiert → weist klare Struktur auf
+
+---
+
+#### Abfragen (Query)
+
+- Clients können Abfragen senden, um genau die Daten zu bekommen, die sie benötigen
+- sendet Anfrage an den Server, die beschreibt, welche Daten er haben möchte
+- Abfragen ähneln der Struktur, die der Server zurück liefert
+
+Beispiel einer Abfrage:
+
+```graphql
+{
+  user(id: 123) {
+    name
+    email
+  }
+}
+```
+
+---
+
+#### Resolver
+
+- Funktionen, die dem Server sagen, wie Daten für jeweilige Anfrage tatsächlich abgerufen werden
+- jedes Feld in einem GraphQL-Schema wird ein Resolver zugeteilt
+
+Beispiel eomes GraphQL-Resolvers:
+
+```jsx
+const resolvers = {
+  Query: {
+    user: (parent, args, context, info) => {
+      // Hier wird die Logik für die Abfrage des Benutzers implementiert
+    }
+  }
+};
+```
+
+---
+
+#### Mutationen
+
+- Mutationen dienen dazu, Daten zu ändern und zu aktualisieren
+- Clients können Daten erstellen, ändern oder löschen
+
+Beispiel einer Mutation:
+
+```graphql
+mutation {
+  updateUser(id: 123, input: { name: "Neuer Name", email: "neue@email.com" }) {
+    id
+    name
+    email
+  }
+}
+```
+
+---
+
+### Backend-for-Frontend
+
+- Architekturmuster, das dazu dient, die Kommunikation zwischen Frontend und verschiedenen Backends zu optimieren
+- oft in Anwendungen mit mehreren Plattformen eingesetzt
+
+#### Hauptmerkmale:
+
+- Spezifische Backend-Instanzen
+- Angepasste APIs
+- Aggregation und Transformation
+- Leistungsoptimierung
+
+---
+class: center, middle
+### API-Design
+
+
+---
+### Code First vs. Design First
+
+#### Code First
+
+- Implementierung der API steht im Vordergrund
+- wird verwendet, wenn bereits existierender Code in eine API umgewandelt werden soll
+
+#### Merkmale von Code-First
+
+Merkmale von Code-First:
+
+- Direkter Start
+- Nachträgliche Spezifikation
+- Flexibilität
+- MVP
+
+---
+
+#### Design First
+
+- Erstellung einer formalen API-Spezifikation und Dokumentation steht im Vordergrund
+- Implementierung der API beginnt erst nach Erstellung der Dokumentation
+
+#### Merkmale von Design-First
+
+- Klare Spezifikation
+- Spezifikationssprachen
+- Zusammenarbeit
+- Flexibilität
+
+---
+class: center, middle
+### API Versionierung
+---
+#### URL-Versionierung
+
+- API-Version wird direkt in der URL angegeben
+
+#### Vorteile:
+
+- Einfach zu implementieren
+- Cache-Kontrolle
+
+#### Nachteile:
+
+- Unübersichtliche URL
+- Schwierige Umleitung
+
+---
+
+ 
+
+#### Header-Versionierung
+
+- API-Version wird in einem speziellen HTTP-Header angegeben
+- Clients müssen Header in ihre Anfrage schreiben:
+    
+    ```bash
+    GET /resource
+    Accept-Version: v1
+    ```
+    
+
+#### Vorteile:
+
+- Saubere URLs
+- Client-Steuerung
+
+#### Nachteile
+
+- Client ist verantwortlich
+---
+
+#### Media-Type-Versionierung
+
+- API-Version wird in den Mediatypen der Anfrage festgelegt
+
+#### Vorteile:
+
+- Klare Identifikation
+- Flexibilität
+
+#### Nachteile:
+
+- Aufwand
+- Zusätzlicher Header
+
+---
+
+### Testing
+
+- wichtig, um zu garantieren, dass die API einwandfrei funktioniert
+
+Es gibt verschiedene Arten von API-Tests:
+
+- Einheitstests
+- Integrationstests
+- End-to-End-Tests
+- Last- und Leistungstests
+- Sicherheitstests
+
+---
+
+### Spezifikation/Dokumentation
+
+- OpenAPI und JSON Schema sind zwei bekannte Werkzeuge, die für die Dokumentation und Spezifikation von APIs verwendet werden
+
+#### OpenAPI
+
+- Offene Spezifikation, die RESTful-APIs beschreiben und dokumentieren kann
+- Struktur, Endpunkte, Parameter, Antwortformate können einheitlich beschrieben werden
+
+---
+
+#### Hauptmerkmale von OpenAPI
+
+- Formale Spezifikation
+- Interaktive Dokumentation
+- Codegenerierung
+- Standardisierung
+- Link zur Organisation: [https://www.openapis.org/](https://www.openapis.org/)
+
+---
+
+#### JSON-Schema
+
+- Spezifikation für die Validierung von JSON-Datenstrukturen
+- kann zur Spezifikation von Daten einer API genutzt werden
+
+#### Hauptaspekte:
+
+- Validierung von JSON
+- Datenbeschreibung
+- Beispielverwendung
+
+---
+
+Beispiel (Erstellt von Chat-GPT-3.5):
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    }
+  },
+  "required": ["id", "name", "email"]
+}
+```
+---
+
 ## Verständnissfragen 
 
 1. Was ist der Unterschied zwischen einem Command, einem Query und einem Event?
@@ -504,6 +917,15 @@ Ein Beispiel für ein CLI ist die Windows Powershell
 6. Was ist Serialisierung?
 7. Was ist der Unterschied zwischen JSON, XML und Protobuf?
 8. Was ist der Unterschied zwischen einem GUI und einem CLI?
+9. Was ist eine API?
+10. Was ist der Unterschied zwischen einer API und einem SDK?
+11. Nenne und beschreibe einen API-Style!
+12. Was ist das RESTful-Modell?
+13. Was ist GraphQL?
+14. Was sind Resolver?
+15. Nenne ein API-Design und beschreibe es!
+16. Wie kann man APIs versionieren?
+17. Wie werden APIs getestet?
 
 ---
 
@@ -551,3 +973,39 @@ https://www.futureofvoice.com/blog/voicebots/voice-user-interface-vui-was-ist-da
 
 alexa
 https://s3.amazonaws.com/www-inside-design/uploads/2018/08/voice-uis-square.jpg
+
+https://www.redhat.com/de/topics/api/what-are-application-programming-interfaces [letzte Einsicht: 25. Oktober 2023]
+
+https://aws.amazon.com/de/compare/the-difference-between-sdk-and-api/ [letzte Einsicht: 25. Oktober 2023]
+
+https://blog.axway.com/learning-center/apis/api-trends/hypermedia-apis [letzte Einsicht: 26. Oktober]
+
+---
+# Quellen
+
+https://medium.com/event-driven-utopia/event-driven-apis-understanding-the-principles-c3208308d4b2 [letzte Einsicht: 26. Oktober 2023]
+
+https://graphql.org/ [letzte Einsicht: 26. Oktober 2023]
+
+https://www.ionos.de/digitalguide/websites/web-entwicklung/hateoas-alle-informationen-zu-der-rest-eigenschaft/ [letzte Einsicht: 26. Oktober 2023]
+
+https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design/ [letzte Einsicht: 26. Oktober 2023]
+
+https://blog.bitsrc.io/bff-pattern-backend-for-frontend-an-introduction-e4fa965128bf [letzte Einsicht: 26. Oktober 2023]
+
+https://www.visual-paradigm.com/guide/development/code-first-vs-design-first/ [letzte Einsicht: 27. Oktober 2023]
+
+https://restfulapi.net/versioning/ [letzte Einsicht: 27. Oktober 2023]
+
+https://www.torocloud.com/blog/api-versioning-url-vs-header-vs-media-type-versioning [letzte Einsicht: 27. Oktober 2023]
+
+---
+# Quellen
+
+https://www.lucidchart.com/blog/de/api-tests-grundlagen-und-best-prectices#:~:text=Was%20sind%20API%2DTests%3F,mangelhaftes%20oder%20unsicheres%20Produkt%20erhalten [letzte Einsicht: 27. Oktober 2023]
+
+https://www.ionos.de/digitalguide/websites/web-entwicklung/was-ist-openapi/ [letzte Einsicht: 27. Oktober 2023]
+
+https://json-schema.org/ [letzte Einsicht: 27. Oktober 2023]
+
+https://www.tutorialspoint.com/json/json_schema.htm [letzte Einsicht: 27. Oktober 2023]
