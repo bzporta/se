@@ -2,171 +2,25 @@ class: center, middle
 
 ## [Software Engineering](../../praesentationen.html)
 
-#### Kapitel x
+#### Kapitel 4
 
 # Kapitelüberschrift
 
 Max Mustermann
 
 ---
-# Inhalt
+## Inhalt
 ***
 
-1. Einführung
+1. Kommunikation
 
-1. Standards
+2. Patterns
 
-1. Softwaremessung
+3. Protokolle
 
-1. Zusammenfassung
+4. Serialisierung
 
-1. Quellen
-
----
-# Einführung
-
-Softwaresysteme sollen "**_fit for purpose_**" sein.
-
-- **Effizient**
-- *Zuverlässig*
-- Fertigstellung innerhalb eines Zeit- und Kostenrahmens
-
-Die Techniken des Softwarequalitätsmanagements kommen ursprünglich aus der Fertigungsindustrie.
-
-**Qualitätssicherung** ist die Definition von Prozessen und Standards, die zu qualitativ hochwertigen Produkten führen, und die Einführung dieser Qualitätsprozesse in den Fertigungsprozess.
-
-**Qualitätslenkung** ist die Anwendung dieser Qualitätsprozesse, um Produkte auszusieben, die dem geforderten Qualitätsniveau nicht entsprechen.
-
----
-# Einführung
-
-Um die Prozesse in der Softwareentwicklung umzusetzen, stellen die Teams sicher, dass die zuvor festgelegten Standards und Ziele des Unternehmens mit dem Produkt übereinstimmen.
-
-![:scale 20%](media/image.jpg)
-
-![](media/image.jpg)
-
-
----
-# Standards
-
-Softwarestandards spielen eine wichtige Rolle im Qualitätsmanagement.
-
-1. Standards kapseln Erfahrungen, die für das Unternehmen von großem Wert sind.
-
-2. Standards bieten einen Rahmen für die Definition, was "Qualität" innerhalb des Softwareentwicklungsprojektes bedeutet.
-
-3. Standards tragen zur Kontinuität bei, sodass alle Entwickler nach denselben Verfahren arbeiten.
-
----
-
-# Standards
-
-Standards müssen sich immer positiv auf die Produktqualität auswirken.
-
-**Produktstandards** sollten dabei so entworfen werden, dass sie kosteneffizient angewendet und geprüft werden können.
-
-**Prozessstandards** sollten die Prozesse definieren, die prüfen, dass die Produktstandards eingehalten werden.  
-
-| Rolle | Aufgabe |
-|:------:|:----------:|
-| **Auftraggeber** | Erteilt den Auftrag und bezahlt das Projekt |
-| **Auftragnehmer** | Nimmt die Anforderungen an das Softwareprodukt entgegen|
-| **Benutzer** | Benutzen die Software. Manchmal mit Auftraggeber identisch |
-| **Manager** | Treffen während des Projekts organisatorische Entscheidungen |
-| **Berater** | Unterstützen den Kunden in der Definition der Anforderungen |
-| **Informatiker** | Definieren und entwickeln Software in verschiedenen Rollen mit unterschiedlichen Aufgaben aufgeteilt|
-
----
-# Softwareentwicklung
-
-Entwicklungsmethoden:
-
-- _Prüfen von Code, bevor er eingefügt wird:_  
-  Entwickler prüfen den Code ihrer Teammitglieder, bevor der Code in die aktuelle Version eingebracht wird.
-
-- _Probleme beheben, sobald sie auftreten:_  
-  Probleme sollten sofort behoben werden, wenn sie entdeckt werden, auch wenn der Code von anderen Entwicklern stammt.
-
----
-# Softwaremessung
-
-Bei der Softwaremessung geht es darum, Merkmale eines Softwaresystems zu quantifizieren.
-
-Code block:
-
-```javascript
-function add(a, b)
-  return a + b
-end
-```
-
----
-# Markdown
-
-## Paragraph
-
-Paragraph mit **strong**, *italic*, `code`.
-
-Links so [github](https://github.com/) oder so https://github.com/ .
-
-## Tabelle
-
-|ID|Name|Value|
-|--|----|-----|
-| 1|foo |   10|
-| 2|bar |   20|
-
-
----
-# Aufzählung
-
-1. Nummer 1
-    - bullet 1
-    - bullet 2
-2. Nummer 2
-    1. child 1
-    2. child 2
-3. Nummer 3
-
-## Enumeration 
-
-* A
-* B
-
----
-# Zusammenfassung
-
-- Folien werden mit `---` voneinander abgetrennt (Achtung: kein Leerzeichen am Ende)
-- Bilder, Diagramme etc. im `media`-Unterverzeichnis speichern
-- Wird die Datei `remark-latest.min.js` heruntergeladen, können die Folien offline bearbeitet werden. Pfad im `script`-Tag anpassen.
-- [Remark.js](https://remarkjs.com/)
-
----
-class: center, middle
-
-# Fragen?
-
----
-# Quellen
-***
-
-Commands vs. Query vs. Event
-https://medium.com/event-driven-utopia/using-commands-events-and-queries-in-microservices-communication-3573f1fcfafe
-
-Synchron vs. Asynchron
-https://learn.microsoft.com/en-us/dotnet/architecture/microservices/architect-microservice-container-applications/asynchronous-message-based-communication
-
-Publish-Subscribe
-https://learn.microsoft.com/en-us/azure/architecture/patterns/_images/publish-subscribe.png
-
-RequestResponse
-https://medium.com/@rohitpatil97/http-request-http-response-context-and-headers-part-iii-5c37bd4cb06b
-
-PushPull
-https://www.bwl-lexikon.de/wiki/push-pull-strategie/
-
-https://www.alibabacloud.com/blog/pull-or-push-how-to-select-monitoring-systems_599007
+5. Software system interfaces
 
 ---
 
@@ -191,7 +45,6 @@ Eine Aufforderung eine bestimmte Funktion auszuführen
 - Der Nachrichtenproduzent erwartet, dass der Nachrichtenkonsument etwas tut
 - Eventuell erwartet der Produzent eine Antwort von dem Konsumenten
 - In der Aufforderung sind alle nötigen Informationen enthalten
-- 
 
 ---
 
@@ -229,7 +82,7 @@ Erwartet eine Antwort | Erwartet eine Antwort | Erwartet keine Antwort
 Typischerweise ein Empfänger | Typischerweise ein Empfänger | Typischerweise mehrere Empfänger
 Commands für die Zukunft | Queries für die Gegenwart | Events für die Vergangenheit
 
-![:scale 20%](media/commandvseventvsquery.png)
+![:scale 80%](media/commandvseventvsquery.png)
 
 ---
 
@@ -242,7 +95,7 @@ RPC - Remote Procedure Call
 - Threads werden blockiert, bis die Antwort des Servers eintrifft
 - (Es gibt auch asynchrone RPCs)
 
-![:scale 20%](media/rpc.png)
+![:scale 60%](media/rpc.png)
 
 ---
 
@@ -278,7 +131,7 @@ Es gibt verschiedene Patterns, die bei der Kommunikation in verteilten Systemen 
 - In der Regel wird ein Message Broker verwendet
   - Dieser nimmt die Nachrichten entgegen und verteilt sie an die registrierten Services
 
-![:scale 20%](media/publishsubscribe.png)
+![:scale 70%](media/publishsubscribe.png)
 
 ---
 
@@ -292,11 +145,11 @@ Senden von Nachrichten an eine Warteschlange
   - Pufferung von Nachrichten, wenn der Empfänger nicht verfügbar ist
   - Empfänger kann Nachrichten nach einander abarbeiten
 
-  ![:scale 20%](media/messagequeue.jpg)
+  ![:scale 70%](media/messagequeue.jpg)
 
 ---
 
-### Requeste-Response Model
+### Request-Response Model
 
 Synchrones Kommunikationsmuster
 
@@ -307,7 +160,7 @@ Webseiten laden normalerweise nach diesem Prinzip
 - Oft wird die Antwort im HTTP-Format zurückgegeben
 - Das Request-Response Modell ist in HTTP implementiert
 
-![:scale 20%](media/Requestresponse.png)
+![:scale 70%](media/Requestresponse.png)
 
 ---
 
@@ -326,7 +179,7 @@ Das System, das die Daten sendet, muss wissen, wohin und wann es die Daten sende
 
 Verständnisbeispiel
 
-![:scale 20%](media/pushpull.png)
+![:scale 100%](media/pushpull.png)
 
 ---
 
@@ -334,7 +187,7 @@ Verständnisbeispiel
 
 Softwarebeispiel
 
-![:scale 20%](media/pushpullsoftware.png)
+![:scale 120%](media/pushpullsoftware.png)
 
 ---
 
@@ -356,6 +209,8 @@ class: center,middle
 
 ## Protokolle
 
+Protokolle sind Regeln, die die Kommunikation zwischen zwei Systemen definieren
+
 ---
 
 ### gRPC
@@ -368,3 +223,331 @@ Hochperformantes, offenes RPC-Framework
 - Basierend auf HTTP/2
 - Unterstützt viele Programmiersprachen
 - Wird z.B. von Netflix verwendet
+
+Der Vorteil von gRPC gegenüber anderen Protokollen ist die Geschwindigkeit und die Effizienz
+
+- Diese wird durch die Verwendung von HTTP/2 erreicht
+- Http/2 ist besonders schnell und kann **mehrere Anfragen gleichzeitig** bearbeiten
+
+---
+
+### HTTP/s
+
+HTTP/s - Hypertext Transfer Protocol Secure
+
+HTTP ist ein Protokoll, das die Kommunikation zwischen einem Webbrowser und einem Webserver ermöglicht
+
+- Ein besonderes Transportprotokoll (TLS/SSL) macht HTTP/s besonders sicher
+  - Nachrichten werden so verschlüsselt, dass sie nur vom Sender und Empfänger gelesen werden können
+  - Hacker haben es so schwerer, die Nachrichten abzufangen und zu lesen
+- HTTP/s ist heute das am häufigsten verwendete Protokoll für die Kommunikation zwischen Webbrowsern und Webservern
+- Benutzt eine Seite nicht HTTPS, wird sie als unsicher markiert
+
+---
+
+#### Continuous Connection
+
+Continuous Connection ermöglicht es eine Verbindung zwischen einem Client und einem Server aufrecht zu erhalten
+
+- Sie wird nicht nach jeder Anfrage geschlossen
+- Der Server kann so mehrere Anfragen von einem Client bearbeiten
+
+Das ist wichtig wenn man zum Beispiel eine Webseite lädt:
+
+- Viele Bilder und Dateien müssen vom Server geladen werden
+- Der Server kann so alle Anfragen des Clients bearbeiten, ohne dass der Client jedes Mal eine neue Verbindung aufbauen muss
+- Sont müsste der Client für jede Datei eine neue Verbindung aufbauen
+- Niedrigere Latenzzeit
+
+Der Nachteil ist aber, dass der Server mehrere Verbindungen gleichzeitig offen halten muss
+
+- Das kann zu einer hohen Serverlast führen
+
+---
+
+#### Polling vs Long-Polling vs. SSE
+
+Polling | Long-Polling | Server-Sent Events
+--- | --- | ---
+Der Client fragt den Server regelmäßig nach neuen Daten | Der Client fragt den Server nach neuen Daten und wartet auf den Server| Der Server sendet selbst dem Client neue Daten, wenn er welche hat (Event)
+Hat der Server keine neuen Daten, sendet er eine leere Antwort | Die Verbindung bleibt offen bis der Server die Daten hat | Der Client kann auf die Antwort des Servers reagieren
+
+Nicht jeder Browser unterstützt SSE
+
+- Internet Explorer kann nicht auf die Events reagieren
+
+---
+
+### WebSockets
+
+WebSockets sind eine Technologie, die eine bidirektionale Verbindung zwischen einem Client und einem Server ermöglichen
+
+Basiert auf TCP
+
+Bidirektionale Verbindung bedeutet, dass beide Seiten gleichzeitig Daten senden und empfangen können
+
+Die grundlegende Verbindung bleibt bestehen
+
+- Der Server kann Daten an den Client senden
+- Der Client kann Daten an den Server senden
+- Keine Anfrage-Antwort-Struktur
+- Informationsaustausch besonders schnell und effizient
+
+Die meisten gängigen Browser und Programmiersprachen unterstützen WebSockets
+
+---
+
+### Serialisierung
+
+Serialisierung ist der Prozess, bei dem ein Objekt in ein Format umgewandelt wird, das für die Übertragung geeignet ist
+
+- Das Objekt wird in Bytes umgewandelt
+- Die Bytes können dann übertragen werden
+- Der Empfänger kann die Bytes wieder in ein Objekt umwandeln
+- Typischerweise werden Objekte in JSON oder XML serialisiert
+- Netzwerkprotokolle übertragen typischerweise Bytes
+- Deserialisierung ist der umgekehrte Prozess (Bytes -> Objekt)
+
+Serialisierung ist auch wichtig um Objekte in einer Datenbank zu speichern
+
+---
+
+#### JSON
+
+JSON - JavaScript Object Notation
+
+- JSON ist ein Format, das für die Übertragung von Daten verwendet wird
+- Es ist ein Textformat
+- Es ist einfach zu lesen und zu schreiben
+- Unterstützt viele Programmiersprachen und Datenbanken
+- JSON ist sehr leichtgewichtig
+- JSON kann schlecht komplexe Datenstrukturen abbilden
+- JSON kann nicht alle Datentypen abbilden
+
+JSON ist ein Schlüssel-Wert-Format
+
+Ein typisches JSON-Objekt sieht so aus:
+
+```json
+{
+  "name": "Max Mustermann",
+  "age": 42,
+  "hobbies": ["Programming", "Reading"]
+}
+```
+
+---
+
+#### XML
+
+XML - Extensible Markup Language
+
+- XML ist ein Format, das für die Übertragung von Daten verwendet wird
+- Es ist ein Textformat
+- Es ist einfach zu lesen und zu schreiben
+- Unterstützt viele Programmiersprachen und Datenbanken
+- Mit XML kann man besonders gut komplexe Datenstrukturen abbilden
+  - Das ist ein Vorteil gegenüber JSON
+
+XML hat eine ähnliche Struktur wie HTML
+
+Ein typisches XML-Objekt sieht so aus:
+
+```xml
+<person>
+  <name>Max Mustermann</name>
+  <age>42</age>
+  <hobbies>
+    <hobby>Programming</hobby>
+    <hobby>Reading</hobby>
+  </hobbies>
+</person>
+```
+
+---
+
+#### Protocol Buffers
+
+Protocol Buffers - Protobuf
+
+- Protobuf ist ein Format, das für die Übertragung von Daten verwendet wird
+- Entwickelt von Google
+- **Es ist ein Binärformat**
+- **Es ist nicht einfach zu lesen und zu schreiben**
+- Im Vergleich zu JSON und XML ist es sehr schnell und effizient
+- Protobuf kann mehr Datentypen abbilden als JSON und XML
+- Protobuf ist aufwändiger zu implementieren als JSON und XML
+  - Aber auch sicherer und besser für komplexe Datenstrukturen geeignet
+  - Man muss bestimmte Schema-Dateien erstellen, die die Datenstruktur definieren
+  - Ohne Schema kann man keine Daten serialisieren oder deserialisieren
+
+---
+
+class: center, middle
+
+## Data Management Patterns
+
+Bewährte Muster für die Verwaltung von Daten
+
+---
+
+### CRUD
+
+Die Grundlegenden Operationen für die Verwaltung von Daten
+
+Alle Funktionen sind zusammengefasst in einem CRUD-Interface
+
+CRUD - Create, Read, Update, Delete
+
+- Create: Erstellen von Daten
+- Read: Lesen von Daten
+- Update: Aktualisieren von Daten
+- Delete: Löschen von Daten
+
+---
+
+### CQRS
+
+CQRS - Command Query Responsibility Segregation
+
+Ein Muster, das die Verantwortung für die Lese- und Schreiboperationen in Datenspeichern trennt (Command und Query)
+
+- Command: Schreiboperationen
+- Query: Leseoperationen
+
+Dadurch können die einzelnen Operationen optimiert werden
+
+- Höhere leistung
+
+CQRS ist nur für komplexe Systeme sinnvoll
+
+Implementation ist aufwändig
+
+CQRS und CRUD sind nicht gegensätzlich und können kombiniert werden
+
+---
+
+### CQRS
+
+![:scale 100%](media/cqrs.png)
+
+---
+
+class: center, middle
+
+## Software system interfaces
+
+Software system interfaces sind Schnittstellen, die die Kommunikation zwischen zwei Systemen ermöglichen
+
+---
+
+### GUIs
+
+GUI - Graphical User Interface
+
+Eine Gui ist eine Schnittstelle, die es einem Benutzer ermöglicht, mit einem Computer zu interagieren
+
+Die Gui ist ein grafisches Element, das auf einem Medium angezeigt wird
+
+- Eine Gui besteht aus verschiedenen Elementen
+  - Buttons, Textfelder, Dropdown-Menüs, etc.
+
+- Eine Gui kann auf verschiedene Arten implementiert werden
+  - Desktop-Anwendung
+  - Web-Anwendung
+  - Mobile-Anwendung 
+
+Guis können mit verschiedenen Programmiersprachen implementiert werden
+
+- Java, C#, Python, JavaScript, etc.
+
+---
+
+### Voice UIs
+
+Voice UI - Voice User Interface
+
+Benutzerschnittstelle, die es einem Benutzer ermöglicht, mit einem Computer über Sprache zu interagieren
+
+Sprachassistenten wie Siri, Alexa und Google Assistant sind Voice UIs
+
+Die Spracheingabe wird in Text umgewandelt mit dem der Computer arbeiten kann
+
+![:scale 40%](media/alexa.jpg)
+
+---
+
+### CLI
+
+CLI - Command Line Interface
+
+Ein Cli ist die einfachste Form einer Benutzerschnittstelle
+
+- Der Benutzer interagiert mit dem Computer über die Kommandozeile
+- Befehle werden in Textform eingegeben 
+- Die Software kann im Terminal schreiben und lesen
+- Es verhält sich wie Chat zwischen Benutzer und Computer
+
+Ein Beispiel für ein CLI ist die Windows Powershell
+
+- Git Bash ist auch ein CLI und Git ist eine Software, die über die Kommandozeile bedient wird
+
+---
+
+## Verständnissfragen 
+
+1. Was ist der Unterschied zwischen einem Command, einem Query und einem Event?
+2. Was ist der Unterschied zwischen einem synchronen und einem asynchronen Kommunikationsmuster?
+3. Wann braucht man ein Publish-Subscribe Muster?
+4. Was für Protocolle gibt es für die Kommunikation zwischen zwei Systemen?
+5. Wie können Clients und Server Daten austauschen?
+6. Was ist Serialisierung?
+7. Was ist der Unterschied zwischen JSON, XML und Protobuf?
+8. Was ist der Unterschied zwischen einem GUI und einem CLI?
+
+---
+
+# Quellen
+***
+
+Commands vs. Query vs. Event
+https://medium.com/event-driven-utopia/using-commands-events-and-queries-in-microservices-communication-3573f1fcfafe
+
+Synchron vs. Asynchron
+https://learn.microsoft.com/en-us/dotnet/architecture/microservices/architect-microservice-container-applications/asynchronous-message-based-communication
+
+Publish-Subscribe
+https://learn.microsoft.com/en-us/azure/architecture/patterns/_images/publish-subscribe.png
+
+RequestResponse
+https://medium.com/@rohitpatil97/http-request-http-response-context-and-headers-part-iii-5c37bd4cb06b
+
+PushPull
+https://www.bwl-lexikon.de/wiki/push-pull-strategie/
+
+https://www.alibabacloud.com/blog/pull-or-push-how-to-select-monitoring-systems_599007
+
+Protokolle
+https://medium.com/deliveryherotechhub/what-is-server-sent-events-sse-and-how-to-implement-it-904938bffd73
+
+---
+
+# Quellen
+
+WebSockets
+https://www.bigdata-insider.de/was-ist-websocket-a-1042523/#:~:text=Mit%20WebSocket%20lassen%20sich%20bidirektionale,Informationsaustausch%20wird%20effizienter%20und%20schneller.
+
+Serialisierung
+https://www.mikrocontroller.net/articles/Serialisierung
+
+Protobuf
+https://www.educba.com/protobuf-vs-json/
+
+Crud
+https://www.crowdstrike.de/cybersecurity-101/observability/crud/
+
+voice ui
+https://www.futureofvoice.com/blog/voicebots/voice-user-interface-vui-was-ist-das
+
+alexa
+https://s3.amazonaws.com/www-inside-design/uploads/2018/08/voice-uis-square.jpg
