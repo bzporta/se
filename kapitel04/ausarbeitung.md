@@ -12,7 +12,8 @@ Nach diesem Kapitel sollen folgende Aspekte klarer geworden sein:
 - Was ist Serialisierung?
 - Was gibt es für verschiedene Software System Interfaces?
 - Was ist eine API?
-- 
+- Design-Muster für APIs
+- Wie werden APIs getestet?
 
 ## Software system integration
 
