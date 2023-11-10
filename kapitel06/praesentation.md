@@ -14,6 +14,7 @@ Danny Meihöfer - Bjarne Zaremba
 
 1. Arten von Softwarelogik
 2. Softwarearchitekturen
+3. Systemarchitekturen
 
 ---
 
@@ -244,6 +245,281 @@ Zyklische Abhängigkeiten können zu Problemen führen
 
 ---
 
+## Domänenzentrierte Software-Architekturen
+
+- Strukturierung von Software mit Fokus auf Domäne (Geschäftsproblem)
+
+---
+
+### Onion-Architekur
+
+- Spezielle Form der domänenzentrierten Architektur
+- Trennung der Domänenlogik und der technischen Aspekte durch verschiedene Schichten (wie bei einer Zwiebel)
+- Wartbarkeit und Testbarkeit der Software wird verbessert
+
+![:scale 100%](media/Onion.png)
+
+Abb. 1: Darstellung der Onion-Architektur
+
+---
+
+#### Schichten der Onion-Architektur
+
+- Domänenmodell (Kern)
+
+- Domänenservices
+
+- Applikationsservices
+
+- Infrastrukturschicht
+
+
+---
+
+#### Vorteile der Onion-Architektur
+
+- Klare Trennung der Verantwortlichkeiten
+
+- Gute Testbarkeit
+
+- Flexibilität
+
+
+---
+
+#### Code-Beispiel der Onion-Architektur
+
+(Live-Coding während des Vortrages)
+
+---
+
+### Ports and Adapters Architecture (Hexagonale Architektur)
+
+- Architektur soll Abhängigkeiten in Softwareprojekten reduzieren
+- Domänenlogik wird in den Mittelpunkt gestellt und sie von äußeren Einflüssen zu entkopppeln
+
+![Abb. 2: Darstellung der hexagonalen Architektur](media/Hexagonal.png)
+
+Abb. 2: Darstellung der hexagonalen Architektur
+
+---
+
+#### Kernlogik (Core-Logic)
+
+- zentrale Element der hexagonalen Architektur
+
+- Kern enthält die Domänenlogik
+
+- Kern ist unabhängig vom Rest
+
+- Vorteile, u.a. Flexibilität, Wartbarkeit, Verständlichkeit
+
+---
+
+#### Ports
+
+- Schnittstellen oder Abstraktionen
+   
+- Trennen die Kernlogik klar von der “äußeren Welt”
+
+- Verträge, mit der die Kernlogik mit externen Teilen der Anwendung kommuniziert
+
+---
+
+#### 2 Arten von Ports
+
+**Inbound Ports:**
+
+- Schnittstelle, die für die Kommunikation der äußeren Welt mit der Kernlogik verantwortlich sind
+
+- Definition von Anfragen und Befehlen
+
+- Beispiele: Service- und Controllerschnittstellen
+
+```java
+// Beispiel für einen Inbound Port
+public interface OrderInputPort {
+    void placeOrder(Order order);
+}
+```
+
+→ Äußere Welt kann eine Bestellung in die Anwendung stellen
+
+---
+
+**Outbound Ports:**
+
+- Schnittstelle, die den Zugriff der Kernlogik auf externe Ressourcen ermöglicht
+
+- Definieren, wie die Kernlogik mit der Umgebung kommuniziert
+
+- Beispiel sind Repository- und Notification-Schnittstellen
+
+```java
+// Beispiel für einen Outbound Port
+public interface OrderOutputPort {
+    void notifyOrderPlaced(Order order);
+}
+```
+
+→ Benachrichtigung von der Kernlogik, wenn Order erfolgreich angekommen ist. Die konkrete Implementierung ist dabei aber unabhängig von der Kernlogik.
+
+---
+
+#### Adapters
+
+- Konkrete Implementierungen der Ports
+
+- Setzen die eigentliche Kommunikation zwischen Logik und äußeren Welt um
+
+---
+
+#### 2 Arten von Adaptern:
+
+**Driving Adapters (Primary Adapters)**
+
+- Interaktion mit Nutzern oder anderen Anwendungen
+    - Implementierung der Inbound Ports
+    - leiten Befehle an die Kernlogik weiter
+    - Integration der Anwendung in externe Systeme
+
+Beispiel:
+
+```java
+// Beispiel für einen Driving Adapter
+public class OrderController implements OrderInputPort {
+    private OrderService orderService;
+
+    @Override
+    public void placeOrder(Order order) {
+        // Der Driving Adapter leitet die Anfrage an die Kernlogik über den OrderService weiter
+        orderService.processOrder(order);
+    }
+}
+```
+
+→ Order Controller ist ein Driven Adapter, der die Inbound Port OrderInputPort implementiert.
+
+---
+
+**Driven Adapters (Secondary Adapters)**
+
+- Kommunikation mit externen Ressourcen
+    - z.B. Datenbanken, APIs, Messaging-Systeme
+- Implementieren die Outbound-Ports
+    - Kernlogik kann Informationen an die äußere Welt weitergeben
+
+Beispiel:
+
+```java
+// Beispiel für einen Driven Adapter
+public class DatabaseOrderRepository implements OrderOutputPort {
+    @Override
+    public void notifyOrderPlaced(Order order) {
+        // Der Driven Adapter speichert die Bestellung in der Datenbank
+        // Die konkrete Implementierungsdetails der Datenbankanbindung werden hier gehandhabt
+    }
+}
+```
+
+---
+
+#### Codebeispiel der hexagonalen Architektur:
+
+// Live-Coding im Vortrag
+
+
+---
+
+### **Clean Architecture als Realisierung der hexagonalen Architektur**
+
+- Weiterentwicklung der hexagonalen Architektur
+
+
+**Gemeinsame Prinzipien der beiden Architekturen:**
+
+- Unabhängig von externen Details
+- Trennung von Verantwortlichkeiten
+- Vorhandensein von Ports und Adaptern
+
+---
+
+**Clean-Architektur als Weiterentwicklung:**
+
+- Schichtenmodell
+    
+- Abhängigkeitsrichtung
+    
+- Betonung der Testbarkeit
+
+- Bessere Erweiterbarkeit
+
+
+<br>
+<br>
+
+**Fazit:**
+
+- Clean-Architektur als konkrete Implementierung der hexagonalen Architektur
+- Zusätzlich Strukturierungselemente durch das Aufteilen in Schichten
+- Software soll robust, flexibel und leicht-testbar sein
+
+---
+
+## Abbildung der Softwarearchitektur auf die Systemarchitektur
+
+- Beinhaltet die Strukturierung der Softwarearchitektur auf die physische Infrastruktur eines Systems
+
+---
+
+### Multi-Tier Architekturen
+
+- Softwareanwendung wird in mehrere Schichten und Ebenen geteilt, um Wartbarkeit zu vereinfachen
+
+- Unterscheidung zwischen Tier- und Layer-Schichten
+
+---
+
+**Tiers (Stufen):**
+
+- Physische Ebenen und Schichten der Software
+
+- Presentation-, Application- und Data-Tier sind häufige Tiers
+
+- Unterscheidung zwischen Client-Side-Tiers und Server-Side-Tiers
+
+**Layers (Schichten):**
+
+- Logische Unterteilung der Software
+
+- Repräsentieren verschiedene Aspekte der Software
+
+
+---
+
+#### [Zwei/Drei/Vier]-Stufen-Architektur
+
+**2-Stufen-Architektur:**
+
+- besteht aus 2 Haupt-Ebenen
+
+- Beispiel: Desktop-Anwendung, bei denen die Benutzeroberfläche und die Datenbank auf einem lokalen Gerät laufen
+
+**3-Stufen-Architektur:**
+
+- besteht aus 3 Haupt-Ebenen
+
+- Beispiel: Webbasierte Anwendungen
+
+
+**4-Stufen-Architektur:**
+
+- besteht aus 4 Haupt-Ebenen
+
+- Beispiel: Umfangreiche Unternehmenssysteme
+
+---
+
 ## Verständnissfragen
 
 1. Was ist eine Domäne?
@@ -252,6 +528,13 @@ Zyklische Abhängigkeiten können zu Problemen führen
 4. Was ist die Aufgabe der Steuerungslogik?
 5. Warum ist die Infrastrukturlogik in modernen Cloud Anwendungen so wichtig?
 6. Was ist das Schichtenmodell?
+7. Nenne und beschreibe eine Schicht der Onion-Architektur!
+8. Was ist ein Vorteil der Onion-Architektur?
+9. Was ist der Unterschied zwischen der Onion- und der hexagonalen Architektur?
+10. Was ist die Aufgabe von Ports im Zusammenhang mit der hexagonalen Architektur?
+11. Wie unterscheidet sich die hexagonale Architektur von der Clean-Architektur?
+12. Was sind Tiers? Was sind Layers?
+13. Aus welchen Schichten besteht die 3-Stufen-Architektur?
 
 ---
 
@@ -273,3 +556,31 @@ https://entwickler.de/software-architektur/weg-vom-schichtenmodell
 https://herbertograca.com/2017/08/03/layered-architecture/
 
 https://www.heise.de/blog/Zyklische-Abhaengigkeiten-eine-Architektur-Todsuende-4061803.html
+
+---
+
+# Quellen
+***
+
+https://www.innoq.com/de/blog/2018/02/ddd-mit-onion-architecture-umsetzen/
+
+https://hashdork.com/de/onion-architecture/
+
+Codebeispiele erstellt von Chat-GPT-3.5: https://chat.openai.com
+
+https://entwickler.de/software-architektur/noch-ungewohnt
+
+https://de.wikipedia.org/wiki/Hexagonale_Architektur
+
+https://logistikknowhow.com/it-und-software/definition-des-software-architektur-prinzips-clean-architecture/
+
+https://de.wikipedia.org/wiki/Schichtenarchitektur
+
+---
+
+# Abbildungen
+***
+
+Abb. 1: https://www.innoq.com/de/blog/2018/02/ddd-mit-onion-architecture-umsetzen/
+
+Abb. 2: https://entwickler.de/software-architektur/noch-ungewohnt
