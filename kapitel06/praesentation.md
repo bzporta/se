@@ -2,155 +2,274 @@ class: center, middle
 
 ## [Software Engineering](../../praesentationen.html)
 
-#### Kapitel x
+#### Kapitel 6
 
-# Kapitelüberschrift
+# Softwarelogik und Softwarearchitektur
 
-Max Mustermann
+Danny Meihöfer - Bjarne Zaremba
 
 ---
 # Inhalt
 ***
 
-1. Einführung
-
-1. Standards
-
-1. Softwaremessung
-
-1. Zusammenfassung
-
-1. Quellen
-
----
-# Einführung
-
-Softwaresysteme sollen "**_fit for purpose_**" sein.
-
-- **Effizient**
-- *Zuverlässig*
-- Fertigstellung innerhalb eines Zeit- und Kostenrahmens
-
-Die Techniken des Softwarequalitätsmanagements kommen ursprünglich aus der Fertigungsindustrie.
-
-**Qualitätssicherung** ist die Definition von Prozessen und Standards, die zu qualitativ hochwertigen Produkten führen, und die Einführung dieser Qualitätsprozesse in den Fertigungsprozess.
-
-**Qualitätslenkung** ist die Anwendung dieser Qualitätsprozesse, um Produkte auszusieben, die dem geforderten Qualitätsniveau nicht entsprechen.
-
----
-# Einführung
-
-Um die Prozesse in der Softwareentwicklung umzusetzen, stellen die Teams sicher, dass die zuvor festgelegten Standards und Ziele des Unternehmens mit dem Produkt übereinstimmen.
-
-![:scale 20%](media/image.jpg)
-
-![](media/image.jpg)
-
-
----
-# Standards
-
-Softwarestandards spielen eine wichtige Rolle im Qualitätsmanagement.
-
-1. Standards kapseln Erfahrungen, die für das Unternehmen von großem Wert sind.
-
-2. Standards bieten einen Rahmen für die Definition, was "Qualität" innerhalb des Softwareentwicklungsprojektes bedeutet.
-
-3. Standards tragen zur Kontinuität bei, sodass alle Entwickler nach denselben Verfahren arbeiten.
+1. Arten von Softwarelogik
+2. Softwarearchitekturen
 
 ---
 
-# Standards
+class: center, middle
 
-Standards müssen sich immer positiv auf die Produktqualität auswirken.
+# Arten von Softwarelogik
 
-**Produktstandards** sollten dabei so entworfen werden, dass sie kosteneffizient angewendet und geprüft werden können.
+Software besteht aus verschiedenen Arten von Logik
 
-**Prozessstandards** sollten die Prozesse definieren, die prüfen, dass die Produktstandards eingehalten werden.  
+Bestimmte Teile der Software haben verschieden Anforderungen und Aufgaben
 
-| Rolle | Aufgabe |
-|:------:|:----------:|
-| **Auftraggeber** | Erteilt den Auftrag und bezahlt das Projekt |
-| **Auftragnehmer** | Nimmt die Anforderungen an das Softwareprodukt entgegen|
-| **Benutzer** | Benutzen die Software. Manchmal mit Auftraggeber identisch |
-| **Manager** | Treffen während des Projekts organisatorische Entscheidungen |
-| **Berater** | Unterstützen den Kunden in der Definition der Anforderungen |
-| **Informatiker** | Definieren und entwickeln Software in verschiedenen Rollen mit unterschiedlichen Aufgaben aufgeteilt|
+Viele der Teile sind voneinander abhängig
 
 ---
-# Softwareentwicklung
 
-Entwicklungsmethoden:
+## Domänenlogik
 
-- _Prüfen von Code, bevor er eingefügt wird:_  
-  Entwickler prüfen den Code ihrer Teammitglieder, bevor der Code in die aktuelle Version eingebracht wird.
+Die Domänen Logik (Domain Logic) ist der Teil der Software, der sich mit den Regeln in einer Domäne beschäftigt
 
-- _Probleme beheben, sobald sie auftreten:_  
-  Probleme sollten sofort behoben werden, wenn sie entdeckt werden, auch wenn der Code von anderen Entwicklern stammt.
+Was ist eine Domäne?
 
----
-# Softwaremessung
+-Eine Domäne ist ein Bereich in dem sich die Software bewegt
 
-Bei der Softwaremessung geht es darum, Merkmale eines Softwaresystems zu quantifizieren.
+-Die Domäne representiert das Problem, das die Software lösen soll
 
-Code block:
+Das sind Beispiele für mögliche Domänen im Gesundheitswesen:
 
-```javascript
-function add(a, b)
-  return a + b
-end
-```
+- Patientenverwaltung, Terminplanung, Rechnungsverwaltung, etc..
 
----
-# Markdown
+Zur Domänenlogik gehören z.B. Algorithmen zur Berechnung von Werten, die in der Domäne benötigt werden
 
-## Paragraph
+- Berechnung des Body Mass Index (BMI) eines Patienten
 
-Paragraph mit **strong**, *italic*, `code`.
-
-Links so [github](https://github.com/) oder so https://github.com/ .
-
-## Tabelle
-
-|ID|Name|Value|
-|--|----|-----|
-| 1|foo |   10|
-| 2|bar |   20|
+Im Internet ist eine Domain auch eine Adresse wie `www.google.de`
 
 
 ---
-# Aufzählung
 
-1. Nummer 1
-    - bullet 1
-    - bullet 2
-2. Nummer 2
-    1. child 1
-    2. child 2
-3. Nummer 3
+## Geschäftslogik
 
-## Enumeration 
+Geschäftslogik (business Logic) ist der Teil der Software, der bestimmt wie eine Software mit den Daten umgeht
 
-* A
-* B
+Die Geschäftslogik folgt den Geschäftsregeln, um dem Workflow die das Unternehmen erwartet zu entsprechen
+
+Geschäftsregeln Warenkorb:
+
+- Der Kunde kann verfügbare Artikel in den Warenkorb legen
+- Der Kunde kann die Anzahl der Artikel im Warenkorb ändern
+- Der Kunde kann Artikel aus dem Warenkorb entfernen
+- Der Preis des Warenkorbs wird automatisch berechnet
+- Bestellt der Kunde, bekommt das Unternehmen eine Bestellung
+
+In diesem Beispiel steuert die Geschäftslogik den Workflow des Warenkorbs
+
+- Wie kann der Kunde den Warenkorb benutzen
+- Welche Daten bekommt das Unternehmen bei einer Bestellung
+
+Die Begriffe Geschäfts- und Domänenlogik werden oft synonym verwendet
 
 ---
-# Zusammenfassung
 
-- Folien werden mit `---` voneinander abgetrennt (Achtung: kein Leerzeichen am Ende)
-- Bilder, Diagramme etc. im `media`-Unterverzeichnis speichern
-- Wird die Datei `remark-latest.min.js` heruntergeladen, können die Folien offline bearbeitet werden. Pfad im `script`-Tag anpassen.
-- [Remark.js](https://remarkjs.com/)
+## Präsentationslogik
+
+Die Präsentationslogik ist der Teil der Software, der sich mit der Darstellung und Benutzerinteraktion beschäftigt
+
+Dazu gehört zum Beispiel das erstellen einer korrekten UI
+
+- Benutzerfreundlichkeit
+- Datenanzeige/ Formatierung
+- Benutzerinteraktion usw. 
+
+---
+
+## Steuerungslogik
+
+Die Steuerungslogik arbeitet eng mit der Präsentationslogik zusammen
+
+Die Algorithmen der Steuerungslogik reagieren auf Benutzerinteraktionen
+
+Sie können aber auch automatisch ausgeführt werden
+
+Drückt der Benutzer zum Beipiel auf einen Speichern-Button, wird die Steuerungslogik ausgeführt, die die Daten speichert
+
+---
+
+## Validierungslogik
+
+Die Validierungslogik ist der Teil der Software der die Daten auf Korrektheit überprüft
+
+Dazu gehören auch die Validierung von Benutzereingaben
+
+Ein Beispiel könnte eine Funktion sein, die überprüft ob eine E-Mail Adresse gültig ist, indem sie das Format der E-Mail Adresse überprüft (z.B. @ Zeichen)
+
+---
+
+## Infrastrukturlogik
+
+Die Infrastrukturlogik ist der Teil der Software, der sich mit der Verwaltung der Infrastruktur beschäftigt
+
+Ressourcen der Infrastruktur sind z.B. Datenbanken, Dateisysteme, Netzwerke und Server
+
+Diese werden über Code verwaltet (Auch Infrastructure as Code genannt (IaC))
+
+Besonders in modernen Cloud Anwendungen ist die Infrastrukturlogik sehr wichtig
+
+Beispielaufgaben der Infrastrukturlogik:
+
+- Infrastukrurressourcen bereitstellen
+- Skalierung
+- Verbindungen zu anderen Systemen herstellen
+
+---
+
+### Persistenz
+
+Persistant IaC ist eine Art der Infrastrukturlogik
+
+Sie kümmert sich um die Verwaltung von Ressourcen, die Dauerhaft verfügbar sein müssen
+
+Datenbanken müssen beispielsweise oft dauerhaft verfügbar sein
+
+---
+
+### Cache 
+
+Die Cache Infrastrukturlogik kümmert sich um die Verwaltung von Ressourcen, die nicht dauerhaft verfügbar sein müssen
+
+Der Cache ist eine temporäre Speicherung von Daten, die oft benötigt werden
+
+Die Infrastrukturlogik muss dafür sorgen, dass dieser möglichst effizient genutzt wird
+
+Beispiele für Aufgaben der Cache Infrastrukturlogik:
+
+- Welche Daten werden gecached
+- Wie lange werden die Daten gecached
+- Welche Daten müssen aus dem Cache gelöscht werden
+- Verteiltes Caching
+- Fehlerbehandlung im Cache
+- Überwachung und Optimierung
+- Sicherheit
+
+---
+
+### Transaktion
+
+Um Transaktionen durchzuführen benötigt eine Anwendung eine ganz eigene Infrastruktur für die Transaktionen.
+
+Die Infrastrukturlogik muss dafür sorgen, dass die Transaktionen korrekt durchgeführt werden
+
+Transaktionen müssen den ACID Prinzipien folgen
+
+- Atomicity (Atomarität)
+  - Vollständig, oder gar nicht
+- Consistency (Konsistenz)
+  - Daten müssen nach der Transaktion konsistent sein
+- Isolation (Isolation)
+  - Transaktionen dürfen sich nicht gegenseitig beeinflussen
+- Durability (Dauerhaftigkeit)
+  - Transaktionen müssen dauerhaft sein
 
 ---
 class: center, middle
 
-# Fragen?
+## Softwarearchitekturen
+
+Die Architektur einer Software beschreibt die Struktur der Software
+
+Sie ist kein detailierter Entwurf, sondern eine grobe Übersicht über die Komponenten und die Verbindungen zwischen ihnen
 
 ---
+
+## Schichtenarchitektur - Layered Architecture
+
+Eine Anwendung wird in mehrere Schichten aufgeteilt
+
+Jede Schicht hat eine bestimmte Aufgabe
+
+Die meisten Schichtenarchitekturen haben drei Schichten
+
+- Client - Präsentationsschicht - UI
+- Server - Logik
+- Datenbank/Infrastruktur - Persistenz
+
+Es gibt auch Architekturen mit mehr als drei Schichten
+
+An diesem Modell erkennt man gut wie unterschiedliche Arten von Logik in einer Software zusammenarbeiten
+
+---
+
+## Schichtenarchitektur - Layered Architecture
+
+![:scale 90%](media/layered-architecture.png)
+
+---
+
+### Schichtenarchitektur - Vor- und Nachteile
+
+Vorteile:
+
+- Leicht zu verstehen
+- Leicht umzusetzen
+- Man kann einzelne Schichten verändern
+
+Nachteile:
+
+- Schlechte Performance
+  - Daten müssen zwischen den Schichten übertragen werden
+- Schwierige Erweiterbarkeit
+- Begrenzte Skalierbarkeit
+
+
+---
+
+### Azyklische Abhängigkeiten
+
+Möchte man Komponenten unabängig voneinander entwickeln, müssen sie azyklisch sein
+
+Das bedeutet, dass keine Komponente von einer anderen abhängig sein darf
+
+Eine Änderung an einer Komponente darf keine Änderungen an einer anderen Komponente erfordern
+
+Einige Abhängigkeiten sind aber unvermeidbar
+
+Zyklische Abhängigkeiten können zu Problemen führen
+
+- Komponenten können nicht unabhängig voneinander entwickelt werden
+- Extreme erhöhung des Aufwands bei Änderungen
+
+---
+
+## Verständnissfragen
+
+1. Was ist eine Domäne?
+2. Wofür sorgen Domänen und Geschäftslogik?
+3. Was hat der Benutzer mit der Präsentationslogik zu tun?
+4. Was ist die Aufgabe der Steuerungslogik?
+5. Warum ist die Infrastrukturlogik in modernen Cloud Anwendungen so wichtig?
+6. Was ist das Schichtenmodell?
+
+---
+
 # Quellen
 ***
 
-- Kitchenham, B. (1990). Software Development Cost Models. 487-517.
+https://medium.com/@mani_c/domain-logic-data-gateways-and-mapping-relationships-e7260a072c47
 
-- Chidamber, S., and C. Kemerer. (1994). A Metrics Suite for Object-Oriented Design. 476-493.
+https://www.easytechjunkie.com/what-is-control-logic.htm?utm_content=cmp-true
+
+https://resource.flexrule.com/knowledge-base/validation-logic/
+
+https://www.techtarget.com/searchitoperations/definition/Infrastructure-as-Code-IAC#:~:text=Examples%20of%20infrastructure%2Das%2Dcode,Puppet%2C%20SaltStack%20and%20HashiCorp%20Terraform.
+
+https://www.softselect.de/business-software-glossar/schichtenarchitektur#:~:text=Eine%20Schichtenarchitektur%20oder%20mehrschichtige%20Applikation,Schichten%20des%20Ganzen%20zu%20fungieren.
+
+https://entwickler.de/software-architektur/weg-vom-schichtenmodell
+
+https://herbertograca.com/2017/08/03/layered-architecture/
+
+https://www.heise.de/blog/Zyklische-Abhaengigkeiten-eine-Architektur-Todsuende-4061803.html
