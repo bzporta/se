@@ -16,6 +16,13 @@ Danny Meihöfer - Bjarne Zaremba
 2. Die Ziele des Softwareentwurfs
 3. Entwurfsprinzipien
 4. SOLID-Prinzipien
+5. Entwurfsmuster
+6. Entkopplungsmuster
+7. Entwurf des Datenmodells
+8. Domain-Driven-Design
+9. Entwurd der Benutzerschnittstelle
+10. UI-Modelling
+11. Bekannte Regeln zum UI-Modelling
 
 ---
 
@@ -606,6 +613,366 @@ public class SMSServiceImpl implements MessageService {
 
 ---
 
+
+
+# Entwurfsmuster (Design Patterns)
+
+- bewährte Lösungsansätze für häufige, oft vorkommende Probleme in der Softwareentwicklung
+- Eine Art “Vorlage” zum Lösen eines Problems
+- Design Patterns fördern Flexibilität, Erweiterbarkeit und Sicherheit von Software
+
+---
+
+## Entkopplungsmuster
+
+- Entwurfsmuster, die Abhängigkeiten zwischen Komponenten eines Systems verringern sollen
+- Stark gekoppelte Systeme sind schwer zu verstehen, zu warten und zu warten
+- Interaktion zwischen Komponenten auf “lose Art”
+
+---
+
+### Repository Pattern
+
+**Entwurfsproblem:**
+
+- wird verwendet, um Daten aus verschiedenen Quellen abzurufen, zu löschen oder zu speichern
+- Datenzugriffsoperationen sollen nicht direkt im Quellcode stehen
+- Datenzugriff soll gekapselt werden
+
+**Herausforderungen, die das Repository-Pattern adressiert:**
+
+- Entkopplung von Datenzugriffslogik
+- Testbarkeit
+- Wartbarkeit
+- Wiederverwendbarkeit
+
+---
+
+**UML-Diagramm:**
+
+![Abb.1: UML-Diagramm des Repository-Patterns](media/repositorypattern.png)
+
+Abb.1: UML-Diagramm des Repository-Patterns
+
+**Anwendungsbeispiele:**
+
+- E-Commerce-Plattform
+
+
+---
+
+**Implementierungsbeispiele:**
+
+//Live-Coding im Vortrag
+
+
+---
+
+### Plugin-Pattern
+
+**Entwurfsproblem:**
+
+- Erweiterbarkeit einer Anwendung soll verbessert werden
+- Möglichkeit des Hinzufügens neuer Module und Funktionen, ohne dabei den bestehenden Code zu verändern
+- Schaffung einer Struktur, die Funktionen modular hinzufügen kann
+
+---
+
+**UML-Diagramm:**
+
+![Abb.2: UML-Diagramm des Plugin-Pattern](media/pluginpattern.png)
+
+Abb.2: UML-Diagramm des Plugin-Pattern
+
+- Schnittstelle “Plugin”
+- Klasse “Pluginmanager”
+
+
+**Anwendungsbeispiel:**
+
+Angenommen, wir haben eine Textverarbeitungsanwendung, die um zusätzliche Funktionen erweitert werden soll. Wir könnten Plugins für Rechtschreibprüfung, Übersetzung und Textformatierung erstellen. Diese Plugins könnten unabhängig voneinander entwickelt und zur Anwendung hinzugefügt oder daraus entfernt werden, ohne den Kern der Textverarbeitungsanwendung zu beeinträchtigen.
+
+---
+
+Implementierungsbeispiel:
+
+//Live-Coding im Vortrag
+
+---
+
+### Bridge-Pattern
+
+**Entwurfsproblem:**
+
+- Trennung von Abstraktion und Implementierung
+- Problem: Abstrakte Klasse und Implementierung sind häufig miteinander verbunden
+- Bridge-Pattern trennt Abstraktion und Implementierung
+
+
+---
+
+**UML-Diagramm:** 
+
+![:scale 40%](media/bridgepattern.png)
+
+Abb.3: UML-Diagramm des Bridge-Pattern
+
+- “Abstraction”
+- “Implementation”
+- “ConcreteImpl”
+- Beziehungen:
+
+
+**Anwendungsbeispiel:**
+
+Angenommen, wir entwickeln eine Grafikbibliothek, bei der Formen auf verschiedenen Plattformen gerendert werden sollen. Das Bridge Pattern könnte verwendet werden, um die Formen von der spezifischen Rendering-Implementierung zu entkoppeln.
+
+---
+
+**Implementierungsbeispiel:**
+
+//Live-Coding
+
+---
+
+### Visitor-Pattern
+
+**Entwurfsproblem:** 
+
+- Erweiterung von Klassen um neue Operationen, ohne den Code der Klassen zu ändern
+- Klassen teilen häufig gemeinsame Schnittstellen
+- Neue Operationen werden durch Hinzufügen von externen Besuchern erweitert
+
+---
+
+**UML-Diagramm:**
+
+![:scale 50%](media/visitorpattern.png)
+
+Abb.4: UML-Diagramm des Visitor-Patterns
+
+- `Visitor` (Besucher)
+- `ConcreteVisitor` (Konkreter Besucher)
+- `Element` (Element)
+- `ConcreteElement` (Konkretes Element)
+
+
+**Anwendungsbeispiel:**
+
+Angenommen, wir haben eine hierarchieübergreifende Datenstruktur von geometrischen Formen in einer Grafikanwendung. Die Formen können Kreise, Rechtecke und Dreiecke sein. Wir möchten eine Funktionalität implementieren, die es einem Benutzer ermöglicht, die Fläche jeder Form zu berechnen, ohne den Code der Formklassen zu ändern. Hier kommt das Visitor-Pattern ins Spiel.
+
+---
+
+**Implementierung:**
+
+//Vortrag:Live-Coding
+
+---
+
+## Entwurf des Datenmodells
+
+- wesentlicher Schritt beim Entwurf von Softwareanwendungen
+- erfordert tiefes Verständnis der Domäne
+- gute Kommunikation mit den Stakeholdern erforderlich
+
+### Domain-Driven-Design
+
+- Methodische Herangehensweise der Softwareentwicklung
+
+
+---
+
+**Domain vs. Model**
+
+- Domain
+
+- Model
+
+- Zusammenfassung
+
+
+---
+
+**Entities, Value Objects, Aggregates, Services, Factories**
+
+- Entities
+
+- Value Objects
+
+- Aggregates
+
+- Services (Dienste)
+
+- Factories (Fabriken)
+
+---
+
+**Ubiquitäre Sprache**
+
+- zentrales Konzept im DDD
+- soll ein gemeinsames Verständnis zwischen allen Beteiligten schaffen
+- alle beteiligten Personen sollen dasselbe Verständnis von den verwendeten Begriffen haben
+
+**Warum ist die ubiquitäre Sprache wichtig?**
+
+- Vermeidung von Missverständnissen
+- Einheitliches Verständnis
+- Effektivere Kommunikation
+
+**Wie wird die ubiquitäre Sprache entwickelt?**
+
+- Workshops und Meetings
+- Dokumentation
+- Feedback
+
+---
+
+**Anemic Domain Model**
+
+- Art der Modellierung von Softwareanwendungen
+- Trennung von Daten- und Geschäftslogik
+- Datenklasse sind lediglich Datenstrukturen
+- Geschäftslogik ist eine separate Anwendungsschicht
+
+---
+
+## Entwurf der Benutzerschnittstelle
+
+### UI-Modelling
+
+- Prozess des Entwurfs der Benutzeroberfläche (UI) einer Softwareanwendung
+- Benutzerinteraktion soll effektiv und ansprechend gestaltet werden
+- es gibt einige, häufig verwendete Schlüsselkonzepte
+
+**Wireframe:**
+
+- erster, grober Entwurf der Benutzerschnittstelle
+- enthält die grundlegenden Elemente und Strukturen
+- kein visuelles Design und wenig Details
+- Helfen die Grundlegende Struktur zu skizzieren, bevor das visuelle Design implementiert wird
+
+---
+
+**Storyboard:**
+
+- Visuelle Erzählungen, die den Ablauf von Benutzerinteraktionen über mehrere Seiten hinweg zeigen
+- Illustration vom Benutzerfluss
+- Hilfe bei der Visualisierung der gesamten Navigation
+
+**Wireflows:**
+
+- Kombination der Elemente aus Wireframes und Storyboards
+- Struktur der Seiten und auch Fluss der Seiten
+- helfen den Kontext der Anwendung besser zu verstehen
+
+**Mockups:**
+
+- Detaillierte, visuelle Darstellungen der Benutzeroberfläche mit Design, Farben und UI-Elementen
+- enthalten bereits das visuelle Erscheinungsbild
+- Endgültige visuelle Erscheinung soll präsentiert werden
+
+**Prototyping**:
+
+- Interaktive Benutzeroberfläche
+- Navigation und grundlegende Funktionen sind schon enthalten
+- Benutzererlebnis kann simuliert werden
+- Testen der Interaktionen
+- z.B. mit PowerPoint möglich
+
+---
+
+### Usability
+
+- bezieht sich auf die Benutzerfreundlichkeit eines Produkts
+- Wie ist es für einen Benutzer, eine bestimmte Aufgabe mit dem Produkt zu erfüllen?
+- konzentriert sich auf Aspekte wie Effizienz, Effektivität und Zufriedenstellung bei der Verwendung des Produkts
+- Bsp: Eine Website mit klarer Navigation und einfachen Formularen wird als “usability-freundlich” eingeordnet
+
+---
+
+### User Experience (UX)
+
+- gesamte Erfahrung eines Benutzers mit einem Produkt
+- Alle Aspekte
+- Bsp.: Website mit klarer Navigation und ansprechenden Produktbildern → Nutzer fühlt sich wohl
+
+---
+
+### Customer Experience (CX)
+
+- Alle Interaktionen, die ein Kunde mit einem Kunden hat
+- geht über das Produkt hinaus und umfasst den gesamten Lebenszyklus der Kundenbeziehung
+- alle Kontaktpunkte zwischen dem Kunden und dem Unternehmen
+- Positive Gesamterfahrung mit dem Kunden soll gefördert werden
+
+---
+
+### ****Nielsen's 10 Usability Heuristic Principles für das UI-Design****
+
+- Grundsätze für das UI-Design
+- Richtlinien, mit denen die Benutzerfreundlichkeit von Schnittstellen verbessert werden kann
+1. Sichtbarkeit des Systemstatus
+
+2. Übereinstimmung von Systemen und Realität
+
+3. Benutzerkontrolle und Freiheit
+
+4. Konsistenz und Standards
+
+5. Fehlervermeidung
+
+6. Anerkennung statt Erinnerung
+
+7. Flexibilität und Effizienz der Nutzung
+
+8. Ästhetisches und minimalistisches Design
+
+9. Fehlerdiagnose und Wiederherstellung
+
+10. Hilfe und Dokumentation
+
+---
+
+### Shneiderman’s 8 Golden Rules
+
+- Regeln für das UI-Design
+1. Klarheit der Dialoge
+
+2. Konsistenz
+
+3. Rückmeldung
+
+4. Dialogsteuerung für den Benutzer
+
+5. Fehlervermeidung und -behandlung
+
+6. Wiedererkennung statt Erinnerung
+
+7. Flexibilität und Effizienz der Nutzung:
+
+8. Ästhetik und minimalistisches Design:
+
+
+---
+
+### ****Norman's 7 Principles****
+
+- Designer und Forscher, der 7 Prinzipien für gutes Design formuliert hat
+1. Sichtbarkeit (Visibility)
+
+2. Feedback
+
+3. Affordanz
+
+4. Rückgängig machen (Undo)
+
+5. Entdeckbarkeit
+
+6. Verständlichkeit
+
+7. Konsistenz
+
+---
 class: center, middle
 
 # Fragen?
@@ -622,6 +989,11 @@ class: center, middle
 6. Was ist Abstraktion im Softwareentwurf?
 7. Was sind die SOLID-Prinzipien?
 8. Was bedeuter KISS?
+9. Wie funktioniert das Repository-Pattern?
+10. Was ist Domain-Driven-Design?
+11. Was ist der Unterschied zwischen der Domäne und dem Modell?
+12. Was ist ubiquitäre Sprache und wozu wird sie benutzt?
+13. Nenne eine der 10 Regeln von Nielsen!
 
 ---
 
@@ -646,4 +1018,51 @@ class: center, middle
 
 - https://thevaluable.dev/kiss-principle-explained/
 
+---
+# Quellen
+***
+
 - https://www.microconsult.de/blog/2019/05/fl_solid-prinzipien/
+
+- https://de.wikipedia.org/wiki/Entwurfsmuster [letzte Einsicht: 16.11.2023]
+
+- https://deviq.com/design-patterns/repository-pattern [letzte Einsicht: 16.11.23]
+
+- Anwendungs- und Codebeispiele wurden von ChatGPT-3.5 erstellt: https://chat.openai.com
+
+- https://de.wikipedia.org/wiki/Br%C3%BCcke_(Entwurfsmuster) [letzte Einsicht: 16.11.23]
+
+- https://www.ionos.de/digitalguide/websites/web-entwicklung/was-ist-das-visitor-pattern/ [letzte Einsicht: 16.11.23]
+
+- https://de.wikipedia.org/wiki/Besucher_(Entwurfsmuster)#:~:text=Der%20Besucher%20 [letzte Einsicht: 16.11.23]
+
+- https://entwickler.de/ddd/einfuhrung-in-die-konzepte-von-domain-driven-design-001 [letzte Einsicht: 17.11.23]
+
+---
+# Quellen
+***
+
+- https://stackoverflow.com/questions/4166816/domain-driven-design-vs-model-driven-architecture [letzte Einsicht: 17.11.23]
+
+- https://lostechies.com/jimmybogard/2008/05/21/entities-value-objects-aggregates-and-roots/ [letzte Einsicht: 17.11.23]
+
+- https://entwickler.de/software-architektur/eine-gemeinsame-sprache-sprechen [letzte Einsicht: 17.11.23]
+
+- https://en.wikipedia.org/wiki/Anemic_domain_model [letzte Einsicht: 17.11.23]
+
+- https://www.visual-paradigm.com/guide/ux-design/wireframe-vs-storyboard-vs-wireflow-vs-mockup-vs-prototyping/ [letzte Einsicht: 17.11.23]
+
+- https://www.usability.gov/what-and-why/user-interface-design.html [letzte Einsicht: 17.11.23]
+
+- https://www.conductor.com/de/academy/glossar/user-experience/ [letzte Einsicht: 17.11.23]
+---
+# Quellen 
+***
+
+- https://www.oracle.com/de/cx/what-is-cx/ [letzte Einsicht: 17.11.23]
+
+- https://www.nngroup.com/articles/ten-usability-heuristics/
+
+- https://www.cybay.de/blog/die-8-goldenen-regeln-fuer-interface-design [letzte Einsicht: 17.11.23]
+
+- https://www.educative.io/answers/what-are-normans-design-principles [letzte Einsicht: 17.11.23]
