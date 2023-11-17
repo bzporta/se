@@ -1066,3 +1066,15 @@ class: center, middle
 - https://www.cybay.de/blog/die-8-goldenen-regeln-fuer-interface-design [letzte Einsicht: 17.11.23]
 
 - https://www.educative.io/answers/what-are-normans-design-principles [letzte Einsicht: 17.11.23]
+
+---
+
+# Abbildungen
+***
+Abb.1: [https://www.infoworld.com/article/3107186/how-to-implement-the-repository-design-pattern-in-c.html](https://www.infoworld.com/article/3107186/how-to-implement-the-repository-design-pattern-in-c.html)
+
+Abb.2: Eigene Erstellung
+
+Abb.3: Eigene Erstellung
+
+Abb.4: Eigene Erstellung
