@@ -18,6 +18,13 @@ Danny Meihöfer - Bjarne Zaremba
 4. Anforderungsanalyse
 5. Prozess der Anforderungsanalyse
 6. Dokumentation und Spezifikation der Anforderungen
+7. Use-Cases
+8. Spezifikationen von Use-Cases
+9. User-Stories, Epics, Tasks
+10. Definition of Ready (DoR) & Definition of Done (DoD)
+11. Card, Conversation, Confirmation
+12. INVEST
+13. Story-Mapping
 
 ---
 
@@ -587,8 +594,324 @@ Man kann sich dieses Dokument als Blaupause für die Software vorstellen
   - Z.B. Hardware
 
 ---
+## Use-Cases
 
-class: center, middle
+- sollen helfen, die Anforderungen an ein System zu verstehen
+
+---
+
+### Systemkontext / Systemgrenze
+
+- zentrale Konzepte, um den Rahmen und die Interaktion eines zu entwickelnden Systems zu verstehen
+
+**Systemkontext:**
+
+- definiert den Gesamtrahmen, in dem das System entwickelt werden sol
+- Beispiel: Online-Shopsystem
+
+**Systemgrenze:**
+
+- bildet klare Trennung zwischen dem zu entwickelnden System und seiner Umgebung
+- Beispiel: Kontext Soziales Netzwerk
+
+---
+
+### Ziele von Use-Cases
+
+- Verständnis der Funktionalitäten
+
+- Klare Kommunikation mit Stakeholdern
+
+- Bewertung des Use-Case-Erfolgs
+
+- Benennung von Abhängigkeiten und Risiken
+
+---
+
+### Szenario in Use-Cases
+
+- beschreibt Abfolge von Aktionen und Interaktionen zwischen Benutzern und dem zu entwickelnden System
+
+Wichtige Aspekte:
+
+- Beschreibung der Abläufe
+
+- Festlegung von Schritten
+
+- Dokumentation von Tests
+
+
+---
+
+### Beispiel eines Use-Cases für eine “Online-Produktbestellung”
+
+// Live-Demonstration
+
+---
+
+### Spezifikationen
+
+- detaillierte Beschreibung der einzelnen Use-Cases
+- dies kann in Diagrammen geschehen
+
+**Use-Case-Diagramm:** 
+
+![:scale 80%](media/use-case-diagramm.png)
+
+Abb.1: Beispiel eines Use-Case-Diagramms
+
+---
+
+## User Stories
+
+- werden benutzt, um Anforderungen an ein Softwareprodukt zu definieren
+
+---
+
+### **Persona vs. Theme vs. Epic vs. User Story vs. Task**
+
+**Persona:** 
+
+- Detaillierte Darstellung eines typischen Benutzers
+- Personas sollen das Team besser über Zielgruppe informieren
+
+**Theme:**
+
+- Gruppierung von zusammengehörigen User-Stories
+
+
+**Epic:**
+
+- große, abstrakte User-Story
+- wird in kleinere User-Stories unterteilt
+- Epics werden zum Strukturieren großer Probleme benutzt
+
+**User-Stories:**
+
+- Kurze Beschreibung eines Features aus Sicht des Benutzers
+
+**Tasks:** 
+
+- Konkrete Aufgabe, die erforderlich ist, um eine User-Story zu vervollständigen
+
+---
+
+### **Functional User Story vs. Technical User Story**
+
+- man unterscheidet zwischen 2 verschiedenen Arten von User-Stories
+
+**Functional User-Story:**
+
+- beschreibt ein Feature aus der Sicht des Endbenutzers
+- Welchen Nutzen hat das Feature?
+- Merkmale: Benutzerzentriert, Mehrwerte für den Benutzer
+- Verwendung: Features, die direkt vom Endbenutzer wahrgenommen werden
+
+**Technical User-Story:**
+
+- beschreibt eine technische Aufgabe
+- konzentriert sich auf Aspekte wie Performance oder Skalierbarkeit
+- Merkmale: Technologiezentriert, Mehrwerte für die Entwicklung
+- Verwendung: Features, die die technische Infrastruktur betreffen
+
+---
+
+### **Aufbau / Bestandteile einer User Story**
+
+Aufbau: Als [Rolle] möchte ich [Funktion], damit [Nutzen].
+
+- Rolle: Benutzer, der die Anforderung stellt.
+- Funktion: Welches Feature soll umgesetzt werden?
+- Nutzen: Welchen Wert / welcher Vorteil hat die Umsetzung des Features?
+Beispiel: 
+
+“Als Kunde möchte ich die Bewertungen anderer Benutzer für ein Produkt sehen, damit ich informierte Kaufentscheidungen treffen kann.”
+
+- Weitere Bestandteile
+    - Priorität
+    - Defintition of Ready
+    - Definition of Done
+    - …
+
+---
+
+### **Definition of Ready (DoR) vs Definition of Done (DoD)**
+
+Definition of Ready (DoR):
+
+- Kriterien, die eine User-Story erfüllen muss, bevor sie bereit für die Umsetzung durch das Entwicklerteam ist
+- Beispiele für Kriterien
+
+Definition of Done (DoD):
+
+- Kriterien, die eine User-Story erfüllen muss, um als abgeschlossen zu gelten
+- “Checkliste” für die vollständige Umsetzung der User-Story
+- Beispiele für Kriterien
+
+
+---
+
+### Prinzipien für effektive ("gute") User Stories
+
+- Benutzerzentrierung
+
+- Klarheit und Prägnanz
+
+- Unabhängigkeit
+
+- Angemessene Größe
+
+- Konsistenz
+
+- Priorisierungsfähigkeit
+
+---
+
+### **Formulierungsfehler, die zu vagen ("schlechten") User Stories führen**
+
+- Unklare Rolle
+
+- Allgemeine Funktion ohne Nutzen
+
+- Unspezifische Anforderung
+
+- Keine klare Priorisierung
+
+---
+
+### **Card, Conversation, Confirmation**
+
+- Prinzip, welches in User-Stories verwendet wird, um ein gemeinsames Verständnis von Anforderungen zu erlangen.
+
+**3 Hauptaspekte:**
+
+**Card (Karte):**
+
+- Repräsentiert die eigentliche User-Story
+- Visuelle Repräsentation der Anforderung
+
+**Conversation (Gespräch):**
+
+- Diskussion und Gespräch der Teammitglieder über die User-Story
+- sorgt für gemeinsames Verständnis der Anforderung
+
+**Confirmation (Bestätigung):**
+
+- Akzeptanzkriterien → Wann ist User-Story abgeschlossen?
+---
+
+**Beispiel:** 
+
+User Story:
+
+- "Als Benutzer möchte ich eine Suchfunktion, um schnell nach Produkten zu suchen und Zeit zu sparen."
+
+Card:
+
+- Auf einer physischen Karte oder digitalen Notiz wird die obige User Story kurz und prägnant festgehalten.
+
+Conversation:
+
+- Das Entwicklungsteam, der Product Owner und andere Stakeholder besprechen die User Story. Dies könnte Fragen, Klärungen oder Diskussionen über mögliche Umsetzungsansätze beinhalten.
+
+Confirmation:
+
+- Die Akzeptanzkriterien werden festgelegt, z. B. dass die Suchfunktion nach Produktname, Kategorie und Preis filtern kann. Diese Kriterien dienen als klare Bestätigung dafür, wann die User Story als erledigt gilt.
+
+---
+
+### **INVEST-Kriterien**
+
+- Akronym von Bill Wake, um Aspekte zu beschreiben, die eine gute User-Story ausmachen
+
+**INVEST steht für:**
+
+![:scale 80%](media/INVEST-kriterien.png)
+
+Abb.2: INVEST-Kriterien im Überblick
+
+---
+
+### User-Stories vs. Use Cases
+
+![Abb.3: Unterschied User-Stories zu Use-Cases](media/userstories_usecases.png)
+
+Abb.3: Unterschied User-Stories zu Use-Cases
+
+Was wird wann verwendet?
+
+- User-Stories → häufig in agilen Umgebungen, fördern die Zusammenarbeit im Team
+- Use-Cases → häufig in traditionellen Entwicklungsumgebungen, bieten detaillierte Spezifikation
+
+---
+
+### **Misuse Stories**
+
+- User-Stories, die sich auf negative Szenarien konzentrieren
+
+- wird in der Risikoanalyse eingesetzt
+
+- Entwickler können proaktiv gegen Sicherheitsrisiken agieren
+
+---
+
+### Priorisierung
+
+- Priorisieren von User-Stores oder Use-Cases ist wichtig, damit das Team an den wichtigsten Aufgaben arbeitet
+
+Mehrere Aspekte, nach denen man priorisieren kann:
+
+- Geschäftswert
+
+- Risiko
+
+- Abhängigkeiten
+
+- Zeitaufwand
+
+- viele weitere Möglichkeiten
+
+---
+
+### Schätzung des Aufwands einer User-Story
+
+- Schätzung von User-Stories ist ein wichtiger Bestandteil
+
+**Einige bekannte Techniken für die Schätzung:**
+
+**Planning Poker**
+
+- Aufwand wird durch Vergabe von Punkten geschätzt
+- Fördert Diskussion im Team
+- Einzelne Meinungen beeinflussen die Schätzung wenig
+
+**T-Shirt-Sizing:**
+
+- Aufgaben werden in die Größenkategorien von Klamotten (S, M, L, XL) eingeordnet
+- Einfach, schnell
+
+**User-Story-Points:**
+
+- Bewertung mit Punkten
+- Punkte haben keine zeitliche Bedeutung
+
+---
+
+### **Story Mapping**
+
+- besseres Verständnis für die Gesamtheit eines Produkts
+- User-Stories sollen sinnvoll organisiert werden
+
+Beispiel: 
+
+![:scale 70%](media/user_story_map.png)
+
+Abb.4: Darstellung einer User-Story-Map
+
+
+
+---
+
 
 ## Lernfragen
 
@@ -599,6 +922,13 @@ class: center, middle
 5. Was bedeutetn die Anforderungskategorien nach Kano?
 6. Was ist ein Lastenheft?
 7. Was ist ein Pflichtenheft?
+8. Was sind Use-cases?
+9. Beschreibe den Begriff "Epic"!
+10. Was ist der Unterschied zwischen Functional und Technical User-Stories?
+11. Für was steht "DoD"?
+12. Wie schreibe ich eine gute User-Story?
+13. Nenne eines der INVEST-Kriterien!
+14. Was ist Story-Mapping?
 
 
 ---
@@ -606,22 +936,45 @@ class: center, middle
 ***
 
 - https://www.qamentor.com/qa-services/business-analysis-requirement-engineering-services/
-
 - https://blog.sophist.de/2013/07/10/nicht-funktionale-anforderungen-im-uberblick/
-
 - https://visuresolutions.com/de/blog/high-quality-requirements-attributes/
-
 - https://www.timeline-erp.de/blog/warum-ist-eine-anforderungsanalyse-so-wichtig/
-
 - https://visuresolutions.com/de/requirements-management-traceability-guide/biggest-challenges-of-requirements-management/
-
 - https://www.heflo.com/blog/customer-service/kano-model-examples/#:~:text=In%20other%20words%2C%20the%20higher,will%20bring%20to%20the%20customer
-
 - https://www.projektmagazin.de/sites/default/files/styles/hero_tablet/public/2019-05/herobild_510x340_39.jpg?itok=v164HutM
-
+- https://images.acquisa.de/media/pages/magazin/lastenheft-pflichtenheft/fd47c77a33-1679907691/was-ist-das-pflichtenheft.png
+- [https://www.usability.gov/how-to-and-tools/methods/use-cases.html](https://www.usability.gov/how-to-and-tools/methods/use-cases.html) [letzte Einsicht: 23.11.23]
+- [https://www.linkedin.com/pulse/use-cases-der-agilen-requirements-spezifikation/?trk=article-ssr-frontend-pulse_more-articles_related-content-card&originalSubdomain=de](https://www.linkedin.com/pulse/use-cases-der-agilen-requirements-spezifikation/?trk=article-ssr-frontend-pulse_more-articles_related-content-card&originalSubdomain=de) [letzte Einsicht: 23.11.23]
 ---
-
 # Quellen
 ***
 
-- https://images.acquisa.de/media/pages/magazin/lastenheft-pflichtenheft/fd47c77a33-1679907691/was-ist-das-pflichtenheft.png
+- [https://www.microtool.de/objectif-rm-anwenden/use-cases-personas-und-szenarien/](https://www.microtool.de/objectif-rm-anwenden/use-cases-personas-und-szenarien/) [letzte Einsicht: 23.11.23]
+- Beispiel wurden von ChatGPT-3.5 erstellt: https://chat.openai.com
+- [https://www.atlassian.com/de/agile/project-management/user-stories](https://www.atlassian.com/de/agile/project-management/user-stories) [letzte Einsicht: 23.11.23]
+- [https://www.visual-paradigm.com/scrum/theme-epic-user-story-task/](https://www.visual-paradigm.com/scrum/theme-epic-user-story-task/) [letzte Einsicht: 23.11.23]
+- [https://rgalen.com/agile-training-news/2013/11/10/technical-user-stories-what-when-and-how](https://rgalen.com/agile-training-news/2013/11/10/technical-user-stories-what-when-and-how) [letzte Einsicht: 24.11.23]
+- [https://digitaleneuordnung.de/blog/user-stories](https://digitaleneuordnung.de/blog/user-stories) [letzte Einsicht: 24.11.23]
+- [https://www.boost.co.nz/blog/2022/06/definition-ready-definition-done](https://www.boost.co.nz/blog/2022/06/definition-ready-definition-done)  [letzte Einsicht: 24.11.23]
+- [https://anforderungsfabrik.de/blog/was-macht-eine-gute-user-story-aus/](https://anforderungsfabrik.de/blog/was-macht-eine-gute-user-story-aus/) [letzte Einsicht 24.11.23]
+- [https://bbv-software.de/user-stories/](https://bbv-software.de/user-stories/) [letzte Einsicht: 24.11.23]
+- [https://medium.com/@mojamcpds/card-conversation-confirmation-d88c074dd58c](https://medium.com/@mojamcpds/card-conversation-confirmation-d88c074dd58c) [letzte Einsicht: 24.11.23.]
+- [https://www.peterjohann-consulting.de/invest-kriterien/](https://www.peterjohann-consulting.de/invest-kriterien/) [letzte Einsicht: 24.11.23]
+
+---
+# Quellen
+***
+
+- [https://www.software-quality-lab.com/wissen/blog/blogeintrag/user-story-oder-use-case-was-denn-nun/](https://www.software-quality-lab.com/wissen/blog/blogeintrag/user-story-oder-use-case-was-denn-nun/) [letzte Einsicht: 24.11.23]
+- [https://en.wikipedia.org/wiki/Misuse_case](https://en.wikipedia.org/wiki/Misuse_case) [letzte Einsicht: 24.11.23]
+- [https://agilescrumgroup.de/prioritaetensetzung-scrum-agile-product-backlog/](https://agilescrumgroup.de/prioritaetensetzung-scrum-agile-product-backlog/) [letzte Einsicht: 24.11.23]
+- [https://www.c-sharpcorner.com/article/agile-story-point-estimation-techniques-t-shirt-sizing/](https://www.c-sharpcorner.com/article/agile-story-point-estimation-techniques-t-shirt-sizing/#:~:text=What%20is%20T%2Dshirt%20sizing,%2C%20M%2C%20L%2C%20XL) [letzte Einsicht: 24.11.23]
+- [https://www.it-agile.de/agiles-wissen/agiles-produktmanagement/story-mapping/](https://www.it-agile.de/agiles-wissen/agiles-produktmanagement/story-mapping/) [letzte Einsicht: 24.11.23]
+
+---
+
+# Abbildungen
+- Abb.1: [https://www.microtool.de/wissen-online/was-ist-ein-use-case-diagramm/](https://www.microtool.de/wissen-online/was-ist-ein-use-case-diagramm/) [letzte Einsicht: 23.11.23]
+- Abb.2: [https://www.peterjohann-consulting.de/invest-kriterien/](https://www.peterjohann-consulting.de/invest-kriterien/) [letzte Einsicht: 24.11.23]
+- Abb.3: [https://www.software-quality-lab.com/wissen/blog/blogeintrag/user-story-oder-use-case-was-denn-nun/](https://www.software-quality-lab.com/wissen/blog/blogeintrag/user-story-oder-use-case-was-denn-nun/) [letzte Einsicht: 24.11.23]
+- Abb.4: [https://www.objectbay.com/blog/user-story-mapping](https://www.objectbay.com/blog/user-story-mapping) [letzte Einsicht: 24.11.23]
