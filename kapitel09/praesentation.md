@@ -19,6 +19,11 @@ Danny Meihöfer - Bjarne Zaremba
 5. Software Systeme
 6. Softwaresystembausteine
 7. Qualitätsmerkmale von Softwaresystemen
+8. Qualitätsmodelle
+9. Relevante Qualitätsmerkmale im Detail
+10. Metriken zur Messung von Softwarequalität
+11. Modellierung und Visualisierung von Softwaresystemen
+12. Softwaredokumentation mit arc42
 
 ---
 
@@ -594,6 +599,300 @@ FURPS ist ein Akronym für:
 
 ---
 
+## Relevante Qualitätsmerkmale im Detail
+
+### Complexity
+
+- Unterscheidung zwischen inhärenter und unbeabsichtigter Komplexität
+
+**Inhärente Komplexität:**
+
+- Schwierigkeiten, die in einem System von Natur aus vorhanden sind
+- Beispiel: Strukturelle Komplexität
+
+**Unbeabsichtigte Komplexität:**
+
+- entsteht durch Entscheidungen, die den Code unnötig kompliziert machen
+- Reduzierung der unbeabsichtigten Komplexität nötig
+
+---
+
+**Cynefin-Framework:**
+
+- entwickelt von Dave Snowden
+- soll helfen den Kontext von Problemen zu verstehen
+- Vier Kontextbereiche:
+- Einfach
+- Kompliziert
+- Komplex
+- Chaotisch 
+- Cynefin-Framework hilft bei der Entscheidung, wie ein Problem angegangen werden sollte
+
+---
+
+### **Maintainability (Wartbarkeit)**
+
+- Bedeutung für Erfolg und Anpassungsfähigkeit der Software
+- Erleichtert das Durchführen von Fehlerbehebungen, Änderungen, …
+- Wartbare Systeme sind kosteneffizienter zu pflegen
+- Elemente der Wartbarkeit
+- Verbesserung der Wartbarkeit
+
+---
+
+### **Observability (Beobachtbarkeit)**
+
+- Verständnis des Systemverhaltens
+- Effiziente Fehlerdiagnose
+- Zuverlässigkeit
+
+Elemente von Observability:
+
+- Logging
+- Monitoring
+- Tracing
+
+---
+
+### Reliability (Zuverlässigkeit)
+
+- Vorteile von Reliability
+
+Elemente von Reliability:
+
+- Fehlertoleranz
+- Wiederherstellbarkeit
+- Stabilität
+
+Best-Practises für Reliability:
+
+- Redunzanz
+- Monitoring
+- Automatisierte Tests
+
+---
+
+### **Availability (Verfügbarkeit)**
+
+- Vorteile von Availability
+
+Elemente der Avaibility:
+
+- Lastverteilung
+- Ausfallsicherheit
+
+Best-Practices für Availability:
+
+- Monitoring
+- Automatisierung von Wiederherstellungsprozessen
+- Globale Verteilung
+
+---
+
+### **Resilience (Widerstandsfähigkeit)**
+
+- Fähigkeit einer Software, sich nach einem Problem zu erholen und weiter zu funktionieren
+- Umgang mit Problemen in der Software, ohne dass diese komplett abstürzt
+
+Einige Aspekte:
+
+- Fehlererkennung
+- Fehlertoleranz
+- Automatisiertes Testen
+- Wiederherstellbarkeit
+
+---
+
+### Performance
+
+- Fähigkeit eines Systems, Ressourcen optimal zu nutzen, effektiv zu arbeiten und eine gute Benutzererfahrung zu bieten
+
+Aspekte:
+
+- Laufzeitgeschwindigkeit
+- Ressourcennutzung
+- Skalierbarkeit
+- Code-Optimierung
+
+---
+
+## Metriken zur Messung von Softwarequalität
+
+- Metriken werden in der Softwareentwicklung genutzt, um die Qualität von Software zu messen
+- Verschiedene Arten von Metriken
+
+---
+
+### Konventionelle Metriken
+
+**McCabe-Metrik:**
+
+- auch zyklomatische Komplexität genannt
+- misst die Softwarekomplexität durch Analyse des Kontrollflussgraphen
+
+Formel zur Berechnung der zyklomatischen Komplexität:
+
+V(G) = E - N + 2P
+
+Bedeutung:
+
+- E: Anzahl der Kanten im Kontrollflussgraphen
+- N: Anzahl der Knoten im Kontrollflussgraphen
+- P: Anzahl der Zusammenhangskomponenten (oft als Anzahl der verbundenen Bereiche im Graphen interpretiert)
+
+Allgemein gilt:
+
+- V(G)≤10: Niedrige Komplexität, einfacher Code
+- 10<*V*(*G*)≤20: Moderate Komplexität, durchschnittlicher Code.
+- *V*(*G*)>20: Hohe Komplexität, möglicherweise schwer verständlicher Code.
+
+---
+
+**Beispiel:** 
+
+```java
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+```
+
+Hier hat der Kontrollflussgraph drei Entscheidungspunkte (zwei Verzweigungen und eine Schleife). Die Anzahl der Kanten (E) beträgt 7, die Anzahl der Knoten (N) beträgt 6, und es gibt eine Zusammenhangskomponente (P=1). Setzen wir diese Werte in die Formel ein:
+
+*V*(*G*)=7−6+2×1=3
+
+---
+
+### Objektorientierte Metriken
+
+- eignen sich, um Aspekte von objektorientiertem Code zu bewerten
+
+**Lack of Cohesion in Methods:**
+
+- misst das Ausmaß der Kohäsion innerhalb einer Klasse
+    - Kohäsion: Methoden in einer Klasse, die auf gemeinsame Daten zugreifen
+
+Formel für Berechnung von LCOM:
+
+LCOM = (m-p) / (p-1)
+
+Mit:
+
+- m: Anzahl der Methoden in der Klasse
+- p: Anzahl der Attribute, die von mindestens einer Methode verwendet werden
+
+- Niedriger LCOM-Wert bedeutet gute Kohäsion
+
+---
+
+**Beispiel:**
+
+```java
+class ExampleClass:
+    def method1(self, a, b):
+        return a + b
+
+    def method2(self, c, d):
+        return c * d
+
+    def method3(self, e):
+        print(e)
+```
+
+---
+
+## Modellierung und Visualisierung von Softwaresystemen
+
+**Descriptive-Modelling**
+
+- Beschreibung von Verhalten und Struktur eines Systems
+- keine expliziten Regeln oder Vorschriften
+- Beispiele: UML-Diagramme, ER-Diagramme, Zustandsdiagramme
+
+**Rule-Based-Modellung**
+
+- Verwendung von Regeln, um die Struktur eines Systems zu modellieren
+- Beispiele: Geschäftsregeln, Workflow-Modells, Regelbasierte Systeme
+
+---
+
+### UML (Unified Modelling Language)
+
+- Modellierungssprache, um Systeme zu visualisieren und zu dokumentieren
+- UML besteht aus vielen verschiedenen Diagrammtypen
+    
+
+**Statische Diagrammtypen:**
+
+- Klassendiagramme
+- Objektdiagramme
+- Komponentendiagramme
+
+**Dynamische Diagrammtypen:**
+
+- Zustandsdiagramme
+- Sequenzdiagramme
+
+---
+
+**Zuordnung der UML-Diagrammtypen zu Phasen der Softwareentwicklung:**
+
+1. Anforderungsanalyse und Spezifikation
+    - Use-Case-Diagramme
+2. Entwurfsphase
+    - Klassendiagramme
+    - Sequenzdiagramme
+3. Implementierungsphase
+    - Komponentendiagramme
+4. Testphase
+    - Zustandsdiagramme
+    - Sequenzdiagramme
+
+---
+
+**Software-Architecture-Documentation**
+
+Inhalt der Dokumentation:
+
+- Einleitung und Ziele
+- Kontext und Stakeholder
+- Qualitätsziele
+- Architektonische Entscheidungen
+- Datenmodell
+- Laufzeitsicht
+- Weitere individuelle Punkte
+
+Tools für die Dokumentation:
+
+- UML-Diagramme
+- arc42
+- andere Dokumentationswerkzeuge
+
+---
+
+**Softwaredokumentation mit arc42**
+
+- Framework zur Softwaredokumentation
+
+Struktur von arc42 (Gliedert sich in 12 Hauptkapitel auf):
+
+1. Einleitung und Ziele
+2. Rahmenbedingungen
+3. Lösungsstrategie
+4. Grenzen
+5. Qualitätsziele
+6. Bereiche und Verantwortlichkeiten
+7. Bausteinsicht
+8. Laufzeitsicht
+9. Verteilungssicht
+10. Datenperspektive
+11. Zuschnitt und Implementierung
+12. Qualitätsanforderungen und Tests
+---
+
 # Lernfragen
 
 1. Was sind Sozioökonomische Systeme und wie können Softwaresysteme diese beeinflussen?
@@ -605,6 +904,13 @@ FURPS ist ein Akronym für:
 7. Was für Software Systeme gibt es?
 8. Woraus bestehen Softwaresysteme?
 9. Wie kann man die Qualität von Softwaresystemen bewerten?
+10. Was ist das Cynefin-Framework?
+11. Was ist Maintainability?
+12. Was ist Observability?
+13. Was sind konventionelle Metriken?
+14. Was sind objektorientierte Metriken?
+15. Was ist UML?
+16. Was ist arc42?
 
 ---
 # Quellen
@@ -624,4 +930,42 @@ FURPS ist ein Akronym für:
 
 - https://medium.com/disruptive-design/tools-for-systems-thinkers-the-6-fundamental-concepts-of-systems-thinking-379cdac3dc6a
 
-- https://interim-cio.biz/artikel-projektsteuerung-teufelsquadrat#:~:text=Das%20Teufelsquadrat%20ist%20ein%20anschauliches,Dreieck%20macht%20das%20Modell%20unpraktikabel.
+- https://interim-cio.biz/artikel-projektsteuerung-teufelsquadrat#:~:text=Das%20Teufelsquadrat%20ist%20ein%20anschauliches,Dreieck%20macht%20das%20Modell%20unpraktikabel
+---
+# Quellen
+***
+
+- [https://www.objectsystems.de/die-komplexitaet-von-softwaresystemen.html](https://www.objectsystems.de/die-komplexitaet-von-softwaresystemen.html) [letzte Einsicht: 29.11.23]
+
+- [https://www.praxisframework.org/de/knowledge/complexity](https://www.praxisframework.org/de/knowledge/complexity) [letzte Einsicht: 29.11.23]
+
+- [https://de.wikipedia.org/wiki/Cynefin-Framework](https://de.wikipedia.org/wiki/Cynefin-Framework) [letzte Einsicht: 29.11.23]
+
+- [https://de.wikipedia.org/wiki/Wartbarkeit](https://de.wikipedia.org/wiki/Wartbarkeit) [letzte Einsicht: 30.11.23]
+
+- [https://www.ibm.com/de-de/topics/observability](https://www.ibm.com/de-de/topics/observability) [letzte Einsicht: 30.11.23]
+
+- [https://www.dev-insider.de/was-ist-software-zuverlaessigkeit-a-820767/](https://www.dev-insider.de/was-ist-software-zuverlaessigkeit-a-820767/) [letzte Einsicht: 30.11.23]
+
+- [https://en.wikipedia.org/wiki/High_availability_software](https://en.wikipedia.org/wiki/High_availability_software) [letzte Einsicht: 30.11.23]
+
+- [https://www.bmc.com/blogs/reliability-vs-availability/](https://www.bmc.com/blogs/reliability-vs-availability/) [letzte Einsicht: 30.11.23]
+---
+# Quellen
+***
+
+- [https://www.iks.fraunhofer.de/en/research/resilient-software-systems.html](https://www.iks.fraunhofer.de/en/research/resilient-software-systems.html) [letzte Einsicht: 30.11.23]
+
+- [https://www.dev-insider.de/performance-optimierung-softwareentwicklung-datenbanken-a-ac5fb659720503caf84efd7c6ee0d7bb/](https://www.dev-insider.de/performance-optimierung-softwareentwicklung-datenbanken-a-ac5fb659720503caf84efd7c6ee0d7bb/) [letzte Einsicht: 30.11.23]
+
+- [https://www.dev-insider.de/was-ist-zyklomatische-komplexitaet-a-7fa40c670052685ff1c56d8169a79481/](https://www.dev-insider.de/was-ist-zyklomatische-komplexitaet-a-7fa40c670052685ff1c56d8169a79481/) [letzte Einsicht: 1.12.23]
+
+- Beispiele erstellt von Chat-GPT3.5: https://www.chat.openai.com
+
+- [https://blog.ndepend.com/lack-of-cohesion-methods/](https://blog.ndepend.com/lack-of-cohesion-methods/) [letzte Einsicht: 1.12.23]
+
+- [https://www.infrasoft.at/images/downloads/uebersicht_der_uml_diagramme.pdf](https://www.infrasoft.at/images/downloads/uebersicht_der_uml_diagramme.pdf) [letzte Einsicht: 1.12.23]
+
+- [https://www.arc42.de/](https://www.arc42.de/) [letzte Einsicht: 1.12.23]
+
+- [https://www.innoq.com/en/blog/2022/08/brief-introduction-to-arc42/](https://www.innoq.com/en/blog/2022/08/brief-introduction-to-arc42/) [letzte Einsicht: 1.12.23]
