@@ -27,6 +27,8 @@ Danny Meihöfer & Bjarne Zaremba
 12. Strukturorientierte Tests
 13. Zusammenfassung
 
+---
+
 ## Was sind Softwareprüfungen?
 
 Softwareprüfungen sind Prozesse, die die Software auf ihre Funktionalität prüfen
