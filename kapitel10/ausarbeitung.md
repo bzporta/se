@@ -296,7 +296,7 @@ Dabei wird geprüft wie sich die Software verhält wenn sie ausgeführt wird. Ne
 
 Es gibt eine Testpyramide, die beschreibt auf was für Ebenen man Testen kann.
 
-![:scale 100%](media/testpyramide.png)
+![:scale 100%](media/pyram.png)
 
 Je weiter unten man in der Pyramide ist, desto spezifischer sind die Tests, für bestimmte Einheiten.
 
