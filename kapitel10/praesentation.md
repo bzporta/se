@@ -283,7 +283,7 @@ Beide Ansätze haben unterschiedliche Ziele
 
 Für gewöhnlich werden beide Ansätze kombiniert
 
-![scale 80%](media/shiftleftvsright.png)
+![:scale 80%](media/shiftleftvsright.png)
 
 ---
 
