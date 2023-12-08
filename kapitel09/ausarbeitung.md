@@ -12,6 +12,13 @@ Nach diesem Kapitel sollen folgende Aspekte klarer geworden sein:
 - Was sind die Eigenschaften von Softwaresystemen?
 - Aus was für Bausteinen bestehen Softwaresysteme?
 - Was sind die Qualitätsmerkmale von Softwaresystemen?
+- Was sind die Qualitätsmodelle von Softwaresystemen?
+- Was sind die relevanten Qualitätsmerkmale im Detail?
+- Was sind Metriken für die Qualität von Softwaresystemen?
+- Was ist UML?
+- Was sind die Diagrammtypen von UML?
+
+
 
 ## Was ist ein System?
 
@@ -276,6 +283,385 @@ FURPS ist ein weiteres Qualitätsmodell, dass bestimmte Qualitätsmerkmale defin
 - Performance - Wie gut ist die Performance des Systems?
 - Supportability - Wie gut ist das System wartbar?
 
+
+## Relevante Qualitätsmerkmale im Detail
+
+### Complexity
+
+- Unterscheidung zwischen inhärenter und unbeabsichtigter Komplexität
+
+**Inhärente Komplexität:**
+
+- Schwierigkeiten, die in einem System von Natur aus vorhanden sind
+    - Können nicht vermieden werden, da sie in der Natur des Problems bereits vorhanden sind.
+- Beispiel: Strukturelle Komplexität
+    - Module, Klassen und Komponenten können die Komplexität eines Problems erhöhen, wenn diese untereinander interagieren
+
+**Unbeabsichtigte Komplexität:**
+
+- entsteht durch Entscheidungen, die den Code unnötig kompliziert machen
+    - Übermäßige Abstraktionen, unnötige Designmuster, …
+- Reduzierung der unbeabsichtigten Komplexität nötig
+    - Einfachheit: Wenige Abstraktionsebenen
+    - Klare Kommunikation
+    - Refactoring: Refactoring des Codes kann Komplexität vermeiden
+
+
+
+**Cynefin-Framework:**
+
+- entwickelt von Dave Snowden
+- soll helfen den Kontext von Problemen zu verstehen
+- Vier Kontextbereiche:
+- Einfach
+    - Klare Ursache-Wirkungs-Beziehung
+    - bewährte Lösungspraktiken kommen zum Einsatz
+- Kompliziert
+    - Komplexe, aber analysierbare Probleme
+    - Fachwissen zum Lösen der Probleme benötigt
+    - Expertenanalysen und Best-Practices kommen zum Einsatz
+- Komplex
+    - Keine vorhersehbare Lösung
+    - Iteratives Vorgehen
+- Chaotisch
+    - Keine klare Ursache-Wirkungs-Beziehung
+    - Sofortiges Handeln zum Lösen des Problems
+    - Später: Verschieben in den Bereich “Komplex”
+- Cynefin-Framework hilft bei der Entscheidung, wie ein Problem angegangen werden sollte
+
+
+
+### Maintainability (Wartbarkeit)
+
+- Bedeutung für Erfolg und Anpassungsfähigkeit der Software
+- Erleichtert das Durchführen von Fehlerbehebungen, Änderungen, …
+- Wartbare Systeme sind kosteneffizienter zu pflegen
+- Elemente der Wartbarkeit
+    - Klar strukturierter Code
+    - Umfassende Dokumentation
+    - Konsistente Architektur
+- Verbesserung der Wartbarkeit
+    - Refactoring
+    - agiles Entwickeln
+
+
+### Observability (Beobachtbarkeit)
+
+- Verständnis des Systemverhaltens
+    - Erkennen von Fehlern
+    - Optimierung der Leistung
+- Effiziente Fehlerdiagnose
+    - Schnelle Identifikation von Problemen
+- Zuverlässigkeit
+    - Obervability stellt sicher, dass ein System zuverlässig läuft
+
+Elemente von Observability:
+
+- Logging
+    - Aufzeichnung von relevanten Ereignissen im System
+- Monitoring
+    - Überwachen von Metriken und Leistungsindikatoren
+    - “Echtzeit-Monitoring”
+- Tracing
+
+
+
+### Reliability (Zuverlässigkeit)
+
+- Vorteile von Reliability
+    - schafft Vertrauen bei Nutzern der Software
+    - Störungsfreier Betrieb der Software ist sichergestellt
+    - Kosteneffizient
+
+Elemente von Reliability:
+
+- Fehlertoleranz
+    - Das System erbringt, trotz auftretender Fehler, akzeptable Leistung
+- Wiederherstellbarkeit
+    - Effizienz, mit der ein System nach einem Fehler wiederhergestellt werden kann.
+- Stabilität
+    - Wie stabil ist ein System?
+    - Vorhersagbarkeit des Systemverhaltens
+
+Best-Practises für Reliability:
+
+- Redunzanz
+    - Das Einbauen von Redundanz kann kritische System absichern.
+- Monitoring
+    - Systemmetriken werden durchgehend überwacht, um frühzeitig auf Fehler und Probleme reagieren zu können.
+- Automatisierte Tests
+    - Das System wird regelmäßig automatisiert getestet, um Probleme zu erkennen.
+
+
+
+### Availability (Verfügbarkeit)
+
+- Vorteile von Availability
+    - Fördert eine positive Erfahrung des Nutzers, da er immer auf das System zugreifen kann.
+    - Fördert Produktivität, z.B. in geschäftskritischen Anwendungen, die immer verfügbar seien müssen, damit ein reibungsloser Betrieb des Unternehmens gewährleistet werden kann.
+
+Elemente der Avaibility:
+
+- Lastverteilung
+    - Verteilung von Lasten auf mehrere Server, damit Überlastungen minimiert werden können.
+- Ausfallsicherheit
+    - Schaffung von Strategien, mit denen man Ausfälle frühzeitig erkennen und dann bekämpfen kann.
+
+Best-Practices für Availability:
+
+- Monitoring
+    - Kontinuierliche Überwachung von Systemmetriken, um frühzeitig auf potenzielle Probleme zu reagieren.
+- Automatisierung von Wiederherstellungsprozessen
+    - Automatisierte Prozesse zur schnellen Wiederherstellung nach einem Ausfall.
+- Globale Verteilung
+    - Globale Verteilung von Ressourcen, um auf geografisch verteilte Nutzer effizient reagieren zu können.
+
+
+
+### Resilience (Widerstandsfähigkeit)
+
+- Fähigkeit einer Software, sich nach einem Problem zu erholen und weiter zu funktionieren
+- Umgang mit Problemen in der Software, ohne dass diese komplett abstürzt
+
+Einige Aspekte:
+
+- Fehlererkennung
+    - Resiliente Software erkennt Fehler frühzeitig und kann angemessen darauf reagieren. Dies umfasst die Implementierung von Mechanismen zur Fehlererkennung, Protokollierung und Benachrichtigung.
+- Fehlertoleranz
+    - Ein resilientes System kann teilweise funktionsfähig bleiben, auch wenn Teile davon ausfallen. Dies kann durch redundante Systemkomponenten oder durch die Bereitstellung von alternativen Pfaden für die Ausführung von Aufgaben erreicht werden.
+- Automatisiertes Testen
+    - Durch gründliche und automatisierte Tests können Entwickler sicherstellen, dass ihre Software robust gegenüber Fehlern und unerwarteten Eingaben ist.
+- Wiederherstellbarkeit
+    - Resiliente Software kann sich selbst wiederherstellen, nachdem ein Fehler aufgetreten ist. Dies kann die automatische Wiederherstellung von Daten aus Backups oder das Zurücksetzen von Zuständen auf einen vorherigen stabilen Zustand umfassen.
+
+
+
+### Performance
+
+- Fähigkeit eines Systems, Ressourcen optimal zu nutzen, effektiv zu arbeiten und eine gute Benutzererfahrung zu bieten
+
+Aspekte:
+
+- Laufzeitgeschwindigkeit
+    - Die Ausführungsgeschwindigkeit von Software ist ein entscheidender Faktor. Effizienter Code und Algorithmen tragen dazu bei, dass Anwendungen schnell und reaktionsschnell sind. Optimierungen können auf verschiedenen Ebenen vorgenommen werden, einschließlich des Algorithmusdesigns, der Datenstrukturen und des Quellcodes.
+- Ressourcennutzung
+    - Effiziente Ressourcennutzung ist entscheidend, um sicherzustellen, dass eine Anwendung nicht mehr Ressourcen (CPU, Speicher, Netzwerkbandbreite) verwendet, als notwendig ist. Dies verbessert nicht nur die Leistung, sondern trägt auch dazu bei, die Betriebskosten zu minimieren.
+- Skalierbarkeit
+    - Die Fähigkeit eines Systems, mit zunehmender Last umzugehen, ist von großer Bedeutung. Skalierbare Systeme können ihre Kapazität je nach Bedarf anpassen, sei es durch vertikale Skalierung (Hinzufügen von Ressourcen zu einer einzelnen Instanz) oder durch horizontale Skalierung (Hinzufügen von mehr Instanzen).
+- Code-Optimierung
+    - Gut geschriebener Code ist entscheidend für die Leistung. Dies beinhaltet das Vermeiden von ineffizienten Konstruktionen, das Minimieren von Schleifen, das intelligente Management von Ressourcen und die Verwendung von geeigneten Datenstrukturen.
+
+
+
+## Metriken zur Messung von Softwarequalität
+
+- Metriken werden in der Softwareentwicklung genutzt, um die Qualität von Software zu messen
+- Verschiedene Arten von Metriken
+    - Konventionelle Metriken: z.B. McCabe-Metrik
+    - Objektorientierte Metriken: z.B. Lack of Cohesion Methods
+
+
+
+### Konventionelle Metriken
+
+- werden häufig zur Bewertung von Softwarekomplexität und -qualität verwendet
+
+**McCabe-Metrik:**
+
+- auch zyklomatische Komplexität genannt
+- misst die Softwarekomplexität durch Analyse des Kontrollflussgraphen
+    - Anzahl der linear unabhängigen Pfade im Programmcode beschreibt die Komplexität
+
+Formel zur Berechnung der zyklomatischen Komplexität:
+
+V(G) = E - N + 2P
+
+Bedeutung:
+
+- E: Anzahl der Kanten im Kontrollflussgraphen
+- N: Anzahl der Knoten im Kontrollflussgraphen
+- P: Anzahl der Zusammenhangskomponenten (oft als Anzahl der verbundenen Bereiche im Graphen interpretiert)
+
+Allgemein gilt:
+
+- V(G)≤10: Niedrige Komplexität, einfacher Code
+- 10<*V*(*G*)≤20: Moderate Komplexität, durchschnittlicher Code.
+- *V*(*G*)>20: Hohe Komplexität, möglicherweise schwer verständlicher Code.
+
+
+**Beispiel:** 
+
+```java
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+```
+
+Hier hat der Kontrollflussgraph drei Entscheidungspunkte (zwei Verzweigungen und eine Schleife). Die Anzahl der Kanten (E) beträgt 7, die Anzahl der Knoten (N) beträgt 6, und es gibt eine Zusammenhangskomponente (P=1). Setzen wir diese Werte in die Formel ein:
+
+*V*(*G*)=7−6+2×1=3
+
+
+### Objektorientierte Metriken
+
+- eignen sich, um Aspekte von objektorientiertem Code zu bewerten
+
+**Lack of Cohesion in Methods:**
+
+- misst das Ausmaß der Kohäsion innerhalb einer Klasse
+    - Kohäsion: Methoden in einer Klasse, die auf gemeinsame Daten zugreifen
+
+Formel für Berechnung von LCOM:
+
+LCOM = (m-p) / (p-1)
+
+Mit:
+
+- m: Anzahl der Methoden in der Klasse
+- p: Anzahl der Attribute, die von mindestens einer Methode verwendet werden
+
+- Niedriger LCOM-Wert bedeutet gute Kohäsion
+
+
+
+**Beispiel:**
+
+```java
+class ExampleClass:
+    def method1(self, a, b):
+        return a + b
+
+    def method2(self, c, d):
+        return c * d
+
+    def method3(self, e):
+        print(e)
+```
+
+
+
+## Modellierung und Visualisierung von Softwaresystemen
+
+**Descriptive-Modelling**
+
+- Beschreibung von Verhalten und Struktur eines Systems
+- keine expliziten Regeln oder Vorschriften
+- Beispiele: UML-Diagramme, ER-Diagramme, Zustandsdiagramme
+
+**Rule-Based-Modellung**
+
+- Verwendung von Regeln, um die Struktur eines Systems zu modellieren
+- Beispiele: Geschäftsregeln, Workflow-Modells, Regelbasierte Systeme
+
+
+
+### UML (Unified Modelling Language)
+
+- Modellierungssprache, um Systeme zu visualisieren und zu dokumentieren
+- UML besteht aus vielen verschiedenen Diagrammtypen
+    - diese decken verschiedene Aspekte des Systems ab
+    
+
+**Statische Diagrammtypen:**
+
+- Klassendiagramme
+    - Struktur des Systems: Klassen, Attribute, Methoden und Beziehungen zwischen verschiedenen Klassen
+- Objektdiagramme
+    - Momentaufnahme von Instanzen und Klassen in einem bestimmten Moment
+- Komponentendiagramme
+    - Zeigen physische Komponenten eines Systems und deren Abhängigkeiten
+
+**Dynamische Diagrammtypen:**
+
+- Zustandsdiagramme
+    - beschreiben den Lebenszyklus eines Objekts und die Übergänge zwischen den Zuständen
+- Sequenzdiagramme
+    - Zeitliche Abfolge von Nachrichten zwischen Objekten und Klassen
+
+
+
+**Zuordnung der UML-Diagrammtypen zu Phasen der Softwareentwicklung:**
+
+1. Anforderungsanalyse und Spezifikation
+    - Use-Case-Diagramme
+        - Visualisieren Systemfunktionen
+2. Entwurfsphase
+    - Klassendiagramme
+        - Zum Abbilden der statischen Struktur eines Systems
+    - Sequenzdiagramme
+        - Modellieren die Interaktionen zwischen Objekten
+3. Implementierungsphase
+    - Komponentendiagramme
+        - Zeigen physische Komponenten des Systems
+4. Testphase
+    - Zustandsdiagramme
+        - Testet den Lebenszyklus von Objekten und die Übergänge zwischen den Zuständen
+    - Sequenzdiagramme
+        - Kommunikation zwischen Objekten kann getestet werden
+
+
+
+**Software-Architecture-Documentation**
+
+Inhalt der Dokumentation:
+
+- Einleitung und Ziele
+    - Warum die Dokumentation?
+    - Ziel der Architektur
+- Kontext und Stakeholder
+    - Systemkontext beschreiben
+    - Wer sind die Stakeholder?
+- Qualitätsziele
+    - Leistung, Skalierbarkeit, Sicherheit, …
+- Architektonische Entscheidungen
+    - Wesentliche Architekturentscheidungen
+- Datenmodell
+- Laufzeitsicht
+- Weitere individuelle Punkte
+
+Tools für die Dokumentation:
+
+- UML-Diagramme
+- arc42
+- andere Dokumentationswerkzeuge
+
+
+
+**Softwaredokumentation mit arc42**
+
+- Framework zur Softwaredokumentation
+
+Struktur von arc42 (Gliedert sich in 12 Hauptkapitel auf):
+
+1. Einleitung und Ziele
+    - Beschreibung der Ziele und Intentionen der Architekturbeschreibung.
+2. Rahmenbedingungen
+    - Berücksichtigung von Umweltbedingungen, Stakeholder-Anforderungen, technischen und organisatorischen Rahmenbedingungen.
+3. Lösungsstrategie
+    - Darstellung der Architektur- und Designentscheidungen, die zur Lösung des Problems führen.
+4. Grenzen
+    - Definition der Systemgrenzen und Abgrenzung gegenüber anderen Systemen.
+5. Qualitätsziele
+    - Festlegung von Qualitätszielen und Bewertung, wie diese durch die Architektur erfüllt werden.
+6. Bereiche und Verantwortlichkeiten
+    - Aufteilung des Systems in Bereiche und Definition der Verantwortlichkeiten.
+7. Bausteinsicht
+    - Beschreibung der Struktur des Systems in Form von Bausteinen (Module, Komponenten) und deren Beziehungen.
+8. Laufzeitsicht
+    - Darstellung der dynamischen Aspekte des Systems, insbesondere Interaktionen zwischen Bausteinen zur Laufzeit.
+9. Verteilungssicht
+    - Falls relevant, Beschreibung der Verteilung von Bausteinen auf physische Hardware oder Softwareumgebungen.
+10. Datenperspektive
+    - Beschreibung der Datenstrukturen und -flüsse im System.
+11. Zuschnitt und Implementierung
+    - Diskussion von Entwicklungs- und Umsetzungsaspekten.
+12. Qualitätsanforderungen und Tests
+    - Verbindung von Qualitätszielen zu Teststrategien und Maßnahmen zur Qualitätssicherung.
+
 # Abbildungen
 
 - https://fluxum.substack.com/p/warum-der-unterschied-zwischen-komplex#:~:text=Komplizierte%20Systeme%20k%C3%B6nnen%20analysiert%20werden,die%20Faktoren%20sich%20gegenseitig%20beeinflussen
@@ -291,3 +677,53 @@ FURPS ist ein weiteres Qualitätsmodell, dass bestimmte Qualitätsmerkmale defin
 - https://www.studysmarter.de/schule/psychologie/hauptstroemungen-der-psychologie/emergenz/
 
 - https://medium.com/disruptive-design/tools-for-systems-thinkers-the-6-fundamental-concepts-of-systems-thinking-379cdac3dc6a
+
+# Referenzen
+
+- https://fluxum.substack.com/p/warum-der-unterschied-zwischen-komplex#:~:text=Komplizierte%20Systeme%20k%C3%B6nnen%20analysiert%20werden,die%20Faktoren%20sich%20gegenseitig%20beeinflussen
+
+- https://www.riseup.ai/de/blog/adaptives-machinelles-lernen
+
+- https://t2informatik.de/wissen-kompakt/systemkontext/#:~:text=Systemkontext%20Definition,einer%20Entwicklung%20zu%20beachten%20sind
+
+- https://digitaleneuordnung.de/blog/system-thinking/
+
+- https://www.eveline-lemke.de/2018/08/systems-thinking/
+
+- https://www.studysmarter.de/schule/psychologie/hauptstroemungen-der-psychologie/emergenz/
+
+- https://medium.com/disruptive-design/tools-for-systems-thinkers-the-6-fundamental-concepts-of-systems-thinking-379cdac3dc6a
+
+- https://interim-cio.biz/artikel-projektsteuerung-teufelsquadrat#:~:text=Das%20Teufelsquadrat%20ist%20ein%20anschauliches,Dreieck%20macht%20das%20Modell%20unpraktikabel
+
+- [https://www.objectsystems.de/die-komplexitaet-von-softwaresystemen.html](https://www.objectsystems.de/die-komplexitaet-von-softwaresystemen.html) [letzte Einsicht: 29.11.23]
+
+- [https://www.praxisframework.org/de/knowledge/complexity](https://www.praxisframework.org/de/knowledge/complexity) [letzte Einsicht: 29.11.23]
+
+- [https://de.wikipedia.org/wiki/Cynefin-Framework](https://de.wikipedia.org/wiki/Cynefin-Framework) [letzte Einsicht: 29.11.23]
+
+- [https://de.wikipedia.org/wiki/Wartbarkeit](https://de.wikipedia.org/wiki/Wartbarkeit) [letzte Einsicht: 30.11.23]
+
+- [https://www.ibm.com/de-de/topics/observability](https://www.ibm.com/de-de/topics/observability) [letzte Einsicht: 30.11.23]
+
+- [https://www.dev-insider.de/was-ist-software-zuverlaessigkeit-a-820767/](https://www.dev-insider.de/was-ist-software-zuverlaessigkeit-a-820767/) [letzte Einsicht: 30.11.23]
+
+- [https://en.wikipedia.org/wiki/High_availability_software](https://en.wikipedia.org/wiki/High_availability_software) [letzte Einsicht: 30.11.23]
+
+- [https://www.bmc.com/blogs/reliability-vs-availability/](https://www.bmc.com/blogs/reliability-vs-availability/) [letzte Einsicht: 30.11.23]
+
+- [https://www.iks.fraunhofer.de/en/research/resilient-software-systems.html](https://www.iks.fraunhofer.de/en/research/resilient-software-systems.html) [letzte Einsicht: 30.11.23]
+
+- [https://www.dev-insider.de/performance-optimierung-softwareentwicklung-datenbanken-a-ac5fb659720503caf84efd7c6ee0d7bb/](https://www.dev-insider.de/performance-optimierung-softwareentwicklung-datenbanken-a-ac5fb659720503caf84efd7c6ee0d7bb/) [letzte Einsicht: 30.11.23]
+
+- [https://www.dev-insider.de/was-ist-zyklomatische-komplexitaet-a-7fa40c670052685ff1c56d8169a79481/](https://www.dev-insider.de/was-ist-zyklomatische-komplexitaet-a-7fa40c670052685ff1c56d8169a79481/) [letzte Einsicht: 1.12.23]
+
+- Beispiele erstellt von Chat-GPT3.5: https://www.chat.openai.com
+
+- [https://blog.ndepend.com/lack-of-cohesion-methods/](https://blog.ndepend.com/lack-of-cohesion-methods/) [letzte Einsicht: 1.12.23]
+
+- [https://www.infrasoft.at/images/downloads/uebersicht_der_uml_diagramme.pdf](https://www.infrasoft.at/images/downloads/uebersicht_der_uml_diagramme.pdf) [letzte Einsicht: 1.12.23]
+
+- [https://www.arc42.de/](https://www.arc42.de/) [letzte Einsicht: 1.12.23]
+
+- [https://www.innoq.com/en/blog/2022/08/brief-introduction-to-arc42/](https://www.innoq.com/en/blog/2022/08/brief-introduction-to-arc42/) [letzte Einsicht: 1.12.23]
