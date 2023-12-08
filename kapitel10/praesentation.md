@@ -154,8 +154,8 @@ Abb.2: Funktionweise von A/B-Testing
 
 **Vorgehensweise im A/B-Testing:**
 
-- Identifikation des Ziels: Was soll getestet/verbessert werden? //Notiz: z.B. Wirksamkeit einer Schaltfläche, verschiedene Farbpaletten
-- Unterteilung der Zielgruppe: Zielgruppe soll in sinnvolle Teile geteilt werden //Notiz: Meistens: Halbierung der Zielgruppe
+- Identifikation des Ziels: Was soll getestet/verbessert werden?
+- Unterteilung der Zielgruppe: Zielgruppe soll in sinnvolle Teile geteilt werden
 - Erstellung von Varianten: Entwicklung von Version A und Version B
 - Zufällige Zuweisung der Varianten zu den Zielgruppen
 - Auswertung der Testdaten: Welche Variante hat bessere Daten im Hinblick auf das Ziel geliefert?
