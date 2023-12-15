@@ -2,155 +2,440 @@ class: center, middle
 
 ## [Software Engineering](../../praesentationen.html)
 
-#### Kapitel x
+#### Kapitel 11
 
-# Kapitelüberschrift
+# Softwaredevelopment Lifecycle
 
-Max Mustermann
+Danny Meihöfer - Bjarne Zaremba
 
 ---
 # Inhalt
 ***
 
-1. Einführung
-
-1. Standards
-
-1. Softwaremessung
-
-1. Zusammenfassung
-
-1. Quellen
-
----
-# Einführung
-
-Softwaresysteme sollen "**_fit for purpose_**" sein.
-
-- **Effizient**
-- *Zuverlässig*
-- Fertigstellung innerhalb eines Zeit- und Kostenrahmens
-
-Die Techniken des Softwarequalitätsmanagements kommen ursprünglich aus der Fertigungsindustrie.
-
-**Qualitätssicherung** ist die Definition von Prozessen und Standards, die zu qualitativ hochwertigen Produkten führen, und die Einführung dieser Qualitätsprozesse in den Fertigungsprozess.
-
-**Qualitätslenkung** ist die Anwendung dieser Qualitätsprozesse, um Produkte auszusieben, die dem geforderten Qualitätsniveau nicht entsprechen.
-
----
-# Einführung
-
-Um die Prozesse in der Softwareentwicklung umzusetzen, stellen die Teams sicher, dass die zuvor festgelegten Standards und Ziele des Unternehmens mit dem Produkt übereinstimmen.
-
-![:scale 20%](media/image.jpg)
-
-![](media/image.jpg)
-
-
----
-# Standards
-
-Softwarestandards spielen eine wichtige Rolle im Qualitätsmanagement.
-
-1. Standards kapseln Erfahrungen, die für das Unternehmen von großem Wert sind.
-
-2. Standards bieten einen Rahmen für die Definition, was "Qualität" innerhalb des Softwareentwicklungsprojektes bedeutet.
-
-3. Standards tragen zur Kontinuität bei, sodass alle Entwickler nach denselben Verfahren arbeiten.
+1. Was ist der Softwaredevelopment Lifecycle?
+2. Klassische (sequentielle) Modelle
+3. Agile Modelle
+4. Evolutionäre Modelle
+5. Vor- und Nachteile
+6. Fragen?
 
 ---
 
-# Standards
+class: center, middle
 
-Standards müssen sich immer positiv auf die Produktqualität auswirken.
+# Was ist der Softwaredevelopment Lifecycle?
 
-**Produktstandards** sollten dabei so entworfen werden, dass sie kosteneffizient angewendet und geprüft werden können.
+Die Softwareentwicklung ist ein iterativer Prozess der aus mehreren Phasen besteht
 
-**Prozessstandards** sollten die Prozesse definieren, die prüfen, dass die Produktstandards eingehalten werden.  
-
-| Rolle | Aufgabe |
-|:------:|:----------:|
-| **Auftraggeber** | Erteilt den Auftrag und bezahlt das Projekt |
-| **Auftragnehmer** | Nimmt die Anforderungen an das Softwareprodukt entgegen|
-| **Benutzer** | Benutzen die Software. Manchmal mit Auftraggeber identisch |
-| **Manager** | Treffen während des Projekts organisatorische Entscheidungen |
-| **Berater** | Unterstützen den Kunden in der Definition der Anforderungen |
-| **Informatiker** | Definieren und entwickeln Software in verschiedenen Rollen mit unterschiedlichen Aufgaben aufgeteilt|
+Erstellung -> Wartung
 
 ---
-# Softwareentwicklung
 
-Entwicklungsmethoden:
+## Phasen im Softwarelebenszyklus
 
-- _Prüfen von Code, bevor er eingefügt wird:_  
-  Entwickler prüfen den Code ihrer Teammitglieder, bevor der Code in die aktuelle Version eingebracht wird.
+Das Leben einer Software besteht aus mehreren Phasen
 
-- _Probleme beheben, sobald sie auftreten:_  
-  Probleme sollten sofort behoben werden, wenn sie entdeckt werden, auch wenn der Code von anderen Entwicklern stammt.
+Dazu gehört neben den Entwicklungsphasen auch die Wartung 
 
----
-# Softwaremessung
-
-Bei der Softwaremessung geht es darum, Merkmale eines Softwaresystems zu quantifizieren.
-
-Code block:
-
-```javascript
-function add(a, b)
-  return a + b
-end
-```
+![:scale 100%](media/sdlc.png)
 
 ---
-# Markdown
 
-## Paragraph
+class: center, middle
 
-Paragraph mit **strong**, *italic*, `code`.
+# Klassische (sequentielle) Modelle
 
-Links so [github](https://github.com/) oder so https://github.com/ .
+Die Phasen werden sequentiell (linear) durchlaufen
 
-## Tabelle
+vorhersehbarer Ablauf
 
-|ID|Name|Value|
-|--|----|-----|
-| 1|foo |   10|
-| 2|bar |   20|
+Jede Phase hat spezifische Ziele auf denen die nächste Phase aufbaut
 
+- Wasserfallmodell
+- V-Modell
 
 ---
-# Aufzählung
 
-1. Nummer 1
-    - bullet 1
-    - bullet 2
-2. Nummer 2
-    1. child 1
-    2. child 2
-3. Nummer 3
+## Wasserfallmodell
 
-## Enumeration 
+Phasenablauf ist linear
 
-* A
-* B
+Fest definierte Phasen
+
+Phasen sind abgeschlossen
+
+![:scale 100%](media/wasserfallmodell.jpg)
+
+Wann sollte man dieses Modell nutzen?
 
 ---
-# Zusammenfassung
 
-- Folien werden mit `---` voneinander abgetrennt (Achtung: kein Leerzeichen am Ende)
-- Bilder, Diagramme etc. im `media`-Unterverzeichnis speichern
-- Wird die Datei `remark-latest.min.js` heruntergeladen, können die Folien offline bearbeitet werden. Pfad im `script`-Tag anpassen.
-- [Remark.js](https://remarkjs.com/)
+## V-Modell
+
+Ähnelt dem Wasserfallmodell
+
+Jede Phase hat eine zugehörige Testphase
+
+Das Modell beschreibt die Phasen und deren Verknüpfungen
+
+Phasen werden in relation zur Detailtiefe und zum Zeitpunkt der Durchführung gesetzt
+
+![:scale 60%](media/vmodell.png)
+
+Wann ist dieses Modell besser als das Wasserfallmodell?
 
 ---
+
+class: center, middle
+
+# Agile Modelle
+
+Agile Modelle sind iterativ
+
+Das heißt:
+
+- Phasen werden mehrmals durchlaufen
+- Phasen werden nicht komplett abgeschlossen
+- Phasen können sich überlappen
+
+---
+
+## PDCA-Zyklus
+
+4 sich wiederholende Phasen
+
+Entwickelt um 1930 von Walter A. Shewhart für die Qualitätsverbesserung
+
+![:scale 80%](media/pdca.png)
+
+---
+
+## OODA-Loop
+
+Die OODA-Loop ähnelt dem PDCA-Zyklus
+
+Agilität > "Rohe Kraft"
+
+Entwickelt von John Boyd
+
+Hier wird schnelle Entscheidungsfindung und schnelle Umsetzung angestrebt
+
+- Schnell, flexibel und effektiv
+- Auf Änderungen in der Umgebung reagieren
+
+![:scale 60%](media/ooda.jpg)
+
+---
+
+## OODA-Loop Vor- und Nachteile
+
+Vorteile:
+
+- Schnell und Agil
+- Flexibel
+- Entscheidungsfindung wird beschleunigt
+- Berücksichtigung von Unsicherheit
+
+Nachteile:
+
+- Vereinfachung der Realität
+- Risiko Dinge zu übersehen
+- Nicht auf alles anwendbar
+- Mangel an Details
+
+Die OODA-Loop ist ein gutes Werkzeug um Entscheidungen zu treffen
+
+---
+
+## Stacey-Matrix
+
+Die Stacey-Matrix ist ein Modell zur Einordnung von Problemen
+
+Entwickelt von Ralph Douglas Stacey
+
+Ein Problem wird in 4 Kategorien eingeteilt
+
+- Das hängt davon ab wie klar das Problem ist und wie klar die Lösung ist
+- Klares Problem = Klares Ziel
+- Klare Lösung = Klares Vorgehen
+
+![:scale 50%](media/stacey.png)
+
+---
+
+## Stacey-Matrix Vor- und Nachteile
+
+Vorteile von der Stacey-Matrix:
+
+- Einfach zu verstehen
+- Anpassungsfähig
+- Kann mit anderen Modellen kombiniert werden
+
+Nachteile von der Stacey-Matrix:
+
+- Subjektiv
+- Kann zu ungenauen Ergebnissen führen
+- Mögliche Vereinfachung
+- Begrenzte Aussagekraft
+
+Die Stacey Matrix ist ein gutes Werkzeug um Probleme zu analysieren
+
+- Sie kann immer genutzt werden 
+
+---
+
+## 4 Werte und 12 Prinzipien
+
+Agiles Projektmanagement basiert auf 4 Werten und 12 Prinzipien
+
+![:scale 100%](media/412.jpg)
+
+---
+
+## Anti-Patterns
+
+Anti-Patterns sind Muster die zu Problemen führen
+
+- The Blob
+- The Golden Hammer
+- Continuous Obsolescence
+- Lava Flow
+- Ambiguous Viewpoint
+- Functional Decomposition
+- Poltergeists
+- Boat Anchor
+- Dead End
+- Spaghetti Code
+- Input Kludge
+- Walking through a Minefield
+- Cut-and-Paste Programming
+- Mushroom Management
+
+Im folgenden werden ein paar der Anti-Patterns genauer erläutert
+
+---
+
+## Anti-Patterns
+
+**The Blob**
+
+- Ein Objekt das alles macht
+- Zu viele Verantwortlichkeiten
+- Single Responsibility Principle verletzt
+
+**Continuous Obsolescence**
+
+- Verschiedene Versionen von Software
+- Entwickler arbeiten an verschiedenen Versionen
+- Keine einheitliche Version
+- Man kommt nicht hinterher
+
+**Spaghetti Code**
+
+- Unübersichtlicher Code
+- Keine Struktur
+- Schlechter Code kann nicht weiterentwickelt werden
+
+---
+
+## XP
+
+XP = Extreme Programming
+
+Agiles Vorgehensmodell
+
+- Das **Ziel:** Schnelle Entwicklungszyklen für schnelle und hochwertige Software
+
+Es gibt bestimmte Vorgehensweisen die eingehalten werden müssen
+
+- Dazu gehören auch Werte wie: Einfachheit, Kommunikation, Feedback, Mut
+
+![:scale 50%](media/XP.png)
+
+---
+
+## XP - Vor- und Nachteile
+
+Vorteile | Nachteile
+--- | ---
+Stable System | Unclear Estimates
+Clear Code | Time waste
+Fast MVP | Bad documentation
+No overtime | Pair programming takes time
+High visibility | Collocated teams only
+Team collaboration | Stressful
+Customer satisfaction | Code over design
+
+Wann sollte man XP nutzen?
+
+- Projekte mit sich häufig ändernden Anforderungen
+- Anforderungen sind nicht klar definiert
+- Schnelle Ergebnisse sind gefragt
+- Kundenbeteiligung ist möglich
+- Kleine bis mittlere Teams
+
+---
+
+## Scrum
+
+Scrum beduetet etwas wie "Gedränge"
+
+SDLC wird in Sprints unterteilt
+
+- Sprints dauern 1-4 Wochen
+- Jeder Sprint hat ein "kleines" Ziel
+- Jeder Sprint wird mit einem Review abgeschlossen
+- Nach einem Sprint ist das Teilprodukt funktionsfähig
+
+Bestimmte Rollen müssen besetzt werden
+
+- Product Owner, Scrum Master, Team, Stakeholder
+
+Typische Vorgehensweisen:
+
+- Daily Scrum, Sprint Planning, Sprint Review, Sprint Retrospective
+
+![:scale 45%](media/scrum.jpg)
+
+---
+
+## Scrum - Vor- und Nachteile
+
+Vorteile | Nachteile
+--- | ---
+Flexibilität | Komplexität
+Kundenorientierung | Erfordert viel Management
+Transparenz | Begrenzte Vorhersehbarkeit
+Kontinuierliche Verbesserung | Teile des Teams müssen ständig verfügbar sein
+Risikomanagment | Nicht immer geeignet
+
+Wann sollte man Scrum nutzen?
+
+- Projekte mit sich häufig ändernden Anforderungen
+- Wenn der Ablauf nicht fest bestimmt ist
+- Komplexe Probleme lassen sich mit Scrum gut splitten
+- Wenn einzelne Teams mehr oder weniger unabhängig arbeiten können
+
+Scrum wurde zwar für kleine Teams entwickelt
+
+- Es kann aber auch für große Teams genutzt werden
+
+---
+
+## Kanban
+
+Kanban ist ein visuelles System zur Steuerung von Arbeit
+
+Auf dem Kanban-Board werden die Aufgaben in Spalten eingeteilt
+
+- To Do, In Progress, Done
+
+Das Hilft bei der steuerung des Workflows
+
+Kanban kann mit den meisten anderen Methoden kombiniert werden
+
+![:scale 70%](media/kanban.png)
+
+---
+
+class: center, middle
+
+# Evolutionäre Modelle
+
+Evolutionäre Modelle sind auch iterativ
+
+- Sie sind aber nicht so stark strukturiert wie agile Modelle
+- Oft werden Produkte in mehreren Versionen entwickelt
+
+---
+
+## Prototyping
+
+Beim Prototyping werden Prototypen entwickelt
+
+- Prototypen sind Modelle die bestimmte Eigenschaften des Endprodukts besitzen
+- Prototypen können schnell entwickelt werden
+- Prototypen können schnell angepasst werden
+
+Prototypen sind kein Ersatz für das Endprodukt
+
+Oft werden verschiedene Prototypen entwickelt
+
+- Diese werden bewertet und dann je nach Ergebnis weiterentwickelt
+
+![:scale 50%](media/prototyping.png)
+
+---
+
+## Prototyping
+
+Vorteile:
+
+- Frühzeitiges Feedback
+- Besseres Verständnis der Anforderungen
+- Schnelle identifizierung von Problemen
+- Unterstützung bei Designentscheidungen
+
+Nachteile:
+
+- Zeit- und Kostenintensiv
+- Risiko von Missverständnissen
+- Veralterung des Prototypen
+- Fehlerhafte Interpretation des Prototypen vom Kunden
+
+Prototyping ist praktisch wenn Anforderungen nicht ganz klar sind
+
+- Selbst der Kunde ist sich nicht sicher was er will
+- Designfragen sind noch nicht geklärt
+
+Prototyping fördert die Kommunikation zwischen Entwicklern und Kunden
+
+---
+
 class: center, middle
 
 # Fragen?
 
 ---
+
+# Lernfragen
+
+1. Was ist der Softwaredevelopment Lifecycle?
+2. Welche Phasen gibt es im Softwaredevelopment Lifecycle?
+3. Was sind klassische (sequentielle) Modelle?
+4. Was sind agile Modelle?
+5. Was sind evolutionäre Modelle?
+6. Was sind die Vor- und Nachteile von klassischen (sequentiellen) Modellen?
+7. Was sind die Vor- und Nachteile von agilen Modellen?
+8. Was ist Scrum?
+9. Was ist Kanban?
+10. Was ist das Wasserfallmodell?
+11. Wie kann man Probleme mit der Stacey-Matrix analysieren?
+12. Wie kann man mit der OODA-Loop Entscheidungen treffen?
+
+---
+
 # Quellen
 ***
 
-- Kitchenham, B. (1990). Software Development Cost Models. 487-517.
+- https://karrierebibel.de/wp-content/uploads/2018/06/PDCA-Zyklus-Demingkreis-Definition-Beispiele-Pflege-Vor-Nachteile-Tipps.jpeg
 
-- Chidamber, S., and C. Kemerer. (1994). A Metrics Suite for Object-Oriented Design. 476-493.
+- https://www.peterjohann-consulting.de/v-modell/
+
+- https://projekte-leicht-gemacht.de/blog/projektmanagement/klassisch/wasserfallmodell/
+
+- https://www.wrike.com/de/blog/die-4-werte-und-12-prinzipien-des-agilen-projektmanagements/
+
+- https://premieragile.com/life-cycle-of-extreme-programming/
+
+- https://sourcemaking.com/antipatterns/software-development-antipatterns
+
+- https://www.altexsoft.com/blog/extreme-programming-values-principles-and-practices/
+
+---
+
+# Quellen 2
+
+- https://www.pm-partners.com.au/the-agile-journey-a-scrum-overview/
+
+- https://der-prozessmanager.de/aktuell/wissensdatenbank/pdca-zyklus
